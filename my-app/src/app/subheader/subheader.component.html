@@ -1,0 +1,27 @@
+<div class="subheader">
+  <div class="navbar">
+    <div class="nav category" [ngClass]="{'open': isDropdownOpen}" (click)="categoryDropdown()">
+      <img src="./assets/icon/list.png" alt="" >
+      <span>Danh mục</span>
+    </div>
+    <div class="nav">
+      <span>Sản phẩm nổi bật</span>
+    </div>
+    <div class="nav suport">
+      <span>Hổ trợ</span>
+      <img src="./assets/icon/load-more.png" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="category-dropdown" *ngIf="isDropdownOpen">
+  <ul>
+    <li routerLink="/dien-thoai">Điện thoại</li>
+    <li routerLink="/laptop">Laptop</li>
+    <li routerLink="/may-tinh-bang">Máy tính bảng</li>
+    <li routerLink="/dong-ho">Đồng hồ</li>
+    <li routerLink="/phu-kien">Phụ kiện</li>
+    <li routerLink="/san-pham-khac">Sản phẩm khác</li>
+  </ul>
+</div>
+

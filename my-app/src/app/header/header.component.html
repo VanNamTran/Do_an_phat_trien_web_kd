@@ -1,0 +1,31 @@
+<div class="header header-color">
+  <div class="logo"><img src="./assets/logo/logo-tech-shop.png" alt=""></div>
+  <div class="input-search"><input type="search" placeholder="Tìm kiếm sản phẩm"> <input type="button" value="Tìm kiếm"></div>
+  <div class="icons">
+    <div class="icon-message icon">
+      <img src="./assets/icon/message.png" alt="">
+      <span>Thông báo</span>
+    </div>
+    <div class="icon-info icon" (click)="infoDropdown()">
+      <img src="./assets/icon/nguoi.png" alt="">
+      <span>Tài khoản của tôi</span>
+    </div>
+    <div class="icon-cart icon">
+      <img src="./assets/icon/cart.png" alt="">
+      <span>Giỏ hàng</span>
+    </div>
+  </div>
+</div>
+
+<div class="info-dropdown" *ngIf="isDropdownOpen">
+  <ul>
+    <!-- <li routerLink="/dien-thoai">Điện thoại</li>
+    <li routerLink="/laptop">Laptop</li>
+    <li routerLink="/may-tinh-bang">Máy tính bảng</li>
+    <li routerLink="/dong-ho">Đồng hồ</li>
+    <li routerLink="/phu-kien">Phụ kiện</li>
+    <li routerLink="/san-pham-khac">Sản phẩm khác</li> -->
+  </ul>
+
+</div>
+
