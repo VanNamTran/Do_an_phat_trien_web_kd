@@ -62,6 +62,7 @@ input[type="button"]:hover{
   bottom: 17.78%;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 .icon {
   display: flex;
