@@ -5,6 +5,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { count } from 'rxjs';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PaymentTransferComponent } from './payment-transfer/payment-transfer.component';
+import { ProductsViewComponent } from './products-view/products-view.component';
 // import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:"payment",component:PaymentComponent},
   {path:"payment/payment-transfer",component:PaymentTransferComponent},
   // {path:"breadcrumb",component:BreadcrumbComponent},
+  {path:"products-view",component:ProductsViewComponent},
   {path:"**",component:NotFoundComponent}
 ];
 
@@ -26,4 +28,5 @@ export const RountingComponent=[
   NotFoundComponent,
   PaymentTransferComponent,
   // BreadcrumbComponent,
+  ProductsViewComponent
 ]

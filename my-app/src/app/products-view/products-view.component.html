@@ -7,19 +7,27 @@
   <div class="filter"> <!-- Vùng filter -->
     <div class="filter-types">
       <div class="filter-value">
-        <div class="type">Thương hiệu</div>
+        <div class="filter-type">Thương hiệu</div>
         <ol>
-          <li><input type="checkbox" name="" id="">Sumsung</li>
-          <li><input type="checkbox" name="" id="">Sumsung</li>
-          <li><input type="checkbox" name="" id="">Sumsung</li>
+          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
+          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
+          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
+          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
+          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
+          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
+          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
         </ol>
       </div>
       <div class="filter-value">
-        <div class="type">Thương hiệu</div>
+        <div class="filter-type">Thương hiệu</div>
         <ol>
-          <li><input type="checkbox" name="" id="">Sumsung</li>
-          <li><input type="checkbox" name="" id="">Sumsung</li>
-          <li><input type="checkbox" name="" id="">Sumsung</li>
+          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
+          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
+          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
+          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
+          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
+          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
+          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
         </ol>
       </div>
     </div>
@@ -29,26 +37,136 @@
     <div class="count-view">
       <p>Có X sản phẩm được tìm thấy</p>
       <div class="button-view">
-        <button></button>
-        <button></button>
+        <button id="grid-layout"><img src="./assets/icon/gridview.png" alt=""></button>
+        <button id="list-layout"><img src="./assets/icon/listview.png" alt=""></button>
       </div>
     </div>
-    <div class="products-info"> <!-- vùng chứa tất cả sản phẩm -->
+    <div class="products-list"> <!-- vùng chứa tất cả sản phẩm -->
       <div class="product-info"> <!-- vùng chứa 1 sản phẩm-->
-        <div class="product-img"></div> <!-- vùng chứa ảnh -->
-        <div class="product-info-detail">
-          <p class="product-name"></p>
-          <div class="product-price">
-            <div class="price"></div>
-            <div class="initial_price"></div>
+        <div class="discount"> giảm 2000 đ</div>
+        <div class="product-img"> <img src="https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/10/6/638006463252894432_lenovo-tab-m8-gen-2-dd-bh.jpg" alt=""></div> <!-- vùng chứa ảnh -->
+        <div class="ffff">
+          <div class="product-info-detail">
+            <p class="product-name">Xiaomi Redmi Note 11 Pro 8GB - 128GB</p>
+            <div class="product-price">
+              <div class="price">200000đ</div>
+              <div class="initial_price"><del>29000000</del>đ</div>
+            </div>
+            <div class="general_info">
+              <div>Ram 4GB</div>
+              <div>Rom 128GB</div>
+              <div>Screen </div>
+              <div>Rom 128GB</div>
+              <div>Ram 4GB</div>
+              <div>Rom 128GB</div>
+              <div>Screen </div>
+              <div>Rom 128GB</div>
+            </div>
           </div>
-          <div class="general_info">
-
+          <div class="favorite-icon">
+            <img src="./assets/icon/favorite_border.png" alt="" class="favorite-off"  id="favorite-off">
+            <!-- <img src="./assets/icon/favorite.png" alt="" class="favorite-on" id="favorite-on"> -->
           </div>
-          <button>Mua ngay</button>
         </div>
-        <img src="" alt="" class="product-like">
+        <div class="purchase">
+          <button id="purchase">Mua ngay</button>
+        </div>
+
       </div>
+      <div class="product-info"> <!-- vùng chứa 1 sản phẩm-->
+        <div class="discount"> giảm 2000 đ</div>
+        <div class="product-img"> <img src="./assets/logo/logo-tech-shop.png" alt=""></div> <!-- vùng chứa ảnh -->
+        <div class="ffff">
+          <div class="product-info-detail">
+            <p class="product-name">tên sản phẩm Iphone Xyz</p>
+            <div class="product-price">
+              <div class="price">200000đ</div>
+              <div class="initial_price"><del>29000000</del>đ</div>
+            </div>
+            <div class="general_info">
+              <div>Ram 4GB</div>
+              <div>Rom 128GB</div>
+              <div>Screen </div>
+              <div>Rom 128GB</div>
+              <div>Ram 4GB</div>
+              <div>Rom 128GB</div>
+
+            </div>
+          </div>
+          <div class="favorite-icon">
+            <img src="./assets/icon/favorite_border.png" alt="" class="favorite-off"  id="favorite-off">
+            <!-- <img src="./assets/icon/favorite.png" alt="" class="favorite-on" id="favorite-on"> -->
+          </div>
+        </div>
+        <div class="purchase">
+          <button id="purchase">Mua ngay</button>
+        </div>
+
+      </div>
+      <div class="product-info"> <!-- vùng chứa 1 sản phẩm-->
+        <div class="discount"> giảm 2000 đ</div>
+        <div class="product-img"> <img src="./assets/logo/about-me.png" alt=""></div> <!-- vùng chứa ảnh -->
+        <div class="ffff">
+          <div class="product-info-detail">
+            <p class="product-name">tên sản phẩm Iphone Xyz</p>
+            <div class="product-price">
+              <div class="price">200000đ</div>
+              <div class="initial_price"><del>29000000</del>đ</div>
+            </div>
+            <div class="general_info">
+              <div>Ram 4GB</div>
+              <div>Rom 128GB</div>
+              <div>Screen </div>
+              <div>Rom 128GB</div>
+              <div>Ram 4GB</div>
+              <div>Rom 128GB</div>
+              <div>Screen </div>
+              <div>Rom 128GB</div>
+            </div>
+          </div>
+          <div class="favorite-icon">
+            <img src="./assets/icon/favorite_border.png" alt="" class="favorite-off"  id="favorite-off">
+            <!-- <img src="./assets/icon/favorite.png" alt="" class="favorite-on" id="favorite-on"> -->
+          </div>
+        </div>
+        <div class="purchase">
+          <button id="purchase">Mua ngay</button>
+        </div>
+
+      </div>
+      <div class="product-info"> <!-- vùng chứa 1 sản phẩm-->
+        <div class="discount"> giảm 2000 đ</div>
+        <div class="product-img"> <img src="https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/10/6/638006463252894432_lenovo-tab-m8-gen-2-dd-bh.jpg" alt=""></div> <!-- vùng chứa ảnh -->
+        <div class="ffff">
+          <div class="product-info-detail">
+            <p class="product-name">tên sản phẩm Iphone Xyz</p>
+            <div class="product-price">
+              <div class="price">200000đ</div>
+              <div class="initial_price"><del>29000000</del>đ</div>
+            </div>
+            <div class="general_info">
+              <div>Ram 4GB</div>
+              <div>Rom 128GB</div>
+              <div>Screen </div>
+              <div>Rom 128GB</div>
+              <div>Ram 4GB</div>
+              <div>Rom 128GB</div>
+
+            </div>
+          </div>
+          <div class="favorite-icon">
+            <img src="./assets/icon/favorite_border.png" alt="" class="favorite-off"  id="favorite-off">
+            <!-- <img src="./assets/icon/favorite.png" alt="" class="favorite-on" id="favorite-on"> -->
+          </div>
+        </div>
+        <div class="purchase">
+          <button id="purchase">Mua ngay</button>
+        </div>
+
+      </div>
+    </div>
+    <div class="see-more">
+      <button>Xem thêm sản phẩm</button>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 .title{
   padding: 110px 0px 20px 15%;
-  font-size: large;
+  font-size: 20px;
 }
 
 .inqacode{
@@ -22,7 +22,7 @@
 
 .pm-tr-title{
   color: #FA3434;
-  font-size: x-large;
+  font-size: 28px;
   padding-top: 20px;
   text-align: center;
 }
@@ -32,14 +32,14 @@
 }
 .pm-info{
   margin-left: 40%;
-  font-size: large;
+  font-size: 18px;
 }
 .come-back{
   width: 119px;
   height: 40px;
   margin: 20px;
   color: #ffffff;
-  font-size: larger;
+  font-size: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;

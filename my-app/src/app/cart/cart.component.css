@@ -1,6 +1,6 @@
 .title{
   padding: 110px 0px 20px 9%;
-  font-size: large;
+  font-size: 20px;
 }
 .top{
   position: relative;
@@ -53,13 +53,13 @@
 }
 .cost{
   padding: 15px 0px;
-  font-size: large;
+  font-size: 18px;
   text-align: right;
 }
 #number-item{
   height: 24px;
   padding: 5px;
-  font-size: larger;
+  font-size: 18px;
 }
 
 .button-dr{
@@ -79,7 +79,7 @@
   box-shadow: 0px 1px 2px rgba(56, 56, 56, 0.08);
   border-radius: 6px;
   box-sizing: border-box;
-  font-size: medium;
+  font-size: 16px;
   padding: 10px;
   cursor: pointer;
 }
@@ -89,7 +89,7 @@
   min-width: 220px;
   height: 386px;
   right:0;
-  font-size: large;
+  font-size: 18px;
 }
 .redeem{
   position: absolute;
@@ -154,7 +154,7 @@ hr{
   height: 54px;
   background-color: #00B517;
   color: #ffffff;
-  font-size: medium;
+  font-size: 18px;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -164,12 +164,15 @@ hr{
   height: 44px;
   padding: 1px;
 }
+.input-code-redeem input{
+  font-size: 13px;
+}
 .come-back{
   width: 119px;
   height: 40px;
   margin: 20px;
   color: #ffffff;
-  font-size: larger;
+  font-size: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -181,7 +184,7 @@ hr{
 /* ========== favorite products =========== */
 .fa-title{
   padding: 20px 0px 0px 20px;
-  font-size: large;
+  font-size: 20px;
 }
 .favorite-products{
   position: relative;
@@ -237,7 +240,7 @@ hr{
   height: 40px;
   width: 74%;
   color: #0067FF;
-  font-size: medium;
+  font-size: 16px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -253,11 +256,12 @@ hr{
   color: #FA3434;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
   border: 1px solid #DEE2E7;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
 }
 .price{
   color:#4e4c4c;
-  font-size: large;
+  font-size: 18px;
   margin: 10px 0px;
 }

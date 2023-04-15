@@ -12,6 +12,7 @@
   position: absolute;
   left: 9.03%;
   right: 60.34%;
+  min-width: 340px;
   top: 28.57%;
   bottom: 26.79%;
   display: flex;

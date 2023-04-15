@@ -28,14 +28,14 @@ span{
 p{
   color: #ffffff;
   padding: 0 0 5px 0px;
-  font-size: large;
+  font-size: 18px;
 
   /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
 }
 .info ul li{
   list-style-type: none;
   padding-top: 10px;
-  font-size: larger;
+  font-size: 18px;
   cursor: pointer;
 }
 .footer-navigation{
