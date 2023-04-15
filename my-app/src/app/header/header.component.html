@@ -10,7 +10,7 @@
       <img src="./assets/icon/nguoi.png" alt="">
       <span style="width: 130px;">Tài khoản của tôi</span>
     </div>
-    <div class="icon-cart icon">
+    <div class="icon-cart icon" routerLink="/cart">
       <img src="./assets/icon/cart.png" alt="">
       <span style="width: 70px;">Giỏ hàng</span>
     </div>
@@ -18,14 +18,13 @@
 </div>
 
 <div class="info-dropdown" *ngIf="isDropdownOpen">
-  <ul>
-    <!-- <li routerLink="/dien-thoai">Điện thoại</li>
-    <li routerLink="/laptop">Laptop</li>
-    <li routerLink="/may-tinh-bang">Máy tính bảng</li>
-    <li routerLink="/dong-ho">Đồng hồ</li>
-    <li routerLink="/phu-kien">Phụ kiện</li>
-    <li routerLink="/san-pham-khac">Sản phẩm khác</li> -->
-  </ul>
-
-</div>
+    <div><img src="./assets/icon/account_circle.png" alt=""><label for="">Tên khác hàng: </label><span>MR Tèo</span></div>
+    <div><img src="./assets/icon/call.png" alt=""><label for="">Số điện thoại: </label><span>0999256478</span></div>
+    <div><img src="./assets/icon/email.png" alt=""><label for="">Email: </label><span>teo2ka2@gmail.com</span></div>
+    <div><img src="./assets/icon/location.png" alt=""><label for="">Địa chỉ: </label><span>Sô 5 Nguyễn Chí Thanh, khu phố 3, phương Linh Đông,Tp Thủ Đức</span></div>
+    <div class="log-reg-button">
+      <button>Đăng xuất</button>
+      <button>Cập nhật thông tin</button>
+    </div>
+  </div>
 
