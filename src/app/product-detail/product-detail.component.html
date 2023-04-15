@@ -1,0 +1,63 @@
+
+<div class="product-infor">
+
+  <div class="product-image" >
+    <img class="image-design" src="assets/{{products.productImage}}">
+  </div>
+
+  <div class="product-noti">
+    <h1 class="product-name-text">{{products.productName}}</h1>
+    <div class="price-detail">
+        <div class="text-detail">
+          Giá hiện tại <br><span class="discounted">{{products.discountedPrice}} đ</span>
+        </div>
+        <div class="text-detail">
+          Giá gốc <br><span>{{products.initialPrice}} đ</span>
+        </div>
+        <div class="text-detail">
+          Tiết kiệm <br><span class="discounted">{{products.discount}} đ</span>
+        </div>
+    </div>
+
+    <div>
+      <table class="table-detail">
+        <tr>
+          <td>Brand: </td>
+          <td>{{products.brand}}</td>
+        </tr>
+        <tr>
+          <td>Type: </td>
+          <td>{{products.type}}</td>
+        </tr>
+        <tr>
+          <td>Material: </td>
+          <td>{{products.material}}</td>
+        </tr>
+        <tr>
+          <td>Design: </td>
+          <td>{{products.design}}</td>
+        </tr>
+        <tr>
+          <td>CPU: </td>
+          <td>{{products.cpu}}</td>
+        </tr>
+        <tr>
+          <td>Ram: </td>
+          <td>{{products.ram}} GB</td>
+        </tr>
+        <tr>
+          <td>Warranty: </td>
+          <td>{{products.warranty}}</td>
+        </tr>
+      </table>
+    </div>
+  <button class="btn-add">Thêm vào giỏ hàng</button>
+  </div>
+
+</div>
+
+<div class="product-description"></div>
+
+<div class="product-suggestion"></div>
+
+<div class="advertisement"></div>
