@@ -21,5 +21,5 @@ export class ProductDetailComponent {
       "ram": 8,
       "warranty": "2 years full warranty"
     }
-
+  productList = []
 }
