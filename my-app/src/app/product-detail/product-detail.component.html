@@ -1,0 +1,80 @@
+
+<div class="product-bar">
+  <a href="#home">Trang chủ</a>
+  <span>></span>
+  <a href="#phone">Điện thoại</a>
+  <span>></span>
+  <a href="#">{{products.productName}}</a>
+</div>
+<div class="product-infor">
+  <div class="product-image" >
+    <img class="image-design" src="assets/{{products.productImage}}">
+  </div>
+
+  <div class="product-noti">
+    <h1 class="product-name-text">{{products.productName}}</h1>
+    <div class="price-detail">
+        <div class="text-detail">
+          Giá hiện tại <br><span class="discounted">{{products.discountedPrice}} đ</span>
+        </div>
+        <div class="text-detail">
+          Giá gốc <br><span class="origin">{{products.initialPrice}} đ</span>
+        </div>
+        <div class="text-detail">
+          Tiết kiệm <br><span class="discounted">{{products.discount}} đ</span>
+        </div>
+    </div>
+
+    <div>
+      <table class="table-detail">
+        <tr>
+          <td>Brand: </td>
+          <td>{{products.brand}}</td>
+        </tr>
+        <tr>
+          <td>Type: </td>
+          <td>{{products.type}}</td>
+        </tr>
+        <tr>
+          <td>Material: </td>
+          <td>{{products.material}}</td>
+        </tr>
+        <tr>
+          <td>Design: </td>
+          <td>{{products.design}}</td>
+        </tr>
+        <tr>
+          <td>CPU: </td>
+          <td>{{products.cpu}}</td>
+        </tr>
+        <tr>
+          <td>Ram: </td>
+          <td>{{products.ram}} GB</td>
+        </tr>
+        <tr>
+          <td>Warranty: </td>
+          <td>{{products.warranty}}</td>
+        </tr>
+      </table>
+    </div>
+
+  <button class="btn-add">Thêm vào giỏ hàng</button>
+  </div>
+
+</div>
+<br>
+<div class="product-description">
+  <div class="topnav">
+    <a class="active" href="#description">Mô tả</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#shopping">Shopping</a>
+    <a href="#about">About Company</a>
+  </div>
+</div>
+<br>
+<div class="product-suggestion">
+    <p>Sản phẩm bạn có thể quan tâm</p>
+</div>
+
+<div class="advertisement"></div>
+

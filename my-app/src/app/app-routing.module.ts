@@ -6,6 +6,8 @@ import { count } from 'rxjs';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PaymentTransferComponent } from './payment-transfer/payment-transfer.component';
 import { ProductsViewComponent } from './products-view/products-view.component';
+import { NotDevelopedFeatureComponent } from './not-developed-feature/not-developed-feature.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 // import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 const routes: Routes = [
@@ -14,8 +16,12 @@ const routes: Routes = [
   {path:"payment/payment-transfer",component:PaymentTransferComponent},
   // {path:"breadcrumb",component:BreadcrumbComponent},
   {path:"products-view",component:ProductsViewComponent},
+  {path: 'not-developed-feature', component: NotDevelopedFeatureComponent},
+  {path: 'product-detail', component: ProductDetailComponent},
   {path:"**",component:NotFoundComponent}
-];
+]
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
@@ -28,5 +34,7 @@ export const RountingComponents=[
   NotFoundComponent,
   PaymentTransferComponent,
   // BreadcrumbComponent,
-  ProductsViewComponent
+  ProductsViewComponent,
+  NotDevelopedFeatureComponent,
+  ProductDetailComponent
 ]
