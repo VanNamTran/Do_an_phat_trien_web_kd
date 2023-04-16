@@ -9,6 +9,7 @@
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   display: flex;
   padding: 100px 0px 100px 60px;
+  z-index: 998;
 }
 hr{
   width: 362px;
@@ -16,23 +17,25 @@ hr{
 }
 p{
   margin-right: 57px;
+  font-size: 20px;
 }
 .exit{
   position: absolute;
   top: 5px;
   right: 5px;
   width: auto;
+  cursor: pointer;
 }
 .image img{
   width: 258px;
   padding-right: 79px;
 }
-input[type="text"] {
+input[type="text"], input[type="password"]{
   padding: 8px;
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  font-size:larger;
+  font-size:20px;
   display: flex;
   width: 350px;
   height: 45px;
@@ -46,7 +49,8 @@ input[type="button"]{
   background-color:#0D6EFD ;
   color: #ffffff;
   border: none;
-  font-size:larger;
+  font-size:20px;
+  cursor: pointer;
   /* margin: 25px 0 10px 0; */
 }
 .log-res{
@@ -60,9 +64,11 @@ a.reset-account{
   margin-top: 10px;
   text-decoration: none;
   color: #0D6EFD;
+  font-size: 18px;
 }
 a.register{
   text-decoration: none;
   color: #FF5C00;
+  font-size: 18px;
 }
 

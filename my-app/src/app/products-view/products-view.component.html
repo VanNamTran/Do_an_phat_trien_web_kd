@@ -9,25 +9,20 @@
       <div class="filter-value">
         <div class="filter-type">Thương hiệu</div>
         <ol>
-          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
-          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
-          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
-          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
-          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
-          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
-          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
+          <li *ngFor="let brand of brands; let i = index" [class.hidden]="i >= 5 && !showAllBrands">
+            <input type="checkbox" [id]="'brand-' + i" class="checkbox">{{brand}}
+          </li>
+          <p class="see-more-list-filter" (click)="showAllBrands = !showAllBrands">{{showAllBrands ? 'Ẩn bớt' : 'Xem thêm'}}</p>
         </ol>
       </div>
+
       <div class="filter-value">
-        <div class="filter-type">Thương hiệu</div>
+        <div class="filter-type">Giá</div>
         <ol>
-          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
-          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
-          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
-          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
-          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
-          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
-          <li><input type="checkbox" name="" id="" class="checkbox">Sumsung</li>
+          <li *ngFor="let price of prices; let i = index" [class.hidden]="i >= 5 && !showAllPrices">
+            <input type="checkbox" [id]="'price-' + i" class="checkbox">{{price}}
+          </li>
+          <p class="see-more-list-filter" (click)="showAllPrices = !showAllPrices">{{showAllPrices ? 'Ẩn bớt' : 'Xem thêm'}}</p>
         </ol>
       </div>
     </div>

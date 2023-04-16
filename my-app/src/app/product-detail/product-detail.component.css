@@ -1,7 +1,9 @@
 body{
   background: #F8F9FA
 }
-
+.none{
+  height: 150px;
+}
 /* For product bar */
 .product-bar a, .product-bar span{
   color: #8B96A5;
@@ -20,6 +22,7 @@ body{
   align-items: center;
   font-family: sans-serif;
   padding-bottom: 10px;
+  background-color: #fff;
 }
 
 .product-bar{

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2  } from '@angular/core';
 
 @Component({
   selector: 'app-products-view',
@@ -6,13 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products-view.component.css']
 })
 export class ProductsViewComponent implements OnInit {
+  showAllBrands = false;
+  showAllPrices =false
+  hideAllBrands = false;
+  brands: string[] = [];
+  prices:string[]=[]
   ngOnInit() {
+    this.prices=["> 30 triệu","20 đến 30 triệu","10 đến 20 triệu", "7 đến 10 triệu","5 dến 7 triệu","3 đến 5 triệu","dưới 3 triệu"]
+    this.brands = ['Samsung', 'Apple', 'Huawei', 'Xiaomi', 'Oppo', 'Vivo', 'Nokia'];
     const gridLayoutButton = document.getElementById("grid-layout") as HTMLButtonElement;
     const listLayoutButton = document.getElementById("list-layout") as HTMLButtonElement;
     const productsGrid = document.querySelector(".products-list") as HTMLElement;
     const products = document.querySelectorAll(".product-info") as NodeListOf<HTMLElement>;
     // Lấy tất cả các hình ảnh "favorite-border" và "favorite"
     const favoriteIcons: NodeListOf<HTMLImageElement> = document.querySelectorAll(".favorite-icon img");
+
+
+
 
     // Lặp qua từng hình ảnh và thêm sự kiện click
     favoriteIcons.forEach((icon) => {
