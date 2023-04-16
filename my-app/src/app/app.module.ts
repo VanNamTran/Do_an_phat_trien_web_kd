@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule, RoutingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -14,6 +16,7 @@ import { ConfirmPasswordComponent } from './confirm-password/confirm-password.co
 @NgModule({
   declarations: [
     AppComponent,
+    RoutingComponents,
     RegisterComponent,
     LoginComponent,
     AccResetComponent,
@@ -24,7 +27,10 @@ import { ConfirmPasswordComponent } from './confirm-password/confirm-password.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
