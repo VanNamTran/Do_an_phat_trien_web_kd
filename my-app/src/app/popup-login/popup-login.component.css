@@ -1,0 +1,68 @@
+.popup-login{
+  position: fixed;
+  width:840px ;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(254, 255, 255);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  padding: 100px 0px 100px 60px;
+}
+hr{
+  width: 362px;
+  margin-bottom: 10px;
+}
+p{
+  margin-right: 57px;
+}
+.exit{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: auto;
+}
+.image img{
+  width: 258px;
+  padding-right: 79px;
+}
+input[type="text"] {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  font-size:larger;
+  display: flex;
+  width: 350px;
+  height: 45px;
+  flex-direction: column;
+  margin: 20px 0 20px 0;
+}
+input[type="button"]{
+  width: 130px;
+  height: 40px;
+  border-radius: 5px;
+  background-color:#0D6EFD ;
+  color: #ffffff;
+  border: none;
+  font-size:larger;
+  /* margin: 25px 0 10px 0; */
+}
+.log-res{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 362px;
+  margin: 25px 0 10px 0
+}
+a.reset-account{
+  margin-top: 10px;
+  text-decoration: none;
+  color: #0D6EFD;
+}
+a.register{
+  text-decoration: none;
+  color: #FF5C00;
+}
+
