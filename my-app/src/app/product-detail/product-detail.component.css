@@ -1,0 +1,109 @@
+body{
+  background: #F8F9FA
+}
+.none{
+  height: 150px;
+}
+/* For product bar */
+.product-bar a, .product-bar span{
+  color: #8B96A5;
+  text-decoration: none;
+}
+
+/* For image and information */
+.product-bar, .product-infor, .product-description, .product-suggestion{
+  display: flex;
+  box-sizing: border-box;
+  border: 1px solid #DEE2E7;
+  border-radius: 6px;
+  margin-left: 120px;
+  margin-right: 120px;
+  font-size: 16px;
+  align-items: center;
+  font-family: sans-serif;
+  padding-bottom: 10px;
+  background-color: #fff;
+}
+
+.product-bar{
+  border: none;
+}
+
+.product-name-text{
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.product-image{
+  width: 40%;
+  align-items: center;
+}
+
+.image-design{
+  width: 400px;
+  height: 400px;
+}
+
+.product-noti{
+  align-items: center;
+}
+
+.price-detail{
+  display: flex;
+  box-sizing: border-box;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #FFF0DF;
+  line-height: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.text-detail{
+  margin-left: 50px;
+  margin-right: 50px;
+
+}
+
+.discounted{
+  font-weight: bold;
+  color: #FA3434
+}
+
+.origin{
+  font-weight: bold;
+}
+
+.table-detail{
+  line-height: 40px;
+}
+
+.btn-add{
+  margin-left: 200px;
+  width: 200px;
+  height: 45px;
+  background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+/* For description */
+.topnav {
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.product-suggestion p, .product-bar a{
+  padding: 14px 16px;
+}
