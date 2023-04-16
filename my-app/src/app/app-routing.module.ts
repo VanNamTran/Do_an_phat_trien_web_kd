@@ -22,7 +22,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const RountingComponent=[
+export const RountingComponents=[
   CartComponent,
   PaymentComponent,
   NotFoundComponent,

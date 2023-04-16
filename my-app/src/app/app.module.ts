@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule, RountingComponent } from './app-routing.module';
+import { AppRoutingModule, RountingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SubheaderComponent } from './subheader/subheader.component';
@@ -23,7 +23,7 @@ import { ProductsViewComponent } from './products-view/products-view.component';
     PopupLoginComponent,
     CartComponent,
     PaymentComponent,
-    RountingComponent,
+    RountingComponents,
     NotFoundComponent,
     PaymentTransferComponent,
     ProductsViewComponent,
