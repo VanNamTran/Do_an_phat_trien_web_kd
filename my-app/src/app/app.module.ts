@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule, RoutingComponents } from './app-routing.module';
+import { AppRoutingModule, RountingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -31,7 +31,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 @NgModule({
   declarations: [
     AppComponent,
-    RoutingComponents,
+    RountingComponents,
     RegisterComponent,
     LoginComponent,
     AccResetComponent,
@@ -45,7 +45,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     PopupLoginComponent,
     CartComponent,
     PaymentComponent,
-    RountingComponents,
+
     NotFoundComponent,
     PaymentTransferComponent,
     ProductsViewComponent,
