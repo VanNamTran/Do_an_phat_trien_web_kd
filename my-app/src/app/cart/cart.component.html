@@ -111,90 +111,22 @@
 <div class="favorite-products">
   <p class="fa-title">Sản phẩm yêu thích</p>
   <div class="favorite">
-    <div class="item-favorite"><!-- Product template -->
+    <div class="item-favorite" [attr.id]="'favorite-' + item._id"  *ngFor="let item of listFavoriteProduct"><!-- Product template -->
       <div class="product-img">
-        <img  src="./assets/logo/about-me.png" alt="">
+        <img  [src]="item.image" alt="">
       </div>
-      <br><span class="price">6000</span>
-      <p>thuộc tính sản phẩm</p>
+      <p>{{item.name}}</p>
+      <br><span class="price">{{item.initial_price - item.discount_amount}}</span>
+
       <div class="button-fa-item">
         <button class="button-fa-item-cart">
           <img src="./assets/icon/shopping_cart_blue.png" alt="">
           <span>Chuyển vào giỏ hàng</span>
         </button>
-        <button class="button-fa-item-delete">Xóa</button>
+        <button (click)="deletefavorite($event)" class="button-fa-item-delete" [attr.data-product-id]="item._id">Xóa</button>
       </div>
     </div>
-    <div class="item-favorite"><!-- Product template -->
-      <div class="product-img">
-        <img  src="https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/10/6/638006463252894432_lenovo-tab-m8-gen-2-dd-bh.jpg" alt="">
-      </div>
-      <br><span class="price">6000</span>
-      <p>thuộc tính sản phẩm</p>
-      <div class="button-fa-item">
-        <button class="button-fa-item-cart">
-          <img src="./assets/icon/shopping_cart_blue.png" alt="">
-          <span>Chuyển vào giỏ hàng</span>
-        </button>
-        <button class="button-fa-item-delete">Xóa</button>
-      </div>
-    </div>
-    <div class="item-favorite"><!-- Product template -->
-      <div class="product-img">
-        <img  src="./assets/logo/logo-tech-shop.png" alt="">
-      </div>
-      <br><span class="price">6000</span>
-      <p>thuộc tính sản phẩm</p>
-      <div class="button-fa-item">
-        <button class="button-fa-item-cart">
-          <img src="./assets/icon/shopping_cart_blue.png" alt="">
-          <span>Chuyển vào giỏ hàng</span>
-        </button>
-        <button class="button-fa-item-delete">Xóa</button>
-      </div>
-    </div>
-    <div class="item-favorite"><!-- Product template -->
-      <div class="product-img">
-        <img  src="./assets/logo/about-me.png" alt="">
-      </div>
-      <br><span class="price">6000</span>
-      <p>thuộc tính sản phẩm</p>
-      <div class="button-fa-item">
-        <button class="button-fa-item-cart">
-          <img src="./assets/icon/shopping_cart_blue.png" alt="">
-          <span>Chuyển vào giỏ hàng</span>
-        </button>
-        <button class="button-fa-item-delete">Xóa</button>
-      </div>
-    </div>
-    <div class="item-favorite"><!-- Product template -->
-      <div class="product-img">
-        <img  src="./assets/logo/secure.png" alt="">
-      </div>
-      <br><span class="price">6000</span>
-      <p>thuộc tính sản phẩm</p>
-      <div class="button-fa-item">
-        <button class="button-fa-item-cart">
-          <img src="./assets/icon/shopping_cart_blue.png" alt="">
-          <span>Chuyển vào giỏ hàng</span>
-        </button>
-        <button class="button-fa-item-delete">Xóa</button>
-      </div>
-    </div>
-    <div class="item-favorite"><!-- Product template -->
-      <div class="product-img">
-        <img  src="./assets/logo/about-me.png" alt="">
-      </div>
-      <br><span class="price">6000</span>
-      <p>thuộc tính sản phẩm</p>
-      <div class="button-fa-item">
-        <button class="button-fa-item-cart">
-          <img src="./assets/icon/shopping_cart_blue.png" alt="">
-          <span>Chuyển vào giỏ hàng</span>
-        </button>
-        <button class="button-fa-item-delete">Xóa</button>
-      </div>
-    </div>
+
   </div>
 </div>
 

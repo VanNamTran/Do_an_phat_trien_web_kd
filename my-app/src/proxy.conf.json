@@ -1,0 +1,23 @@
+[
+  {
+    "context":["/earphones"],
+    "target":"http://localhost:3000",
+    "secure":true,
+    "changeOrigin":true,
+    "logLevel":"debug"
+  },
+  {
+    "context":["/phones"],
+    "target":"http://localhost:3000",
+    "secure":true,
+    "changeOrigin":true,
+    "logLevel":"debug"
+  },
+  {
+    "context":["/favorites"],
+    "target":"http://localhost:3000",
+    "secure":true,
+    "changeOrigin":true,
+    "logLevel":"debug"
+  }
+]
