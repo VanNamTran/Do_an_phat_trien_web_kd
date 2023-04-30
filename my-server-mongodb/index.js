@@ -1,8 +1,15 @@
 const express=require('express');
 const app=express();
 const port=3000;
-const morgan=require('morgan')
+const morgan=require('morgan');
+
+const nodemailer = require('nodemailer');
+
+require('dotenv').config();
+
 app.use(morgan("combined"))
+
+const { ObjectId } = require('mongodb');
 
 const bodyParser=require('body-parser')
 app.use(bodyParser.json({limit:'10mb'}))
@@ -32,19 +39,14 @@ database=client.db('TechShopData');
 //connect to phones collection
 phoneCollection=database.collection('phones');
 
-app.get('/phones', cors(), async (req,res)=>{
+app.get('/techshop/phones', cors(), async (req,res)=>{
     const result=await phoneCollection.find().toArray();
     res.send(result)
 })
 
-// app.get('/phones/:id', async (req, res) => {
-//     const id = req.params.id;
-//     const result = await phoneCollection.findOne({ _id: id });
-//     res.send(result);
-// });
 
 //get phone details
-app.get('/phones/:id', cors(), async (req, res) => {
+app.get('/techshop/phones/:id', cors(), async (req, res) => {
     const id = req.params.id;
 
     const result = await phoneCollection.aggregate([
@@ -67,19 +69,14 @@ app.get('/phones/:id', cors(), async (req, res) => {
 //connect to laptops collection
 laptopCollection=database.collection('laptops');
 
-app.get('/laptops', cors(), async (req,res)=>{
+app.get('/techshop/laptops', cors(), async (req,res)=>{
     const result=await laptopCollection.find().toArray();
     res.send(result)
 })
 
-// app.get('/laptops/:id', async (req, res) => {
-//     const id = req.params.id;
-//     const result = await laptopCollection.findOne({ _id: id });
-//     res.send(result);
-// });
 
 //get laptop details
-app.get('/laptops/:id', cors(), async (req, res) => {
+app.get('/techshop/laptops/:id', cors(), async (req, res) => {
     const id = req.params.id;
 
     const result = await laptopCollection.aggregate([
@@ -103,19 +100,13 @@ app.get('/laptops/:id', cors(), async (req, res) => {
 //connect to tablets collection
 tabletCollection=database.collection('tablets');
 
-app.get('/tablets', cors(), async (req,res)=>{
+app.get('/techshop/tablets', cors(), async (req,res)=>{
     const result=await tabletCollection.find().toArray();
     res.send(result)
 })
 
-// app.get('/tablets/:id', async (req, res) => {
-//     const id = req.params.id;
-//     const result = await tabletCollection.findOne({ _id: id });
-//     res.send(result);
-// });
-
 //get tablet details
-app.get('/tablets/:id', cors(), async (req, res) => {
+app.get('/techshop/tablets/:id', cors(), async (req, res) => {
     const id = req.params.id;
 
     const result = await tabletCollection.aggregate([
@@ -138,19 +129,13 @@ app.get('/tablets/:id', cors(), async (req, res) => {
 //connect to watches collection
 watchCollection=database.collection('watches');
 
-app.get('/watches', cors(), async (req,res)=>{
+app.get('/techshop/watches', cors(), async (req,res)=>{
     const result=await watchCollection.find().toArray();
     res.send(result)
 })
 
-// app.get('/watches/:id', async (req, res) => {
-//     const id = req.params.id;
-//     const result = await watchCollection.findOne({ _id: id });
-//     res.send(result);
-// });
-
 //get watch details
-app.get('/watches/:id', cors(), async (req, res) => {
+app.get('/techshop/watches/:id', cors(), async (req, res) => {
     const id = req.params.id;
 
     const result = await watchCollection.aggregate([
@@ -173,19 +158,14 @@ app.get('/watches/:id', cors(), async (req, res) => {
 //connect to earphones collection
 earphoneCollection=database.collection('earphones');
 
-app.get('/earphones', cors(), async (req,res)=>{
+app.get('/techshop/earphones', cors(), async (req,res)=>{
     const result=await earphoneCollection.find().toArray();
     res.send(result)
 })
 
-// app.get('/earphones/:id', async (req, res) => {
-//     const id = req.params.id;
-//     const result = await earphoneCollection.findOne({ _id: id });
-//     res.send(result);
-// });
 
 //get earphone details
-app.get('/earphones/:id', cors(), async (req, res) => {
+app.get('/techshop/earphones/:id', cors(), async (req, res) => {
     const id = req.params.id;
 
     const result = await earphoneCollection.aggregate([
@@ -204,6 +184,158 @@ app.get('/earphones/:id', cors(), async (req, res) => {
         res.sendStatus(404);
     }
 });
+
+
+//create new user account
+app.post('/techshop/register', async (req, res) => {
+    var crypto = require("crypto");
+    salt = crypto.randomBytes(16).toString("hex");
+  
+    userCollection = database.collection("users");
+    user = req.body;
+  
+    // Check if email or phone number already exists
+    const existingUser = await userCollection.findOne({$or: [{email: user.email}, {phone: user.phone}]});
+    if (existingUser) {
+      return res.status(400).send("Email or phone number already exists");
+    }
+  
+    hash = crypto.pbkdf2Sync(user.password, salt, 1000, 64, `sha512`).toString(`hex`);
+  
+    user.password = hash;
+    user.salt = salt;
+  
+    await userCollection.insertOne(user);
+  
+    res.send(req.body);
+});
+  
+
+//login user
+app.post('/techshop/login', async (req, res) => {
+    userCollection = database.collection("users");
+    user = req.body;
+
+    var crypto = require("crypto");
+    // Find user by email or phone
+    result = await userCollection.findOne({
+        $or: [
+            { email: user.email },
+            { phone: user.phone }
+        ]
+    });
+
+    if (result == null) {
+        res.status(400).send("User not found");
+    } else {
+        // Check password
+        hash = crypto.pbkdf2Sync(user.password, result.salt, 1000, 64, `sha512`).toString(`hex`);
+        if (hash == result.password) {
+            res.send(result);
+        } else {
+            res.status(400).send("Wrong password");
+        }
+    }
+});
+
+// Send Email
+app.post('/techshop/forget-password', async (req, res) => {
+  
+    userCollection = database.collection("users");
+    resetPasswordsCollection = database.collection("reset_passwords");
+    user = req.body;
+    // Check if the email exists in the database
+    result = await userCollection.findOne({ email: user.email});
+    if (!result) {
+      return res.status(404).json({ message: 'User not found.' });
+    }
+  
+    // Generate a random OTP of length 6
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+    // Create a nodemailer transporter using Gmail SMTP
+    const transporter = nodemailer.createTransport({
+    host: process.env.MAIL_HOST,
+    port: process.env.MAIL_PORT,
+    auth: {
+      user: process.env.MAIL_USERNAME,
+      pass: process.env.MAIL_PASSWORD
+    }
+    });
+  
+    // Send the OTP to the registered email
+    const mailOptions = {
+      from: 'techshopforshopping@gmail.com',
+      to: req.body.email,
+      subject: 'Password reset OTP',
+      text: `Your OTP for password reset is ${otp}.`
+    };
+  
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(`OTP sent to ${email}: ` + info.response);
+      }
+    });
+    // Save the OTP in the reset_passwords collection
+    currentDate = new Date();
+    resetPasswordsCollection.insertOne({ email: user.email, otp: otp, createdDay: currentDate }, function(err, result) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(`OTP saved in reset_passwords collection: ${otp}`);
+        }
+    });
+    res.json({ message: 'OTP sent successfully.' });
+});
+
+// Verify OTP
+app.post('/techshop/check-otp', async (req, res) => {
+    resetPasswordCollection = database.collection("reset_passwords");
+    user = req.body;
+    
+    result = await resetPasswordCollection.findOne({ otp: user.otp });
+    
+    if (!result) {
+      return res.status(404).json({ message: 'OTP not found.' });
+    }
+  
+    res.json({ message: 'OTP is valid.'});
+});
+
+app.post('/techshop/reset-password', async (req, res) => {
+
+    var crypto = require("crypto");
+    salt = crypto.randomBytes(16).toString("hex");
+
+    resetPasswordCollection = database.collection("reset_passwords");
+    userCollection = database.collection("users");
+    user = req.body;
+  
+    // Find the OTP in the reset_passwords collection
+    result = await resetPasswordCollection.findOne({ email: user.email, otp: user.otp });
+    if (!result) {
+      return res.status(404).json({ message: 'OTP not found.' });
+    }
+  
+    // Hash the new password with the salt
+    hash = crypto.pbkdf2Sync(user.password, salt, 1000, 64, `sha512`).toString(`hex`);
+  
+    password = hash;
+    salt = salt;
+  
+    // Update the user's password and salt in the users collection
+    await userCollection.updateOne({ email: user.email }, { $set: { password: hash, salt: salt } });
+  
+    // Delete the OTP from the reset_passwords collection
+    // await resetPasswordCollection.deleteOne({ email: user.email, otp: user.otp });
+  
+    res.json({ message: 'Password reset successfully.' });
+});
+  
+
+  
 
 
 
