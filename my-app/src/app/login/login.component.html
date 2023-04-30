@@ -24,10 +24,6 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <!-- <span class="btn_back">
-            <i class="bi bi-arrow-left"></i>
-            Đăng nhập tài khoản
-          </span> -->
           <div style="display: flex; align-items: center;">
             <span class="material-icons" style="font-size: 30px; margin-right: 8px; cursor:pointer">arrow_back</span>
             <p style="font-size: 25px; margin: 0; font-weight:500">Đăng nhập tài khoản</p>
@@ -40,22 +36,43 @@
         </div>
         <div class="col-12">
           <p class="h1 text-center" style="font-size: 24px;"><small>Đăng nhập tài khoản TechSmember</small></p>
-          <form>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="mb-3" style="width:50%; margin:auto;">
-              <input type="email phone" class="form-control" id="email phone" placeholder="Email/SĐT">
+              <input matInput type="email tel" class="form-control" id="username" name="username" placeholder="Email/SĐT"
+                formControlName="username" [disabled]="true"
+                [class.is-invalid]="loginForm.controls['username'].invalid && loginForm.controls['username'].touched">
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">
-              <input type="password" class="form-control" id="password" placeholder="Mật khẩu">
+              <input matInput type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu"
+                formControlName="password" [disabled]="true"
+                [class.is-invalid]="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
             </div>
             <div class="mb-3" style="width:50%; margin:auto">
-              <div class="col-12" style="margin-top:50px">
-                <button type="submit" class="btn btn-primary form-control">Đăng nhập</button>
+              <div class="row justify-content-between">
+                <div class="col-auto">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe" (change)="onRememberMeChange($event)">
+                    <label class="form-check-label" for="rememberMe">
+                      Nhớ đăng nhập
+                    </label>
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <p class="text-right">
+                    <a routerLink="/quenmatkhau" class="text-decoration-none">Quên mật khẩu?</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3" style="width:50%; margin:auto">
+              <div class="col-12" style="margin-top:30px">
+                <button type="submit" class="btn btn-primary form-control" [disabled]="loginForm.invalid">Đăng nhập</button>
               </div>
             </div>
             <div class="mb-3">
               <div class="col-12">
                 <p class="text-center">
-                  <a routerLink="/quenmatkhau" class="text-decoration-none">Quên mật khẩu?</a>
+                  Bạn chưa có tài khoản? <a routerLink="/dangky" class="text-decoration-none">Đăng ký tại đây</a>
                 </p>
               </div>
             </div>
