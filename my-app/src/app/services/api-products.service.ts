@@ -18,7 +18,7 @@ export class ApiProductsService {
       headers:headers,
       responseType:"text"
     }
-    return this._http.get<any>("phones",requestOptions).pipe(
+    return this._http.get<any>("/techshop/phones",requestOptions).pipe(
       map(res =>JSON.parse(res)as Array<IPhones>),
       retry(3),
       catchError(this.handleError)

@@ -28,6 +28,9 @@
     "changeOrigin":true,
     "logLevel":"debug"
 
+  },
+  {
+
     "context": ["/techshop"],
     "target": "http://localhost:3000",
     "secure": true,
