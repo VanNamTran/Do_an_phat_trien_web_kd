@@ -17,6 +17,8 @@
 <body>
   <header>
     <!-- place navbar here -->
+    <app-header></app-header>
+    <div class="none"></div>
   </header>
   <main>
     <div class="container">
@@ -40,21 +42,21 @@
           <p class="h1 text-center" style="font-size: 24px;"><small>Thông tin tài khoản TechSmember</small></p>
           <form>
             <div class="mb-3" style="width:50%; margin:auto;">
-                <input type="phone" class="form-control" id="phone" placeholder="Số điện thoại">
+                <input type="tel" class="form-control" id="phone" placeholder="Số điện thoại">
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">
                 <input type="email" class="form-control" id="email" placeholder="Địa chỉ email">
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">
-                <input type="name" class="form-control" id="name" placeholder="Họ và Tên">
+                <input type="text" class="form-control" id="name" placeholder="Họ và Tên">
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">
-                <input type="address" class="form-control" id="address" placeholder="Địa chỉ">
+                <input type="text" class="form-control" id="address" placeholder="Địa chỉ">
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">
               <div class="row justify-content-end" style="margin-top:50px">
                 <div class="col-md-4 col-12">
-                  <button type="submit" class="btn btn-primary w-100">Cập nhật</button>
+                  <button routerLink="/capnhatthongtin" type="submit" class="btn btn-primary w-100">Cập nhật</button>
                 </div>
               </div>
             </div>
@@ -65,6 +67,7 @@
   </main>
   <footer>
     <!-- place footer here -->
+    <app-footer></app-footer>
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
