@@ -17,6 +17,8 @@
 <body>
   <header>
     <!-- place navbar here -->
+    <app-header></app-header>
+    <div class="none"></div>
   </header>
   <main>
     <div class="container">
@@ -38,38 +40,77 @@
         </div>
         <div class="col-12">
           <p class="h1 text-center" style="font-size: 24px;"><small>Đăng ký tài khoản TechSmember</small></p>
-          <form>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="mb-3" style="width:50%; margin:auto;">
-              <input type="phone" class="form-control" id="phone" placeholder="Vui lòng nhập số điện thoại">
+              <input matInput type="tel" class="form-control" name="phone" id="phone" placeholder="Vui lòng nhập Số điện thoại"
+                     formControlName="phone" [disabled]="true"
+                     [class.is-invalid]="registerForm.controls['phone'].invalid && registerForm.controls['phone'].touched"
+                     [class.is-valid]="registerForm.controls['phone'].valid">
+              <div *ngIf="registerForm.controls['phone'].invalid && registerForm.controls['phone'].touched">
+                <small class="text-danger" *ngIf="registerForm.controls['phone'].hasError('pattern')">Số điện thoại không hợp lệ</small>
+              </div>
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">
-              <input type="email" class="form-control" id="email" placeholder="Vui lòng nhập địa chỉ email">
+              <input matInput type="email" class="form-control" name="email" id="email" placeholder="Vui lòng nhập Email"
+                     formControlName="email" [disabled]="true"
+                     [class.is-invalid]="registerForm.controls['email'].invalid && registerForm.controls['email'].touched"
+                     [class.is-valid]="registerForm.controls['email'].valid">
+              <div *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">
+                <small class="text-danger" *ngIf="registerForm.controls['email'].hasError('email')">Email không hợp lệ</small>
+              </div>
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">
-              <input type="name" class="form-control" id="name" placeholder="Vui lòng nhập Họ và Tên">
+              <input matInput type="text" class="form-control" name="name" id="name" placeholder="Vui lòng nhập Họ và Tên"
+                formControlName="name" [disabled]="true"
+                [class.is-invalid]="registerForm.controls['name'].invalid && registerForm.controls['name'].touched"
+                [class.is-valid]="registerForm.controls['name'].valid">
+              <div *ngIf="registerForm.controls['name'].invalid && registerForm.controls['name'].touched">
+                <!-- <small class="text-danger" *ngIf="registerForm.controls['name'].hasError('pattern')">Họ và tên không hợp lệ</small> -->
+                <small class="text-danger" *ngIf="registerForm.controls['name'].hasError('minlength')">Họ và tên phải có ít nhất 2 ký tự</small>
+                <small class="text-danger" *ngIf="registerForm.controls['name'].hasError('maxlength')">Họ và tên không được vượt quá 35 ký tự</small>
+                <small class="text-danger" *ngIf="registerForm.controls['name'].hasError('nameNotMatch')">Tên không được chứa ký tự đặc biệt</small>
+              </div>
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">
-              <input type="address" class="form-control" id="address" placeholder="Vui lòng nhập địa chỉ">
+              <input matInput type="text" class="form-control" name="address" id="address" placeholder="Vui lòng nhập Địa chỉ"
+                     formControlName="address" [disabled]="true"
+                     [class.is-invalid]="registerForm.controls['address'].invalid && registerForm.controls['address'].touched"
+                     [class.is-valid]="registerForm.controls['address'].valid">
+              <div *ngIf="registerForm.controls['address'].invalid && registerForm.controls['address'].touched">
+                <small class="text-danger" *ngIf="registerForm.controls['address'].hasError('minlength')">Địa chỉ phải có ít nhất 2 kí tự</small>
+                <small class="text-danger" *ngIf="registerForm.controls['address'].hasError('maxlength')">Địa chỉ chỉ được tối đa 50 kí tự</small>
+              </div>
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">
-              <input type="password" class="form-control" id="password" placeholder="Vui lòng nhập MẬT KHẨU">
+              <input matInput type="password" class="form-control" name="password" id="password" placeholder="Vui lòng nhập Mật khẩu (Tối thiểu 8 kí tự)"
+                formControlName="password" [disabled]="true"
+                [class.is-invalid]="registerForm.controls['password'].invalid && registerForm.controls['password'].touched"
+                [class.is-valid]="registerForm.controls['password'].valid">
+              <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
+                <!-- <small class="text-danger" *ngIf="registerForm.controls['password'].hasError('minlength')">Mật khẩu phải có ít nhất 8 kí tự</small>
+                <small class="text-danger" *ngIf="registerForm.controls['password'].hasError('maxlength')">Mật khẩu chỉ được tối đa 32 kí tự</small> -->
+                <small class="text-danger" *ngIf="registerForm.controls['password'].hasError('pattern')">Mật khẩu chứa ít nhất 1 ký tự đặc biệt</small>
+              </div>
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">
-              <p class="text_note">Mật khẩu phải có ít nhất 8 ký tự</p>
+              <input matInput type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Nhập lại Mật khẩu"
+                formControlName="confirm_password" [disabled]="true"
+                [class.is-invalid]="registerForm.controls['confirm_password'].invalid && registerForm.controls['confirm_password'].touched"
+                [class.is-valid]="registerForm.controls['confirm_password'].valid && !registerForm.errors?.['misMatch']">
+              <div *ngIf="registerForm.errors?.['misMatch']">
+                <small class="text-danger">Mật khẩu không khớp</small>
+              </div>
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">
-              <input type="password" class="form-control" id="confirm_password" placeholder="Nhập lại mật khẩu">
-            </div>
-            <div class="mb-3" style="width:50%; margin:auto;">
-              <div class="col-12" style="margin-top:50px">
-                <button type="submit" class="btn btn-primary form-control">Đăng ký</button>
+              <div class="col-12" style="margin-top:30px">
+                <button type="submit" class="btn btn-primary form-control" [disabled]="registerForm.invalid">Đăng ký</button>
               </div>
             </div>
             <div class="mb-3" style="width:50%; margin:auto; background:black">
               <hr style="height:1px;border-width:0;color:black;background-color:black">
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">
-              <p class="text-center text_note" style="font-weight:500; cursor:pointer">Đăng nhập ngay</p>
+              <p routerLink="/dangnhap" class="text-center text_note" style="font-weight:500; cursor:pointer">Đăng nhập ngay</p>
             </div>
           </form>
         </div>
@@ -78,6 +119,7 @@
 </main>
   <footer>
     <!-- place footer here -->
+    <app-footer></app-footer>
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

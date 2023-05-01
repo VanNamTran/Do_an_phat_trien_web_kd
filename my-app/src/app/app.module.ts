@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule, RoutingComponents } from './app-routing.module';
+import { AppRoutingModule, RountingComponents} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -31,7 +39,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 @NgModule({
   declarations: [
     AppComponent,
-    RoutingComponents,
+    RountingComponents,
     RegisterComponent,
     LoginComponent,
     AccResetComponent,
@@ -45,7 +53,6 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     PopupLoginComponent,
     CartComponent,
     PaymentComponent,
-    RountingComponents,
     NotFoundComponent,
     PaymentTransferComponent,
     ProductsViewComponent,
@@ -58,6 +65,14 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatButtonModule,
+    MatIconModule,
     HttpClientModule
   ],
   providers: [],
