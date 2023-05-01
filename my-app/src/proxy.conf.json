@@ -1,5 +1,6 @@
 [
   {
+
     "context":["/earphones"],
     "target":"http://localhost:3000",
     "secure":true,
@@ -26,5 +27,12 @@
     "secure":true,
     "changeOrigin":true,
     "logLevel":"debug"
+
+    "context": ["/techshop"],
+    "target": "http://localhost:3000",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+
   }
 ]
