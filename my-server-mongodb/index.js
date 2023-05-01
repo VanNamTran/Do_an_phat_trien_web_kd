@@ -184,123 +184,7 @@ app.get('/techshop/earphones/:id', cors(), async (req, res) => {
         res.sendStatus(404);
     }
 });
-// ============================= insert favorite products to database =====================
-const collectionName = 'favorites';
-const collectionFavorites = database.collection(collectionName);
-app.get("/favorites",cors(),async(req,res)=>{
-    const result=await collectionFavorites.find().toArray();
-    res.send(result)
-})
-app.post("/favorites",cors(),async(req,res)=>{
-    await collectionFavorites.insertOne(req.body)
-    res.send(req.body)
-})
-app.put("/favorites", cors(), async (req, res) => {
-    try {
-      const { customerId, productId, isFavorite } = req.body;
-      const query = { customer_id: customerId };
-      const productInFavorite = await collectionFavorites.findOne({
-        customer_id: customerId,
-        "favorites.product_id": productId,
-      });
-      // Nếu sản phẩm đang được yêu thích, thêm nó vào danh sách yêu thích
-      if (isFavorite) {
-        if(!productInFavorite){
-          const update = {
-            $push: {
-              favorites: {
-                product_id: productId,
-                add_date: new Date().toISOString(),
-              },
-            },
-          };
-          await collectionFavorites.updateOne(query, update);
-          res.status(200).json({ message: "Đã thêm sản phẩm vào danh sách yêu thích." });
-        }
-        else{
-          const update = {
-            $set: {
-              "favorites.$.add_date": new Date().toISOString(),
-            },
-          };
-          await collectionProductCart.updateOne(
-            { "favorites.product_id": productId },
-            update
-          );
-          res
-            .status(200)
-            .json({ message: "Đã cập nhật ngày thêm mới của sản phẩm." });
-        }
-        
-      } else { // Nếu sản phẩm bị hủy yêu thích, xóa nó khỏi danh sách yêu thích
-        const update = {
-          $pull: {
-            favorites: {
-              product_id: productId,
-            },
-          },
-        };
-        await collectionFavorites.updateOne(query, update);
-        res.status(200).json({ message: "Đã xóa sản phẩm khỏi danh sách yêu thích." });
-      }
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ message: "Lỗi server." });
-    }
-  });
-// Dữ liệu mẫu để test trên postman
-//   {
-//     "customerId": "ctm000003",
-//     "productId": "mtb0008",
-//     "isFavorite": true 
-//   }
 
-app.get("/favorites/:customerId", cors(), async (req, res) => {
-    try {
-      const customerId = req.params.customerId;
-  
-      const query = { customer_id: customerId };
-      const result = await collectionFavorites.findOne(query);
-  
-      if (!result) {
-        res.send([]);
-        return;
-      }
-  
-      const favoriteProducts = result.favorites.map(favorite => favorite.product_id);
-  
-      const products = [];
-  
-      for (let i = 0; i < favoriteProducts.length; i++) {
-        const productId = favoriteProducts[i];
-        const productType = productId.substring(0, 2); // lấy ký tự đầu tiên để phân biệt loại sản phẩm
-  
-        switch (productType) {
-          case "dt":
-            products.push(await phoneCollection.findOne({ _id:productId }));
-            break;
-          case "la":
-            products.push(await laptopCollection.findOne({ _id:productId }));
-            break;
-          case "mt":
-            products.push(await tabletCollection.findOne({ _id:productId }));
-            break;
-          case "dh":
-            products.push(await watchCollection.findOne({ _id:productId }));
-            break;
-          case "tn":
-            products.push(await earphoneCollection.findOne({ _id:productId }));
-            break;
-        }
-      }
-        const filteredProducts = products.filter(product => product !== null);
-        res.send(filteredProducts);
-
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ message: "Lỗi server." });
-    }
-  });
   
 //create new user account
 app.post('/techshop/register', async (req, res) => {
@@ -453,7 +337,123 @@ app.post('/techshop/reset-password', async (req, res) => {
 
   
 
+// ============================= insert favorite products to database =====================
+const collectionName = 'favorites';
+const collectionFavorites = database.collection(collectionName);
+app.get("/favorites",cors(),async(req,res)=>{
+    const result=await collectionFavorites.find().toArray();
+    res.send(result)
+})
+app.post("/favorites",cors(),async(req,res)=>{
+    await collectionFavorites.insertOne(req.body)
+    res.send(req.body)
+})
+app.put("/favorites", cors(), async (req, res) => {
+    try {
+      const { customerId, productId, isFavorite } = req.body;
+      const query = { customer_id: customerId };
+      const productInFavorite = await collectionFavorites.findOne({
+        customer_id: customerId,
+        "favorites.product_id": productId,
+      });
+      // Nếu sản phẩm đang được yêu thích, thêm nó vào danh sách yêu thích
+      if (isFavorite) {
+        if(!productInFavorite){
+          const update = {
+            $push: {
+              favorites: {
+                product_id: productId,
+                add_date: new Date().toISOString(),
+              },
+            },
+          };
+          await collectionFavorites.updateOne(query, update);
+          res.status(200).json({ message: "Đã thêm sản phẩm vào danh sách yêu thích." });
+        }
+        else{
+          const update = {
+            $set: {
+              "favorites.$.add_date": new Date().toISOString(),
+            },
+          };
+          await collectionProductCart.updateOne(
+            { "favorites.product_id": productId },
+            update
+          );
+          res
+            .status(200)
+            .json({ message: "Đã cập nhật ngày thêm mới của sản phẩm." });
+        }
+        
+      } else { // Nếu sản phẩm bị hủy yêu thích, xóa nó khỏi danh sách yêu thích
+        const update = {
+          $pull: {
+            favorites: {
+              product_id: productId,
+            },
+          },
+        };
+        await collectionFavorites.updateOne(query, update);
+        res.status(200).json({ message: "Đã xóa sản phẩm khỏi danh sách yêu thích." });
+      }
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: "Lỗi server." });
+    }
+  });
+// Dữ liệu mẫu để test trên postman
+//   {
+//     "customerId": "ctm000003",
+//     "productId": "mtb0008",
+//     "isFavorite": true 
+//   }
 
+app.get("/favorites/:customerId", cors(), async (req, res) => {
+    try {
+      const customerId = req.params.customerId;
+  
+      const query = { customer_id: customerId };
+      const result = await collectionFavorites.findOne(query);
+  
+      if (!result) {
+        res.send([]);
+        return;
+      }
+  
+      const favoriteProducts = result.favorites.map(favorite => favorite.product_id);
+  
+      const products = [];
+  
+      for (let i = 0; i < favoriteProducts.length; i++) {
+        const productId = favoriteProducts[i];
+        const productType = productId.substring(0, 2); // lấy ký tự đầu tiên để phân biệt loại sản phẩm
+  
+        switch (productType) {
+          case "dt":
+            products.push(await phoneCollection.findOne({ _id:productId }));
+            break;
+          case "la":
+            products.push(await laptopCollection.findOne({ _id:productId }));
+            break;
+          case "mt":
+            products.push(await tabletCollection.findOne({ _id:productId }));
+            break;
+          case "dh":
+            products.push(await watchCollection.findOne({ _id:productId }));
+            break;
+          case "tn":
+            products.push(await earphoneCollection.findOne({ _id:productId }));
+            break;
+        }
+      }
+        const filteredProducts = products.filter(product => product !== null);
+        res.send(filteredProducts);
+
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: "Lỗi server." });
+    }
+  });
 
 //================= insert product to database_cart =================
 
