@@ -4,85 +4,32 @@
 <div class="top">
   <div class="incart">
     <!-- <div class="items" *ngFor="let item of items"> -->
-    <div class="items">
+    <div class="items" [attr.id]="'prodCart-' + item._id" *ngFor="let item of productsInCart">
       <div class="info_product">
 
         <div class="info">
-          <div class="image"><img src="./assets/logo/logo-tech-shop.png" alt="" /></div>
+          <div class="image"><img [src]="item.image" alt="" /></div>
           <div class="type">
-            <h3 class="name_product">Name</h3>
-            <h4 class="propertis">size .....color</h4>
+            <h3 class="name_product">{{item.name}}</h3>
+            <h4 class="propertis">{{item.general_info.cpu}} <br> {{item.general_info.screen}}</h4>
           </div>
         </div>
         <div class="quantity">
-          <span class="cost">100000 đ</span>
+          <span class="cost">Đơn giá {{(item.initial_price - item.discount_amount).toLocaleString('vi-VN')}}<span> ₫</span></span>
           <input
             id="number-item"
             type="number"
-            value="1"
-            min="0"
+            min="1"
             max="100"
             step="1"
+            [(ngModel)]="item.quantity"
+            (change)="updateTotalPrice()"
           />
         </div>
       </div>
       <div class="button-dr">
-        <input type="button" value="xóa sản phẩm" id="delete" />
-        <input type="button" value="mua sau" id="remove" />
-      </div>
-    </div>
-    <div class="items">
-      <div class="info_product">
-
-        <div class="info">
-          <div class="image"><img src="./assets/logo/about-me.png" alt="" /></div>
-          <div class="type">
-            <h3 class="name_product">Name</h3>
-            <h4 class="propertis">size .....color</h4>
-          </div>
-        </div>
-        <div class="quantity">
-          <span class="cost">100000 đ</span>
-          <input
-            id="number-item"
-            type="number"
-            value="1"
-            min="0"
-            max="100"
-            step="1"
-          />
-        </div>
-      </div>
-      <div class="button-dr">
-        <input type="button" value="xóa sản phẩm" id="delete" />
-        <input type="button" value="mua sau" id="remove" />
-      </div>
-    </div>
-    <div class="items">
-      <div class="info_product">
-
-        <div class="info">
-          <div class="image"><img src="./assets/logo/key.png" alt="" /></div>
-          <div class="type">
-            <h3 class="name_product">Name</h3>
-            <h4 class="propertis">size .....color</h4>
-          </div>
-        </div>
-        <div class="quantity">
-          <span class="cost">100000 đ</span>
-          <input
-            id="number-item"
-            type="number"
-            value="1"
-            min="0"
-            max="100"
-            step="1"
-          />
-        </div>
-      </div>
-      <div class="button-dr">
-        <input type="button" value="xóa sản phẩm" id="delete" />
-        <input type="button" value="mua sau" id="remove" />
+        <input type="button" value="xóa sản phẩm" id="delete" (click)="deleteProduct($event)"[attr.data-product-cart-id]="item._id"/>
+        <input type="button" value="mua sau" id="remove" (click)="moveToFavorite($event)"[attr.data-product-movetofa-id]="item._id"/>
       </div>
     </div>
     <div class="come-back">
@@ -98,11 +45,11 @@
       </div>
     </div>
     <div class="total_payment_amount">
-      <div class="list"><label>Tổng tiền</label><span>xxxxx</span></div>
+      <div class="list"><label>Tổng tiền</label><span> {{getTotalPrice().toLocaleString('vi-VN')}}<span> ₫</span></span></div>
       <div class="list"><label>Giảm giá</label><span>xxxx</span></div>
-      <div class="list"><label>Thuế GTGT</label> <span>xxxxx</span></div>
+      <div class="list"><label>Thuế GTGT</label> <span>+ {{tax()*100}}% </span></div>
       <hr />
-      <div class="list"><label>Tổng cộng</label> <span>xxxx</span></div>
+      <div class="list"><label>Tổng cộng</label> <span>{{sum().toLocaleString('vi-VN')}}<span> ₫</span></span></div>
       <input type="button" value="Tiến hành đặt hàng" id="purchase" routerLink="/payment" />
     </div>
   </div>
@@ -119,10 +66,10 @@
       <br><span class="price">{{item.initial_price - item.discount_amount}}</span>
 
       <div class="button-fa-item">
-        <button class="button-fa-item-cart">
+        <a (click)="addProduct($event)" class="button-fa-item-cart" [attr.data-tocart-id]="item._id" >
           <img src="./assets/icon/shopping_cart_blue.png" alt="">
           <span>Chuyển vào giỏ hàng</span>
-        </button>
+        </a>
         <button (click)="deletefavorite($event)" class="button-fa-item-delete" [attr.data-product-id]="item._id">Xóa</button>
       </div>
     </div>

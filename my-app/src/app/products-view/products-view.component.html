@@ -9,7 +9,7 @@
       <div class="filter-value">
         <div class="filter-type">Thương hiệu</div>
         <ol>
-          <li *ngFor="let brand of phones; let i = index" [class.hidden]="i >= 5 && !showAllBrands">
+          <li *ngFor="let brand of products; let i = index" [class.hidden]="i >= 5 && !showAllBrands">
             <input type="checkbox" [id]="'brand-' + i" class="checkbox">{{brand.brand}}
           </li>
           <p class="see-more-list-filter" (click)="showAllBrands = !showAllBrands">{{showAllBrands ? 'Ẩn bớt' : 'Xem thêm'}}</p>
@@ -40,15 +40,16 @@
       {{i}}
     </div> -->
     <div class="products-list" > <!-- vùng chứa tất cả sản phẩm -->
-      <div class="product-info" *ngFor="let item of phones; let i = index " [hidden]="i >= 12 && !showAllBrands" > <!-- vùng chứa 1 sản phẩm-->
-        <div class="discount"> giảm {{item.discount_amount}} đ</div>
+      <div class="product-info" *ngFor="let item of products; let i = index " [hidden]="i >= 12 && !showAllBrands" > <!-- vùng chứa 1 sản phẩm-->
+        <div class="discount" style="white-space: nowrap" *ngIf="item.discount_amount != 0"> giảm {{item.discount_amount.toLocaleString('vi-VN')}} <span> ₫</span></div>
+
         <div class="product-img"> <img [src]="item.image" alt=""></div> <!-- vùng chứa ảnh -->
         <div class="ffff">
           <div class="product-info-detail">
             <p class="product-name">{{item.name}}</p>
             <div class="product-price">
-              <div class="price">{{item.initial_price - item.discount_amount}}</div>
-              <div class="initial_price"><del>{{item.initial_price}}</del>đ</div>
+              <div class="price" style="white-space: nowrap">{{(item.initial_price - item.discount_amount).toLocaleString('vi-VN')}} <span> ₫</span></div>
+              <div class="initial_price"style="white-space: nowrap"*ngIf="item.discount_amount != 0"><del>{{item.initial_price.toLocaleString('vi-VN')}} ₫</del></div>
             </div>
             <div class="general_info">
               <div>CPU: {{item.general_info.cpu}}</div>
@@ -63,12 +64,15 @@
                  [attr.id]="'favorite-off-' + item._id"
                  [attr.data-product-id]="item._id"
                  [attr.data-favorite-status]="false"
-                 (click)="toggleFavorite($event)">
+                 (click)="toggleFavorite($event)"
+
+                 >
             <img src="./assets/icon/favorite.png" alt="" class="favorite-on hidden"
                  [attr.id]="'favorite-on-' + item._id"
                  [attr.data-product-id]="item._id"
                  [attr.data-favorite-status]="true"
-                 (click)="toggleFavorite($event)">
+                 (click)="toggleFavorite($event)"
+                 >
           </div>
 
 

@@ -19,5 +19,12 @@
     "secure":true,
     "changeOrigin":true,
     "logLevel":"debug"
+  },
+  {
+    "context":["/prod-in-cart"],
+    "target":"http://localhost:3000",
+    "secure":true,
+    "changeOrigin":true,
+    "logLevel":"debug"
   }
 ]

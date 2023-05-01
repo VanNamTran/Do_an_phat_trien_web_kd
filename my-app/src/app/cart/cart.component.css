@@ -19,7 +19,7 @@
 }
 .items{
   width: 94%;
-  height: 136px;
+  height: auto;
   margin: 20px 20px 0px 20px;
   border-bottom: 1px solid #DEE2E7;
   /* background-color: rgb(4, 31, 31); */
@@ -63,8 +63,8 @@
 }
 
 .button-dr{
-  position: absolute;
-  left: 110px;
+  padding-bottom: 10px;
+  margin-left: 110px;
 }
 #delete{
   color: #FA3434;
