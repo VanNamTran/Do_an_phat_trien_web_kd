@@ -36,7 +36,6 @@
         </div>
         <div class="col-12">
           <p class="h1 text-center" style="font-size: 24px;"><small>Lấy lại tài khoản TechSmember</small></p>
-
           <form [formGroup]="sendEmailForm" (ngSubmit)="onSubmit1()">
             <div class="mb-3" style="width:80%; margin:auto;">
               <div class="row d-flex align-items-center">
@@ -49,28 +48,10 @@
                   <button type="submit" class="btn btn-primary form-control continue" [disabled]="sendEmailForm.invalid">
                     Tiếp tục
                   </button>
-
                 </div>
                 <div class="text-center" *ngIf="sendOTPSuccess">
                   <small class="text-success">{{ sendOTPSuccess }}</small>
                 </div>
-              </div>
-            </form>
-            <form [formGroup]="sendOTPForm" (ngSubmit)="onSubmit2()">
-              <div class="mb-3" style="width:30%; margin:auto; margin-top:50px">
-                <p class="text-center">
-                  Nhập mã OTP/mã xác nhận
-                </p>
-                <input type="text" class="form-control" id="otp" name="otp"
-              formControlName="otp" [disabled]="true"
-              [class.is-invalid]="sendOTPForm.controls['otp'].invalid && sendOTPForm.controls['otp'].touched">
-              </div>
-
-              <div class="text-center" *ngIf="sendOTPError">
-                <small class="text-danger">{{ sendOTPError }}</small>
-              </div>
-              <div class="text-center" *ngIf="sendOTPSuccess">
-                <small class="text-success">{{ sendOTPSuccess }}</small>
               </div>
             </div>
           </form>
@@ -89,9 +70,8 @@
             <div class="mb-3" style="width:30%; margin:auto; ">
               <div class="col-12">
                 <button type="submit" class="btn btn-primary form-control" [disabled]="sendOTPForm.invalid">Xác nhận</button>
-
               </div>
-            </form>
+            </div>
           </form>
         </div>
       </div>
