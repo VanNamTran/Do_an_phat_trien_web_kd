@@ -22,3 +22,6 @@ h1{
 .register{
   cursor: pointer;
 }
+.none{
+  height: 84px;
+}

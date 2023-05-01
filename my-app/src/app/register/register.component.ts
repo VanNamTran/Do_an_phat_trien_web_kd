@@ -4,12 +4,14 @@ import { AbstractControl, ValidatorFn } from '@angular/forms';
 import { UserAPIService } from '../services/user-api.service';
 import { User } from '../models/User';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
 
   phoneRegistered = false;
   emailRegistered = false;

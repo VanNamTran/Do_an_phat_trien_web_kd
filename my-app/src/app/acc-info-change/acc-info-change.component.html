@@ -17,6 +17,8 @@
 <body>
   <header>
     <!-- place navbar here -->
+    <app-header></app-header>
+    <div class="none"></div>
   </header>
   <main>
     <main>
@@ -39,23 +41,23 @@
             <img src="assets/images/info.png" alt="register" class="img-fluid">
           </div>
           <div class="col-12">
-            <p class="h1 text-center" style="font-size: 24px;"><small>Thay đổi thông tin tài khoản TechSmember</small></p>
+            <p class="h1 text-center" style="font-size: 24px;"><small>Thông tin tài khoản TechSmember</small></p>
             <form>
               <div class="mb-3" style="width:50%; margin:auto;">
-                  <input type="phone" class="form-control" id="phone" placeholder="Số điện thoại">
+                  <input type="tel" class="form-control" id="phone" placeholder="Số điện thoại">
               </div>
               <div class="mb-3" style="width:50%; margin:auto;">
                   <input type="email" class="form-control" id="email" placeholder="Địa chỉ email">
               </div>
               <div class="mb-3" style="width:50%; margin:auto;">
-                  <input type="name" class="form-control" id="name" placeholder="Họ và Tên">
+                  <input type="text" class="form-control" id="name" placeholder="Họ và Tên">
               </div>
               <div class="mb-3" style="width:50%; margin:auto;">
-                  <input type="address" class="form-control" id="address" placeholder="Địa chỉ">
+                  <input type="text" class="form-control" id="address" placeholder="Địa chỉ">
               </div>
               <div class="mb-3" style="width:50%; margin:auto;">
-                <div class="col-12" style="margin-top:50px">
-                  <button type="submit" class="btn btn-primary form-control">Thay đổi</button>
+                <div class="col-12" style="margin-top:30px">
+                  <button type="submit" class="btn btn-primary form-control">Cập nhật</button>
                 </div>
               </div>
           </form>
@@ -66,6 +68,7 @@
   </main>
   <footer>
     <!-- place footer here -->
+    <app-footer></app-footer>
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
