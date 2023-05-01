@@ -184,8 +184,7 @@ li.hidden {
 .favorite-icon{
   padding: 20px;
   display: flex;
-  /* justify-content: end; */
-  cursor: pointer;
+  justify-content: end;
 }
 .favorite-icon img{
   width: 24px;
@@ -194,9 +193,15 @@ li.hidden {
   padding: 5px;
   border-radius: 5px;
 }
-
-.hidden{
+/* #favorite-on{
   display: none;
+} */
+.favorite-icon .favorite-on.clicked {
+  display: none;
+}
+
+.favorite-icon .favorite-on.clicked {
+  display:block;
 }
 /* ========= layout ======= */
 .products-list{
