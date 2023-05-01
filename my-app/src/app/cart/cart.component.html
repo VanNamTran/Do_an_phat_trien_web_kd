@@ -66,10 +66,10 @@
       <br><span class="price">{{item.initial_price - item.discount_amount}}</span>
 
       <div class="button-fa-item">
-        <a (click)="addProduct($event)" class="button-fa-item-cart" [attr.data-tocart-id]="item._id" >
+        <div (click)="addProduct($event)" class="button-fa-item-cart" [attr.data-tocart-id]="item._id" >
           <img src="./assets/icon/shopping_cart_blue.png" alt="">
-          <span>Chuyển vào giỏ hàng</span>
-        </a>
+          <span >Chuyển vào giỏ hàng</span>
+        </div>
         <button (click)="deletefavorite($event)" class="button-fa-item-delete" [attr.data-product-id]="item._id">Xóa</button>
       </div>
     </div>
