@@ -1,3 +1,4 @@
+// Tạo service để gọi API
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, map, Observable, retry, throwError } from 'rxjs';
