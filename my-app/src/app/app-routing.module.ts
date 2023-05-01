@@ -61,6 +61,7 @@ export const RountingComponents=[
   NewPasswordComponent,
   AccInfoComponent,
   AccInfoChangeComponent,
-  ConfirmPasswordComponent
+  ConfirmPasswordComponent,
+  NotFoundComponent
 ]
 

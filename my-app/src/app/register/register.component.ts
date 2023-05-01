@@ -12,6 +12,7 @@ import { User } from '../models/User';
 })
 export class RegisterComponent implements OnInit {
 
+
   phoneRegistered = false;
   emailRegistered = false;
 
