@@ -13,9 +13,6 @@ input{
 button{
   border-radius: 30px;
 }
-.h1{
-  font-weight: 500;
-}
 .continue{
   border-radius: 0;
   align-items: center;

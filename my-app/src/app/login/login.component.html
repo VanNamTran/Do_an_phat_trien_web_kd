@@ -38,12 +38,12 @@
           <p class="h1 text-center" style="font-size: 24px;"><small>Đăng nhập tài khoản TechSmember</small></p>
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="mb-3" style="width:50%; margin:auto;">
-              <input matInput type="email tel" class="form-control" id="username" name="username" placeholder="Email/SĐT"
+              <input matInput type="email tel" class="form-control login-input" id="username" name="username" placeholder="Email/SĐT"
                 formControlName="username" [disabled]="true"
                 [class.is-invalid]="loginForm.controls['username'].invalid && loginForm.controls['username'].touched">
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">
-              <input matInput type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu"
+              <input matInput type="password" class="form-control login-input" id="password" name="password" placeholder="Mật khẩu"
                 formControlName="password" [disabled]="true"
                 [class.is-invalid]="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
             </div>
