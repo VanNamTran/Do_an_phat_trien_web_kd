@@ -185,7 +185,11 @@ app.get('/techshop/earphones/:id', cors(), async (req, res) => {
     }
 });
 
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> c2ece3e9b5b01688141f9e8bbcd12cb219f29def
 //create new user account
 app.post('/techshop/register', async (req, res) => {
     var crypto = require("crypto");
@@ -455,142 +459,3 @@ app.get("/favorites/:customerId", cors(), async (req, res) => {
     }
   });
 
-//================= insert product to database_cart =================
-
-const collectionProductCart = database.collection('product_cart');
-app.get("/prod-in-cart",cors(),async(req,res)=>{
-    const result=await collectionProductCart.find().toArray();
-    res.send(result)
-})
-app.post("/prod-in-cart",cors(),async(req,res)=>{
-  await collectionProductCart.insertOne(req.body)
-  res.send(req.body)
-})
-app.get("/prod-in-cart/:customerId", cors(), async (req, res) => {
-  try {
-    const customerId = req.params.customerId;
-    const query = { customer_id: customerId };
-    const result = await collectionProductCart.findOne(query);
-    if (!result) {
-      res.send([]);
-      return;
-    }
-
-    const productsInCart = result.cart;
-
-const products = [];
-
-for (let i = 0; i < productsInCart.length; i++) {
-  const item = productsInCart[i];
-  const productId = item.product_id;
-  const productType = productId.substring(0, 2); // lấy 2 ký tự đầu tiên để phân biệt loại sản phẩm
-
-  switch (productType) {
-    case "dt":
-      const phone = await phoneCollection.findOne({ _id: productId });
-      if (phone) {
-        phone.quantity = item.quantity;
-        products.push(phone);
-      }
-      break;
-    case "la":
-      const laptop = await laptopCollection.findOne({ _id: productId });
-      if (laptop) {
-        laptop.quantity = item.quantity;
-        products.push(laptop);
-      }
-      break;
-    case "mt":
-      const tablet = await tabletCollection.findOne({ _id: productId });
-      if (tablet) {
-        tablet.quantity = item.quantity;
-        products.push(tablet);
-      }
-      break;
-    case "dh":
-      const watch = await watchCollection.findOne({ _id: productId });
-      if (watch) {
-        watch.quantity = item.quantity;
-        products.push(watch);
-      }
-      break;
-    case "tn":
-      const earphone = await earphoneCollection.findOne({ _id: productId });
-      if (earphone) {
-        earphone.quantity = item.quantity;
-        products.push(earphone);
-      }
-      break;
-  }
-}
-
-      const filteredProducts = products.filter(product => product !== null);
-      res.send(filteredProducts);
-
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Lỗi server." });
-  }
-});
-
-app.put("/prod-in-cart", cors(), async (req, res) => {
-  try {
-    const { customerId, productId, quantity, inCart } = req.body;
-    const query = { customer_id: customerId };
-
-    // Kiểm tra sản phẩm đã có trong giỏ hàng hay chưa
-    const productInCart = await collectionProductCart.findOne({
-      customer_id: customerId,
-      "cart.product_id": productId,
-    });
-
-    if (inCart) {
-      // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới sản phẩm vào giỏ hàng
-      if (!productInCart) {
-        const update = {
-          $push: {
-            cart: {
-              product_id: productId,
-              quantity: quantity,
-              add_date: new Date().toISOString(),
-            },
-          },
-        };
-        await collectionProductCart.updateOne(query, update);
-        res
-          .status(200)
-          .json({ message: "Đã thêm sản phẩm vào giỏ hàng." });
-      } else {
-        // Nếu sản phẩm đã có trong giỏ hàng, cập nhật ngày thêm mới của sản phẩm đó
-        const update = {
-          $set: {
-            "cart.$.add_date": new Date().toISOString(),
-          },
-        };
-        await collectionProductCart.updateOne(
-          { "cart.product_id": productId },
-          update
-        );
-        res
-          .status(200)
-          .json({ message: "Đã cập nhật ngày thêm mới của sản phẩm." });
-      }
-    } else {
-      // Nếu sản phẩm bị xóa khỏi giỏ hàng, xóa sản phẩm đó khỏi giỏ hàng
-      const update = {
-        $pull: {
-          cart: {
-            product_id: productId,
-          },
-        },
-      };
-      await collectionProductCart.updateOne(query, update);
-      res
-        .status(200)
-        .json({ message: "Đã xóa sản phẩm khỏi giỏ hàng." });
-    }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Lỗi server." });
-  }
-});

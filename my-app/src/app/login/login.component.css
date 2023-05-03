@@ -1,3 +1,16 @@
 .none{
   height: 84px;
 }
+.container{
+  padding: auto;
+}
+.login-input{
+  background-color: #D9D9D9;
+  color: #696464;
+  font-size: 16px;
+  border-radius: 0;
+}
+button{
+  border-radius: 30px;
+}
+
