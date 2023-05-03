@@ -184,6 +184,7 @@ app.get('/techshop/earphones/:id', cors(), async (req, res) => {
         res.sendStatus(404);
     }
 });
+<<<<<<< HEAD
 
 <<<<<<< HEAD
   
@@ -411,51 +412,16 @@ app.put("/favorites", cors(), async (req, res) => {
 //     "productId": "mtb0008",
 //     "isFavorite": true 
 //   }
+=======
+>>>>>>> parent of 9b82a81 (	modified:   my-app/angular.json)
 
-app.get("/favorites/:customerId", cors(), async (req, res) => {
-    try {
-      const customerId = req.params.customerId;
-  
-      const query = { customer_id: customerId };
-      const result = await collectionFavorites.findOne(query);
-  
-      if (!result) {
-        res.send([]);
-        return;
-      }
-  
-      const favoriteProducts = result.favorites.map(favorite => favorite.product_id);
-  
-      const products = [];
-  
-      for (let i = 0; i < favoriteProducts.length; i++) {
-        const productId = favoriteProducts[i];
-        const productType = productId.substring(0, 2); // lấy ký tự đầu tiên để phân biệt loại sản phẩm
-  
-        switch (productType) {
-          case "dt":
-            products.push(await phoneCollection.findOne({ _id:productId }));
-            break;
-          case "la":
-            products.push(await laptopCollection.findOne({ _id:productId }));
-            break;
-          case "mt":
-            products.push(await tabletCollection.findOne({ _id:productId }));
-            break;
-          case "dh":
-            products.push(await watchCollection.findOne({ _id:productId }));
-            break;
-          case "tn":
-            products.push(await earphoneCollection.findOne({ _id:productId }));
-            break;
-        }
-      }
-        const filteredProducts = products.filter(product => product !== null);
-        res.send(filteredProducts);
 
+<<<<<<< HEAD
     } catch (error) {
       console.log(error);
       res.status(500).json({ message: "Lỗi server." });
     }
   });
+=======
+>>>>>>> parent of 9b82a81 (	modified:   my-app/angular.json)
 
