@@ -1,0 +1,95 @@
+<app-header></app-header>
+<app-subheader></app-subheader>
+
+<!-- <app-breadcrumb></app-breadcrumb> -->
+
+<div class="container-filter-products"> <!-- vùng chứa tất cả thông tin sản phẩm và filter -->
+  <div class="filter"> <!-- Vùng filter -->
+    <div class="filter-types">
+      <div class="filter-value">
+        <div class="filter-type">Thương hiệu</div>
+        <ol>
+          <li *ngFor="let brand of brands; let i = index" [class.hidden]="i >= 5 && !showAllBrands">
+            <input type="checkbox" [id]="'brand-' + i" class="checkbox">{{brand}}
+          </li>
+          <p class="see-more-list-filter" (click)="showAllBrands = !showAllBrands">{{showAllBrands ? 'Ẩn bớt' : 'Xem thêm'}}</p>
+        </ol>
+      </div>
+
+      <div class="filter-value">
+        <div class="filter-type">Giá</div>
+        <ol>
+          <li *ngFor="let price of prices; let i = index" [class.hidden]="i >= 5 && !showAllPrices">
+            <input type="checkbox" [id]="'price-' + i" class="checkbox">{{price}}
+          </li>
+          <p class="see-more-list-filter" (click)="showAllPrices = !showAllPrices">{{showAllPrices ? 'Ẩn bớt' : 'Xem thêm'}}</p>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+  <div class="products" > <!-- vùng chứa thông tin sản phẩm -->
+      <div class="count-view">
+        <p>Có  sản phẩm được tìm thấy</p>
+        <div class="button-view">
+          <button id="grid-layout"><img src="./assets/icon/gridview.png" alt=""></button>
+          <button id="list-layout"><img src="./assets/icon/listview.png" alt=""></button>
+        </div>
+      </div>
+
+    <div class="products-list" *ngFor="let item of tabletProducts; count as total"> <!-- vùng chứa tất cả sản phẩm -->
+      <div class="product-info"> <!-- vùng chứa 1 sản phẩm-->
+        <div class="discount">Giảm {{item.discount_amount}}đ</div>
+        <div class="product-img"> <img src="{{item.image}}" alt=""></div> <!-- vùng chứa ảnh -->
+        <div class="ffff">
+          <div class="product-info-detail">
+            <p class="product-name">{{item.name}}</p>
+            <div class="product-price">
+              <div class="price">{{item.initial_price - item.discount_amount}}đ</div>
+              <div class="initial_price"><del>{{item.initial_price}}đ</del></div>
+            </div>
+            <div class="general_info">
+              <table class="general_info_table">
+                <tr>
+                  <td><b>Brand</b></td>
+                  <td>{{item.brand}}</td>
+                </tr>
+                <tr>
+                  <td><b>CPU</b></td>
+                  <td>{{item.general_info.cpu}}</td>
+                </tr>
+                <tr>
+                  <td><b>Screen</b></td>
+                  <td>{{item.general_info.screen}} inch</td>
+                </tr>
+                <tr>
+                  <td><b>RAM</b></td>
+                  <td>{{item.general_info.ram}}</td>
+                </tr>
+                <tr>
+                  <td><b>ROM</b></td>
+                  <td>{{item.general_info.rom}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="favorite-icon">
+            <img src="./assets/icon/favorite_border.png" alt="" class="favorite-off"  id="favorite-off">
+            <!-- <img src="./assets/icon/favorite.png" alt="" class="favorite-on" id="favorite-on"> -->
+          </div>
+        </div>
+        <div class="purchase">
+          <button id="purchase" (click)="viewTabletProductDetail(item)" title="Click here to view detail">Mua ngay</button>
+        </div>
+
+      </div>
+    </div>
+    <div class="see-more">
+      <button>Xem thêm sản phẩm</button>
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>
+

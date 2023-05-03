@@ -1,0 +1,71 @@
+<app-header></app-header>
+<app-subheader></app-subheader>
+<div class="none"></div>
+<div class="product-bar">
+  <a href="#home">Trang chủ</a>
+  <span>></span>
+  <a href="#phone">Điện thoại</a>
+  <span>></span>
+  <a href="#">{{selectedWatch.name}}</a>
+</div>
+<br>
+<div class="product-infor">
+  <div class="product-image" >
+    <img class="image-design" src="{{selectedWatch.image}}">
+  </div>
+
+  <div class="product-noti">
+    <h1 class="product-name-text">{{selectedWatch.name}}</h1>
+    <div class="price-detail">
+        <div class="text-detail">
+          Giá hiện tại <br><span class="discounted">{{selectedWatch.initial_price - selectedWatch.discount_amount}} đ</span>
+        </div>
+        <div class="text-detail">
+          Giá gốc <br><span class="origin">{{selectedWatch.initial_price}} đ</span>
+        </div>
+        <div class="text-detail">
+          Tiết kiệm <br><span class="discounted">{{selectedWatch.discount_amount}} đ</span>
+        </div>
+    </div>
+
+    <div>
+      <table class="table-detail">
+        <tr>
+          <td><b>Material </b></td>
+          <td>{{selectedWatch.details.material_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Screen </b></td>
+          <td>{{selectedWatch.details.screen_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Compatible operating camera </b></td>
+          <td>{{selectedWatch.details.compatible_os_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Battery </b></td>
+          <td>{{selectedWatch.details.battery_detail}}</td>
+        </tr>
+      </table>
+    </div>
+
+  <button class="btn-add">Thêm vào giỏ hàng</button>
+  </div>
+
+</div>
+<br>
+<div class="product-description">
+  <div class="topnav">
+    <a class="active" href="#description">Mô tả</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#supplement">Sản phẩm đi kèm</a>
+  </div>
+</div>
+<br>
+<div class="product-suggestion">
+    <p>Sản phẩm bạn có thể quan tâm</p>
+</div>
+
+<div class="advertisement"></div>
+<app-footer></app-footer>
+

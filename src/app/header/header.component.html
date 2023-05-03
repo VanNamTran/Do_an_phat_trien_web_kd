@@ -1,0 +1,30 @@
+<div class="header header-color">
+  <div class="logo"><img src="./assets/logo/logo-tech-shop.png" alt=""></div>
+  <div class="input-search"><input type="search" placeholder="Tìm kiếm sản phẩm"> <input type="button" value="Tìm kiếm"></div>
+  <div class="icons">
+    <div class="icon-message icon">
+      <img src="./assets/icon/message.png" alt="">
+      <span style="width: 80px;">Thông báo</span>
+    </div>
+    <div class="icon-info icon" (click)="infoDropdown()">
+      <img src="./assets/icon/nguoi.png" alt="">
+      <span style="width: 130px;">Tài khoản của tôi</span>
+    </div>
+    <div class="icon-cart icon" routerLink="/cart">
+      <img src="./assets/icon/cart.png" alt="">
+      <span style="width: 70px;">Giỏ hàng</span>
+    </div>
+  </div>
+</div>
+
+<div id="dropdown" class="info-dropdown" *ngIf="isDropdownOpen">
+    <div><img src="./assets/icon/account_circle.png" alt=""><label for="">Tên khách hàng: </label><span>MR Tèo</span></div>
+    <div><img src="./assets/icon/call.png" alt=""><label for="">Số điện thoại: </label><span>0999256478</span></div>
+    <div><img src="./assets/icon/email.png" alt=""><label for="">Email: </label><span>teo2ka2@gmail.com</span></div>
+    <div><img src="./assets/icon/location.png" alt=""><label for="">Địa chỉ: </label><span>Sô 5 Nguyễn Chí Thanh, khu phố 3, phương Linh Đông,Tp Thủ Đức</span></div>
+    <div class="log-reg-button">
+      <button>Đăng xuất</button>
+      <button routerLink="/thongtin">Cập nhật thông tin</button>
+    </div>
+  </div>
+<!-- <app-popup-login></app-popup-login> -->

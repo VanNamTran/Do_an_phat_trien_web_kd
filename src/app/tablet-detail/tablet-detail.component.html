@@ -1,0 +1,100 @@
+<app-header></app-header>
+<app-subheader></app-subheader>
+<div class="none"></div>
+<div class="product-bar">
+  <a href="#home">Trang chủ</a>
+  <span>></span>
+  <a href="#laptop">Laptop</a>
+  <span>></span>
+  <a href="#">{{selectedTablet.name}}</a>
+</div>
+<br>
+<div class="product-infor">
+  <div class="product-image" >
+    <img class="image-design" src="{{selectedTablet.image}}">
+  </div>
+
+  <div class="product-noti">
+    <h1 class="product-name-text">{{selectedTablet.name}}</h1>
+    <div class="price-detail">
+        <div class="text-detail">
+          Giá hiện tại <br><span class="discounted">{{selectedTablet.initial_price - selectedTablet.discount_amount}} đ</span>
+        </div>
+        <div class="text-detail">
+          Giá gốc <br><span class="origin">{{selectedTablet.initial_price}} đ</span>
+        </div>
+        <div class="text-detail">
+          Tiết kiệm <br><span class="discounted">{{selectedTablet.discount_amount}} đ</span>
+        </div>
+    </div>
+
+    <div>
+      <table class="table-detail">
+        <tr>
+          <td><b>CPU </b></td>
+          <td>{{selectedTablet.details.cpu_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Screen </b></td>
+          <td>{{selectedTablet.details.screen_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Back Camera </b></td>
+          <td>{{selectedTablet.details.backcamera_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Front Camera </b></td>
+          <td>{{selectedTablet.details.frontcamera_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Ram </b></td>
+          <td>{{selectedTablet.details.ram_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Rom </b></td>
+          <td>{{selectedTablet.details.rom_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Battery </b></td>
+          <td>{{selectedTablet.details.battery_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Sim </b></td>
+          <td>{{selectedTablet.details.sim_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Operating System </b></td>
+          <td>{{selectedTablet.details.os_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Origin </b></td>
+          <td>{{selectedTablet.details.origin_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Release time </b></td>
+          <td>{{selectedTablet.details.release_detail}}</td>
+        </tr>
+      </table>
+    </div>
+
+  <button class="btn-add">Thêm vào giỏ hàng</button>
+  </div>
+
+</div>
+<br>
+<div class="product-description">
+  <div class="topnav">
+    <a class="active" href="#description">Mô tả</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#supplement">Sản phẩm đi kèm</a>
+  </div>
+</div>
+<br>
+<div class="product-suggestion">
+    <p>Sản phẩm bạn có thể quan tâm</p>
+</div>
+
+<div class="advertisement"></div>
+<app-footer></app-footer>
+
+
