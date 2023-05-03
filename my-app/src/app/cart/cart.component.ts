@@ -1,5 +1,6 @@
 import { Component, OnInit ,ChangeDetectorRef} from '@angular/core';
-import { ApiProductsService } from '../services/api-products.service';
+import { ApiProductsService, } from '../services/api-products.service';
+import { UserAPIService } from '../services/user-api.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -13,10 +14,10 @@ export class CartComponent implements OnInit{
   cartProducts: string[] = [];
   productsInCart:any;
   totalPrice: number | undefined;
-  customerId="ctm000001"
-  constructor(private _service:ApiProductsService,){}
+  customerId:any
+  constructor(private _service:ApiProductsService,private _serviceACC:UserAPIService){}
   ngOnInit() {
-
+    // this.customerId = this._serviceACC.loginUser()
     this._service.getListFavorites(this.customerId).subscribe({
       next: (data) => { this.listFavoriteProduct= data },
       error: (err) => { this.errMessage = err }

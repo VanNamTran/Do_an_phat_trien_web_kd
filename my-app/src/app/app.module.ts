@@ -13,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule, RountingComponents } from './app-routing.module';
+import { AppRoutingModule, RoutingComponents } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
@@ -35,12 +35,13 @@ import { ProductsViewComponent } from './products-view/products-view.component';
 // import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { NotDevelopedFeatureComponent } from './not-developed-feature/not-developed-feature.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-
+import { TrangChuComponent } from './trang-chu/trang-chu.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RountingComponents,
+    RoutingComponents,
     RegisterComponent,
     LoginComponent,
     AccResetComponent,
@@ -60,6 +61,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     // BreadcrumbComponent
     NotDevelopedFeatureComponent,
     ProductDetailComponent,
+    TrangChuComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,

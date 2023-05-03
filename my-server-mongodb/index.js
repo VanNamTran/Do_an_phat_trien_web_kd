@@ -594,3 +594,36 @@ app.put("/prod-in-cart", cors(), async (req, res) => {
     res.status(500).json({ message: "Lỗi server." });
   }
 });
+// ========== hiển thị sản phẩm ở trang chủ =================
+tonghopCollection=database.collection('tonghops');
+
+app.get('/tonghop', cors(), async (req,res)=>{
+    const result=await tonghopCollection.find().toArray();
+    res.send(result)
+})
+
+// app.get('/phones/:id', async (req, res) => {
+//     const id = req.params.id;
+//     const result = await phoneCollection.findOne({ _id: id });
+//     res.send(result);
+// });
+
+app.get('/tonghop/:id', cors(), async (req, res) => {
+    const id = req.params.id;
+
+    const result = await tonghopCollection.aggregate([
+        { $match: { _id: id } },
+        { $lookup: {
+            from: 'phone_details',
+            localField: 'details_id',
+            foreignField: '_id',
+            as: 'details'
+        }}
+    ]).toArray();
+
+    if (result.length > 0) {
+        res.json(result[0]);
+    } else {
+        res.sendStatus(404);
+    }
+});

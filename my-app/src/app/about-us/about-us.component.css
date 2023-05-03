@@ -1,0 +1,51 @@
+
+.none{
+  height: 84px;
+}
+.img_intro_1{
+  width: 100%;
+  height: 90%;
+  height: auto;
+  background-size: cover;
+  background-position: center;
+}
+.intro_section_1{
+  position: relative;
+}
+.divlogo{
+  position: absolute;
+  width: 25vw;
+  height: 25vw;
+  top: 20%;
+  left: 20%;
+  background-color: rgb(241, 241, 241);
+  box-shadow: 10px 7px 21px 0 rgba(0,0,0,0.4);
+  border-radius: 50%;
+}
+.logo{
+  position: absolute;
+  width: 75%;
+  top:40%;
+  left:-10%
+}
+.about{
+  position: absolute;
+  width: 20%;
+  min-height: 40%;
+  top: 20%;
+  right: 20%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 10px 7px 21px 0 rgba(0,0,0,0.4);
+  border-radius: 10px;
+  padding: 3%;
+  color: rgb(71, 71, 71);
+}
+.intro_section_2{display: flex;}
+.info{
+  padding: 20px 50px 50px 50px;
+  text-align: justify;
+  color: rgb(71, 71, 71);
+}
+.type_intro{
+  width: 50%;
+}

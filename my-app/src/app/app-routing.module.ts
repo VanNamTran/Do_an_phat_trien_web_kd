@@ -17,6 +17,8 @@ import { PaymentTransferComponent } from './payment-transfer/payment-transfer.co
 import { ProductsViewComponent } from './products-view/products-view.component';
 import { NotDevelopedFeatureComponent } from './not-developed-feature/not-developed-feature.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { TrangChuComponent } from './trang-chu/trang-chu.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 // import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 const routes: Routes = [
@@ -34,6 +36,8 @@ const routes: Routes = [
   {path:'thongtin', component: AccInfoComponent},
   {path:'capnhatthongtin', component: AccInfoChangeComponent},
   {path:'xacnhan', component: ConfirmPasswordComponent},
+  {path:"trang-chu", component:TrangChuComponent},
+  {path:"gioithieu",component:AboutUsComponent},
   {path:"**",component:NotFoundComponent}
 ]
 
@@ -46,7 +50,7 @@ export class AppRoutingModule { }
 
 
 
-export const RountingComponents=[
+export const RoutingComponents=[
   CartComponent,
   PaymentComponent,
   NotFoundComponent,
@@ -62,6 +66,7 @@ export const RountingComponents=[
   AccInfoComponent,
   AccInfoChangeComponent,
   ConfirmPasswordComponent,
+  TrangChuComponent,
   NotFoundComponent
 ]
 
