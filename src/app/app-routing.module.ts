@@ -42,7 +42,6 @@ export const routes: Routes = [
   {path:'thongtin', component: AccInfoComponent},
   {path:"capnhatthongtin", component: AccInfoChangeComponent},
   {path:"xacnhan", component: ConfirmPasswordComponent},
-  {path:"**",component:NotFoundComponent},
   {path: "laptop", component: LaptopComponent},
   {path: "laptop/:id", component: LaptopDetailComponent},
   {path: "tablets", component: TabletsComponent},
@@ -51,6 +50,7 @@ export const routes: Routes = [
   {path: "watch/:id", component: WatchDetailComponent},
   {path: "earphone", component: EarphoneComponent},
   {path: "earphone/:id", component: EarphoneDetailComponent},
+   {path:"**",component:NotFoundComponent}
 ]
 
 
