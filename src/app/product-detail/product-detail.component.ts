@@ -9,12 +9,18 @@ import { ThisReceiver } from '@angular/compiler';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent {
+  phoneProducts: any;
+  errMessage: string=""
   selectedPhone: any;
   errorMessage: string=""
   constructor( private _service: ProductsViewService,
                 private router: Router,
                 private activatedRoute: ActivatedRoute)
     {
+      this._service.getPhoneProducts().subscribe({
+        next:(data)=>{this.phoneProducts=data},
+        error:(err)=>{this.errMessage=err}
+      })
         activatedRoute.paramMap.subscribe(
           (param)=>{
             let id = param.get('id')
@@ -35,5 +41,6 @@ export class ProductDetailComponent {
         error: (err)=> {this.errorMessage=err}
       })
     }
+
 
 }

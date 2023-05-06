@@ -29,27 +29,20 @@
     </div>
 
     <div>
-      <table class="table-detail">
+      <table class="table_general">
         <tr>
-          <td><b>Type </b></td>
-          <td>{{selectedEarphone.details.type_detail}}</td>
+          <td><b>Loại tai nghe </b></td>
+          <td>{{selectedEarphone.general_info.type_detail}}</td>
         </tr>
         <tr>
-          <td><b>Connection </b></td>
-          <td>{{selectedEarphone.details.connection_detail}}</td>
+          <td><b>Cách kết nối </b></td>
+          <td>{{selectedEarphone.general_info.connection_detail}}</td>
         </tr>
         <tr>
-          <td><b>Features </b></td>
-          <td>{{selectedEarphone.details.features_detail}}</td>
+          <td><b>Tính năng </b></td>
+          <td>{{selectedEarphone.general_info.features_detail}}</td>
         </tr>
-        <tr>
-          <td><b>Origin </b></td>
-          <td>{{selectedEarphone.details.origin_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Warranty </b></td>
-          <td>{{selectedEarphone.details.warranty_detail}}</td>
-        </tr>
+
       </table>
     </div>
 
@@ -60,14 +53,55 @@
 <br>
 <div class="product-description">
   <div class="topnav">
-    <a class="active" href="#description">Mô tả</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#supplement">Sản phẩm đi kèm</a>
+    <button class="btn-describe">Mô tả sản phẩm</button>
+    <button class="btn-describe">Reviews</button>
+    <button class="btn-describe">Sản phẩm đi kèm</button>
   </div>
+  <hr>
+    <div class="product_detail">
+      <table class="table-detail">
+        <tr>
+          <td><b>Loại tai nghe: </b></td>
+          <td>{{selectedEarphone.details.details.type_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Cách kết nối: </b></td>
+          <td>{{selectedEarphone.details.details.connection_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Các tính năng: </b></td>
+          <td>{{selectedEarphone.details.details.features_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Xuất xứ: </b></td>
+          <td>{{selectedEarphone.details.details.origin_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Bảo hành: </b></td>
+          <td>{{selectedEarphone.details.details.warranty_detail}}</td>
+        </tr>
+      </table>
+
+    </div>
+
+
 </div>
 <br>
 <div class="product-suggestion">
-    <p>Sản phẩm bạn có thể quan tâm</p>
+  <p>Sản phẩm bạn có thể quan tâm</p>
+  <hr>
+  <div class="product-list" >
+    <div *ngFor="let earphone of earphoneProducts" >
+      <div class="card" *ngIf="earphone._id != selectedEarphone._id">
+        <div class="image"><img src="{{earphone.image}}"></div>
+        <div class="title">{{earphone.name}}</div>
+        <div class="text">{{earphone.initial_price - earphone.discount_amount}} đ</div>
+        <div class="product-choice">
+          <button class="btn-buy" routerLink="/earphone/{{earphone._id}}">Mua ngay</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="advertisement"></div>

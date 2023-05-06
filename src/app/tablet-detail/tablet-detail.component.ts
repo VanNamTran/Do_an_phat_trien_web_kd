@@ -8,12 +8,18 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./tablet-detail.component.css']
 })
 export class TabletDetailComponent {
+  tabletProducts: any;
+  errMessage: string=""
   selectedTablet: any;
   errorMessage: string=""
   constructor( private _service: ProductsViewService,
                 private router: Router,
                 private activatedRoute: ActivatedRoute)
     {
+      this._service.getTabletProducts().subscribe({
+        next:(data)=>{this.tabletProducts=data},
+        error:(err)=>{this.errMessage=err}
+      })
         activatedRoute.paramMap.subscribe(
           (param)=>{
             let id = param.get('id')

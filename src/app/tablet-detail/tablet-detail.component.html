@@ -29,50 +29,22 @@
     </div>
 
     <div>
-      <table class="table-detail">
+      <table class="table_general">
         <tr>
           <td><b>CPU </b></td>
-          <td>{{selectedTablet.details.cpu_detail}}</td>
+          <td>{{selectedTablet.general_info.cpu}}</td>
         </tr>
         <tr>
-          <td><b>Screen </b></td>
-          <td>{{selectedTablet.details.screen_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Back Camera </b></td>
-          <td>{{selectedTablet.details.backcamera_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Front Camera </b></td>
-          <td>{{selectedTablet.details.frontcamera_detail}}</td>
+          <td><b>Màn hình </b></td>
+          <td>{{selectedTablet.general_info.screen}}</td>
         </tr>
         <tr>
           <td><b>Ram </b></td>
-          <td>{{selectedTablet.details.ram_detail}}</td>
+          <td>{{selectedTablet.general_info.ram}}</td>
         </tr>
         <tr>
-          <td><b>Rom </b></td>
-          <td>{{selectedTablet.details.rom_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Battery </b></td>
-          <td>{{selectedTablet.details.battery_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Sim </b></td>
-          <td>{{selectedTablet.details.sim_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Operating System </b></td>
-          <td>{{selectedTablet.details.os_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Origin </b></td>
-          <td>{{selectedTablet.details.origin_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Release time </b></td>
-          <td>{{selectedTablet.details.release_detail}}</td>
+          <td><b>Bộ nhớ trong </b></td>
+          <td>{{selectedTablet.general_info.rom}}</td>
         </tr>
       </table>
     </div>
@@ -84,14 +56,80 @@
 <br>
 <div class="product-description">
   <div class="topnav">
-    <a class="active" href="#description">Mô tả</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#supplement">Sản phẩm đi kèm</a>
+    <button class="btn-describe">Mô tả sản phẩm</button>
+    <button class="btn-describe">Reviews</button>
+    <button class="btn-describe">Sản phẩm đi kèm</button>
   </div>
+  <hr>
+    <div class="product_detail">
+      <table class="table-detail">
+        <tr>
+          <td><b>CPU: </b></td>
+          <td>{{selectedTablet.details.details.cpu_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Màn hình: </b></td>
+          <td>{{selectedTablet.details.details.screen_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Camera sau: </b></td>
+          <td>{{selectedTablet.details.details.backcamera_detail
+            }}</td>
+        </tr>
+        <tr>
+          <td><b>Camera selfie: </b></td>
+          <td>{{selectedTablet.details.details.frontcamera_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Ram: </b></td>
+          <td>{{selectedTablet.details.details.ram_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Bộ nhớ trong: </b></td>
+          <td>{{selectedTablet.details.details.rom_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Dung lượng pin: </b></td>
+          <td>{{selectedTablet.details.details.battery_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Thẻ Sim: </b></td>
+          <td>{{selectedTablet.details.details.sim_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Hệ điều hành: </b></td>
+          <td>{{selectedTablet.details.details.os_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Xuất xứ: </b></td>
+          <td>{{selectedTablet.details.details.origin_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Thời gian ra mắt: </b></td>
+          <td>{{selectedTablet.details.details.release_detail}}</td>
+        </tr>
+      </table>
+
+    </div>
+
+
 </div>
 <br>
 <div class="product-suggestion">
-    <p>Sản phẩm bạn có thể quan tâm</p>
+  <p>Sản phẩm bạn có thể quan tâm</p>
+  <hr>
+  <div class="product-list" >
+    <div *ngFor="let tablet of tabletProducts" >
+      <div class="card" *ngIf="tablet._id != selectedTablet._id">
+        <div class="image"><img src="{{tablet.image}}"></div>
+        <div class="title">{{tablet.name}}</div>
+        <div class="text">{{tablet.initial_price - tablet.discount_amount}} đ</div>
+        <div class="product-choice">
+          <button class="btn-buy" routerLink="/tablets/{{tablet._id}}">Mua ngay</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="advertisement"></div>

@@ -29,46 +29,30 @@
     </div>
 
     <div>
-      <table class="table-detail">
+      <table class="table_general">
         <tr>
           <td><b>CPU </b></td>
-          <td>{{selectedLaptop.details.cpu_detail}}</td>
+          <td>{{selectedLaptop.general_info.cpu}}</td>
         </tr>
         <tr>
-          <td><b>Screen </b></td>
-          <td>{{selectedLaptop.details.screen_detail}}</td>
+          <td><b>Màn hình </b></td>
+          <td>{{selectedLaptop.general_info.screen}} inch</td>
         </tr>
         <tr>
           <td><b>Ram </b></td>
-          <td>{{selectedLaptop.details.ram_detail}}</td>
+          <td>{{selectedLaptop.general_info.ram}}</td>
         </tr>
         <tr>
-          <td><b>Rom </b></td>
-          <td>{{selectedLaptop.details.rom_detail}}</td>
+          <td><b>Bộ nhớ trong </b></td>
+          <td>{{selectedLaptop.general_info.rom}}</td>
         </tr>
         <tr>
-          <td><b>Graphic </b></td>
-          <td>{{selectedLaptop.details.graphic_detail}}</td>
+          <td><b>Đồ họa </b></td>
+          <td>{{selectedLaptop.general_info.graphic}}</td>
         </tr>
         <tr>
-          <td><b>Operating system </b></td>
-          <td>{{selectedLaptop.details.os_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Weight </b></td>
-          <td>{{selectedLaptop.details.weight_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Size </b></td>
-          <td>{{selectedLaptop.details.size_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Origin </b></td>
-          <td>{{selectedLaptop.details.origin_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Release time </b></td>
-          <td>{{selectedLaptop.details.release_detail}}</td>
+          <td><b>Trọng lượng </b></td>
+          <td>{{selectedLaptop.general_info.weight}} kg</td>
         </tr>
       </table>
     </div>
@@ -80,14 +64,75 @@
 <br>
 <div class="product-description">
   <div class="topnav">
-    <a class="active" href="#description">Mô tả</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#supplement">Sản phẩm đi kèm</a>
+    <button class="btn-describe">Mô tả sản phẩm</button>
+    <button class="btn-describe">Reviews</button>
+    <button class="btn-describe">Sản phẩm đi kèm</button>
   </div>
+  <hr>
+    <div class="product_detail">
+      <table class="table-detail">
+        <tr>
+          <td><b>CPU: </b></td>
+          <td>{{selectedLaptop.details.details.cpu_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Màn hình: </b></td>
+          <td>{{selectedLaptop.details.details.screen_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Ram: </b></td>
+          <td>{{selectedLaptop.details.details.ram_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Bộ nhớ trong: </b></td>
+          <td>{{selectedLaptop.details.details.rom_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Đồ họa: </b></td>
+          <td>{{selectedLaptop.details.details.graphic_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Hệ điều hành: </b></td>
+          <td>{{selectedLaptop.details.details.os_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Trọng lượng: </b></td>
+          <td>{{selectedLaptop.details.details.weight_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Kích thước: </b></td>
+          <td>{{selectedLaptop.details.details.size_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Xuất xứ: </b></td>
+          <td>{{selectedLaptop.details.details.origin_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Thời gian ra mắt: </b></td>
+          <td>{{selectedLaptop.details.details.release_detail}}</td>
+        </tr>
+      </table>
+
+    </div>
+
+
 </div>
 <br>
 <div class="product-suggestion">
-    <p>Sản phẩm bạn có thể quan tâm</p>
+  <p>Sản phẩm bạn có thể quan tâm</p>
+  <hr>
+  <div class="product-list" >
+    <div *ngFor="let laptop of laptopProducts" >
+      <div class="card" *ngIf="laptop._id != selectedLaptop._id">
+        <div class="image"><img src="{{laptop.image}}"></div>
+        <div class="title">{{laptop.name}}</div>
+        <div class="text">{{laptop.initial_price - laptop.discount_amount}} đ</div>
+        <div class="product-choice">
+          <button class="btn-buy" routerLink="/laptop/{{laptop._id}}">Mua ngay</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="advertisement"></div>

@@ -16,13 +16,18 @@ body{
   box-sizing: border-box;
   border: 1px solid #DEE2E7;
   border-radius: 6px;
-  margin-left: 120px;
-  margin-right: 120px;
+  margin-left: 50px;
+  margin-right: 50px;
   font-size: 16px;
   align-items: center;
   font-family: sans-serif;
   padding: 12px;
   background-color: #fff;
+  margin-bottom: 10px;
+}
+
+.product-description, .product-suggestion{
+  display: block;
 }
 
 .product-name-text{
@@ -51,7 +56,7 @@ body{
   font-size: 16px;
   background: #FFF0DF;
   line-height: 40px;
-  width: 100%;
+  width: 70%;
   text-align: center;
 }
 
@@ -74,7 +79,23 @@ body{
 .table-detail{
   line-height: 40px;
   margin-left: 5px;
-  width: 100%
+  max-width: 100%;
+  border-collapse: collapse;
+}
+
+.table-detail tr, .table-detail td{
+  border: 1px solid #000;
+}
+
+.table_general{
+  line-height: 40px;
+  margin-left: 5px;
+  max-width: 100%;
+  border: none;
+}
+
+.product_detail{
+  padding: 14px 16px;
 }
 
 .btn-add{
@@ -105,4 +126,63 @@ body{
 
 .product-suggestion p, .product-bar a{
   padding: 14px 16px;
+  font-weight:bold;
+}
+
+.btn-describe{
+  border: none;
+  background-color: #fff;
+  padding: 14px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.product-list{
+  display: flex;
+  padding: 3em;
+  flex-wrap: wrap;
+}
+
+.product-list .card {
+  background-color: #dcdcdc;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 1em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 1em;
+  width: 250px;
+  height: 90%;
+}
+
+.card .title{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card .text {
+  color: #FA3434;
+  font-weight: bold;
+  font-size:18px;
+}
+
+.card .image{
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 1em;
+}
+.card .product-choice{
+  text-align:center;
+}
+
+.product-choice .btn-buy{
+  width: 100px;
+  height: 40px;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%);
+  text-align:center;
 }

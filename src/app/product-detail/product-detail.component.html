@@ -29,52 +29,23 @@
     </div>
 
     <div>
-      <table class="table-detail">
-        <tr>
-          <td><b>CPU </b></td>
-          <td>{{selectedPhone.details.cpu_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Screen </b></td>
-          <td>{{selectedPhone.details.screen_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Back camera</b></td>
-          <td>{{selectedPhone.details.backcamera_detail
-            }}</td>
-        </tr>
-        <tr>
-          <td><b>Front camera</b></td>
-          <td>{{selectedPhone.details.frontcamera_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Ram </b></td>
-          <td>{{selectedPhone.details.ram_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Rom </b></td>
-          <td>{{selectedPhone.details.rom_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Battery </b></td>
-          <td>{{selectedPhone.details.battery_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Sim </b></td>
-          <td>{{selectedPhone.details.sim_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Operating system </b></td>
-          <td>{{selectedPhone.details.os_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Origin </b></td>
-          <td>{{selectedPhone.details.origin_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Release time </b></td>
-          <td>{{selectedPhone.details.release_detail}}</td>
-        </tr>
+      <table class="table_general">
+      <tr>
+        <td><b>CPU </b></td>
+        <td>{{selectedPhone.general_info.cpu}}</td>
+      </tr>
+      <tr>
+        <td><b>Màn hình </b></td>
+        <td>{{selectedPhone.general_info.screen}} inch</td>
+      </tr>
+      <tr>
+        <td><b>Ram </b></td>
+        <td>{{selectedPhone.general_info.ram}}</td>
+      </tr>
+      <tr>
+        <td><b>Bộ nhớ trong </b></td>
+        <td>{{selectedPhone.general_info.rom}}</td>
+      </tr>
       </table>
     </div>
 
@@ -85,14 +56,81 @@
 <br>
 <div class="product-description">
   <div class="topnav">
-    <a class="active" href="#description">Mô tả</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#supplement">Sản phẩm đi kèm</a>
+    <button class="btn-describe">Mô tả sản phẩm</button>
+    <button class="btn-describe">Reviews</button>
+    <button class="btn-describe">Sản phẩm đi kèm</button>
   </div>
+  <hr>
+    <div class="product_detail">
+      <table class="table-detail">
+        <tr>
+          <td><b>CPU: </b></td>
+          <td>{{selectedPhone.details.details.cpu_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Màn hình: </b></td>
+          <td>{{selectedPhone.details.details.screen_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Camera sau: </b></td>
+          <td>{{selectedPhone.details.details.backcamera_detail
+            }}</td>
+        </tr>
+        <tr>
+          <td><b>Camera selfie: </b></td>
+          <td>{{selectedPhone.details.details.frontcamera_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Ram: </b></td>
+          <td>{{selectedPhone.details.details.ram_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Bộ nhớ trong: </b></td>
+          <td>{{selectedPhone.details.details.rom_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Dung lượng pin: </b></td>
+          <td>{{selectedPhone.details.details.battery_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Thẻ Sim: </b></td>
+          <td>{{selectedPhone.details.details.sim_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Hệ điều hành: </b></td>
+          <td>{{selectedPhone.details.details.os_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Xuất xứ: </b></td>
+          <td>{{selectedPhone.details.details.origin_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Thời gian ra mắt: </b></td>
+          <td>{{selectedPhone.details.details.release_detail}}</td>
+        </tr>
+      </table>
+
+    </div>
+
+
 </div>
+
 <br>
 <div class="product-suggestion">
     <p>Sản phẩm bạn có thể quan tâm</p>
+    <hr>
+    <div class="product-list" >
+      <div *ngFor="let phone of phoneProducts" >
+        <div class="card" *ngIf="phone._id != selectedPhone._id">
+          <div class="image"><img src="{{phone.image}}"></div>
+          <div class="title">{{phone.name}}</div>
+          <div class="text">{{phone.initial_price - phone.discount_amount}} đ</div>
+          <div class="product-choice">
+            <button class="btn-buy" routerLink="/products-view/{{phone._id}}">Mua ngay</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
 
 <div class="advertisement"></div>

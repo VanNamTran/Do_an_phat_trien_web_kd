@@ -29,26 +29,17 @@
     </div>
 
     <div>
-      <table class="table-detail">
+      <table class="table_general">
         <tr>
-          <td><b>Material </b></td>
-          <td>{{selectedWatch.details.material_detail}}</td>
+          <td><b>Chất liệu </b></td>
+          <td>{{selectedWatch.general_info.material}}</td>
         </tr>
         <tr>
-          <td><b>Screen </b></td>
-          <td>{{selectedWatch.details.screen_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Compatible operating camera </b></td>
-          <td>{{selectedWatch.details.compatible_os_detail}}</td>
-        </tr>
-        <tr>
-          <td><b>Battery </b></td>
-          <td>{{selectedWatch.details.battery_detail}}</td>
+          <td><b>Màn hình </b></td>
+          <td>{{selectedWatch.general_info.screen}}</td>
         </tr>
       </table>
     </div>
-
   <button class="btn-add">Thêm vào giỏ hàng</button>
   </div>
 
@@ -56,16 +47,57 @@
 <br>
 <div class="product-description">
   <div class="topnav">
-    <a class="active" href="#description">Mô tả</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#supplement">Sản phẩm đi kèm</a>
+    <button class="btn-describe">Mô tả sản phẩm</button>
+    <button class="btn-describe">Reviews</button>
+    <button class="btn-describe">Sản phẩm đi kèm</button>
   </div>
+  <hr>
+    <div class="product_detail">
+      <table class="table-detail">
+
+        <tr>
+          <td><b>Chất liệu: </b></td>
+          <td>{{selectedWatch.details.details.material_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Màn hình: </b></td>
+          <td>{{selectedWatch.details.details.screen_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Hệ điều hành tương thích: </b></td>
+          <td>{{selectedWatch.details.details.compatible_os_detail}}</td>
+        </tr>
+        <tr>
+          <td><b>Thời gian sử dụng pin: </b></td>
+          <td>{{selectedWatch.details.details.battery_detail}}</td>
+        </tr>
+      </table>
+
+    </div>
+
+
 </div>
-<br>
+
 <div class="product-suggestion">
-    <p>Sản phẩm bạn có thể quan tâm</p>
+  <p>Sản phẩm bạn có thể quan tâm</p>
+  <hr>
+  <div class="product-list" >
+    <div *ngFor="let watch of watchProducts" >
+      <div class="card" *ngIf="watch._id != selectedWatch._id">
+        <div class="image"><img src="{{watch.image}}"></div>
+        <div class="title">{{watch.name}}</div>
+        <div class="text">{{watch.initial_price - watch.discount_amount}} đ</div>
+        <div class="product-choice">
+          <button class="btn-buy" routerLink="/watch/{{watch._id}}">Mua ngay</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="advertisement"></div>
 <app-footer></app-footer>
+
+
+
 

@@ -82,7 +82,7 @@ export class ProductsViewService {
       responseType: "text"
     }
     return this._http.get<any>("/phones/"+phoneId, requestOptions).pipe(
-      map(res=>JSON.parse(res.slice(1,-1)) as Array<PhoneProduct>),
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<PhoneProduct>),
       retry(3),
       catchError(this.handleError)
     )
@@ -94,7 +94,7 @@ export class ProductsViewService {
       responseType: "text"
     }
     return this._http.get<any>("/laptops/"+laptopId, requestOptions).pipe(
-      map(res=>JSON.parse(res.slice(1,-1)) as Array<LaptopProduct>),
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<LaptopProduct>),
       retry(3),
       catchError(this.handleError)
     )
@@ -106,7 +106,7 @@ export class ProductsViewService {
       responseType: "text"
     }
     return this._http.get<any>("/tablets/"+tabletId, requestOptions).pipe(
-      map(res=>JSON.parse(res.slice(1,-1)) as Array<PhoneProduct>),
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<PhoneProduct>),
       retry(3),
       catchError(this.handleError)
     )
@@ -118,7 +118,7 @@ export class ProductsViewService {
       responseType: "text"
     }
     return this._http.get<any>("/watches/"+watchId, requestOptions).pipe(
-      map(res=>JSON.parse(res.slice(1,-1)) as Array<WatchProduct>),
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<WatchProduct>),
       retry(3),
       catchError(this.handleError)
     )
@@ -130,7 +130,7 @@ export class ProductsViewService {
       responseType: "text"
     }
     return this._http.get<any>("/earphones/"+earphoneId, requestOptions).pipe(
-      map(res=>JSON.parse(res.slice(1,-1)) as Array<EarphoneProduct>),
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<EarphoneProduct>),
       retry(3),
       catchError(this.handleError)
     )

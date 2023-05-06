@@ -8,12 +8,18 @@ import { ProductsViewService } from '../products-view.service';
   styleUrls: ['./earphone-detail.component.css']
 })
 export class EarphoneDetailComponent {
+  earphoneProducts: any;
+  errMessage: string=""
   selectedEarphone: any;
   errorMessage: string=""
   constructor( private _service: ProductsViewService,
                 private router: Router,
                 private activatedRoute: ActivatedRoute)
     {
+      this._service.getEarphoneProducts().subscribe({
+        next:(data)=>{this.earphoneProducts=data},
+        error:(err)=>{this.errMessage=err}
+      })
         activatedRoute.paramMap.subscribe(
           (param)=>{
             let id = param.get('id')

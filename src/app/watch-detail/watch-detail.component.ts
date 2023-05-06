@@ -8,12 +8,19 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./watch-detail.component.css']
 })
 export class WatchDetailComponent {
+  watchProducts: any;
+  errMessage: string=""
   selectedWatch: any;
   errorMessage: string=""
   constructor( private _service: ProductsViewService,
                 private router: Router,
                 private activatedRoute: ActivatedRoute)
     {
+      this._service.getWatchProducts().subscribe({
+        next:(data)=>{this.watchProducts=data},
+        error:(err)=>{this.errMessage=err}
+      })
+
         activatedRoute.paramMap.subscribe(
           (param)=>{
             let id = param.get('id')

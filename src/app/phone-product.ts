@@ -10,7 +10,7 @@ export class PhoneProduct {
     public discount_amount: number = 0,
     public initial_price: number = 0,
     public general_info: Array<info> = [],
-    public details: Array<detail> = []
+    public details_id: Array<details_id> = []
   ){
   }
 }
@@ -19,6 +19,11 @@ interface info{
   screen: number,
   ram: string,
   rom: string
+}
+interface details_id{
+  _id: string,
+  dt_id: string,
+  details: Array<detail>
 }
 interface detail{
   cpu_detail: string,
