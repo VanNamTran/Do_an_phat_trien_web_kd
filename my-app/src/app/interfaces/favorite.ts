@@ -1,8 +1,8 @@
-export interface IFavirites{
+export interface IFavorites{
   customerId:string;
-  favorite:IFavirites_favorite[]
+  favorite:IFavorites_favorite[]
 }
-export interface IFavirites_favorite{
+export interface IFavorites_favorite{
   productId: string;
   add_date:Date
 }

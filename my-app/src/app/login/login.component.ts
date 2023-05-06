@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserAPIService } from '../services/user-api.service';
 import { User } from '../models/User';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -51,6 +50,7 @@ export class LoginComponent implements OnInit {
     this._service.loginUser(user).subscribe({
       next: (data: User) => {
         alert('Đăng nhập thành công!')
+        localStorage.setItem('customerId', data.phone);
       },
       error: (error: Error) => {
         alert(error.message);

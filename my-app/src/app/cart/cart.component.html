@@ -22,6 +22,7 @@
             min="1"
             max="100"
             step="1"
+            [value]="item.quantity"
             [(ngModel)]="item.quantity"
             (change)="updateTotalPrice()"
           />
@@ -32,7 +33,7 @@
         <input type="button" value="mua sau" id="remove" (click)="moveToFavorite($event)"[attr.data-product-movetofa-id]="item._id"/>
       </div>
     </div>
-    <div class="come-back">
+    <div class="come-back" routerLink="/">
       <img src="./assets/icon/back.png" alt="" />Trở về
     </div>
   </div>
@@ -68,7 +69,7 @@
       <div class="button-fa-item">
         <div (click)="addProduct($event)" class="button-fa-item-cart" [attr.data-tocart-id]="item._id" >
           <img src="./assets/icon/shopping_cart_blue.png" alt="">
-          <span >Chuyển vào giỏ hàng</span>
+          Chuyển vào giỏ hàng
         </div>
         <button (click)="deletefavorite($event)" class="button-fa-item-delete" [attr.data-product-id]="item._id">Xóa</button>
       </div>

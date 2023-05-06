@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpErrorResponse ,HttpHeaders} from '@angular/common/http';
 import { catchError,map,Observable,retry,throwError } from 'rxjs';
 import { IPhones } from '../interfaces/Phone';
-import { Iputfavorite } from '../interfaces/favorite';
+import { IFavorites } from '../interfaces/favorite';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +26,30 @@ export class ApiProductsService {
   }
   handleError(error:HttpErrorResponse){
     return throwError(()=> new Error (error.message))
+  }
+  postFavorite(customerId:string):Observable<any>{
+    const requestBody = {
+      customerId: customerId,
+    };
+    return this._http.post<any>(this.apiFavorite, requestBody).pipe(
+      map(res=>res),
+      retry(3),
+      catchError((error: HttpErrorResponse) => {
+        return throwError(()=> new Error (error.message))
+      })
+    );
+  }
+  postCart(customerId:string):Observable<any>{
+    const requestBody = {
+      customerId: customerId,
+    };
+    return this._http.post<any>(this.apiProdCart, requestBody).pipe(
+      map(res=>res),
+      retry(3),
+      catchError((error: HttpErrorResponse) => {
+        return throwError(()=> new Error (error.message))
+      })
+    );
   }
 
   public putFavorite(customerId: string, productId: string, isFavorite: boolean): Observable<any> {

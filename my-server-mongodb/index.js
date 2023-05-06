@@ -192,7 +192,12 @@ app.get("/favorites",cors(),async(req,res)=>{
     res.send(result)
 })
 app.post("/favorites",cors(),async(req,res)=>{
-    await collectionFavorites.insertOne(req.body)
+    const { customerId}= req.body;
+    const newFavorites = {
+      customer_id: customerId,
+      favorites: []
+    };
+    await collectionFavorites.insertOne(newFavorites)
     res.send(req.body)
 })
 app.put("/favorites", cors(), async (req, res) => {
@@ -463,7 +468,12 @@ app.get("/prod-in-cart",cors(),async(req,res)=>{
     res.send(result)
 })
 app.post("/prod-in-cart",cors(),async(req,res)=>{
-  await collectionProductCart.insertOne(req.body)
+  const { customerId}= req.body;
+    const newCart = {
+      customer_id: customerId,
+      cart: []
+    };
+  await collectionProductCart.insertOne(newCart)
   res.send(req.body)
 })
 app.get("/prod-in-cart/:customerId", cors(), async (req, res) => {

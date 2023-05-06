@@ -3,6 +3,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 import { UserAPIService } from '../services/user-api.service';
 import { User } from '../models/User';
+import { ApiProductsService } from '../services/api-products.service';
 
 
 @Component({
@@ -68,7 +69,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private _service: UserAPIService
+    private _service: UserAPIService,
+    private _Fservice: ApiProductsService,
     ) { }
 
   ngOnInit(): void {}
@@ -83,8 +85,16 @@ export class RegisterComponent implements OnInit {
 
     this._service.postUser(formValue).subscribe({
       next: (res) => {
-        console.log(res);
         alert("Đăng ký thành công!");
+        // tạo document mới chứa thông tin sản phẩm yêu thích và giỏ hàng cho user
+        this._Fservice.postFavorite(this.registerForm.controls['phone'].value).subscribe({
+          next:(res)=>{},
+          error:(err)=>{}
+        })
+        this._Fservice.postCart(this.registerForm.controls['phone'].value).subscribe({
+          next:(res)=>{},
+          error:(err)=>{}
+        })
       },
       error: (err) => {
         if (err.message === "Email or phone number already exists") {

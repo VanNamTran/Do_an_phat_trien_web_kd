@@ -16,10 +16,11 @@ export class ProductsViewComponent implements OnInit {
   errMessage: string = '';
   favoriteProducts: string[] = [];
   favorites: Set<string> = new Set();
-  public customerId = "ctm000001";
+  customerId : any;
   listFavoriteOfCTM: any;
   constructor(private _service: ApiProductsService) { }
   ngOnInit() {
+    this.customerId = localStorage.getItem('customerId');
     this.prices = ["> 30 triệu", "20 đến 30 triệu", "10 đến 20 triệu", "7 đến 10 triệu", "5 dến 7 triệu", "3 đến 5 triệu", "dưới 3 triệu"]
     // this.brands = ['Samsung', 'Apple', 'Huawei', 'Xiaomi', 'Oppo', 'Vivo', 'Nokia'];
     const gridLayoutButton = document.querySelector("#grid-layout") as HTMLButtonElement;

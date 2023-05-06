@@ -36,7 +36,7 @@ const routes: Routes = [
   {path:'thongtin', component: AccInfoComponent},
   {path:'capnhatthongtin', component: AccInfoChangeComponent},
   {path:'xacnhan', component: ConfirmPasswordComponent},
-  {path:"trang-chu", component:TrangChuComponent},
+  {path:"", component:TrangChuComponent},
   {path:"gioithieu",component:AboutUsComponent},
   {path:"**",component:NotFoundComponent}
 ]

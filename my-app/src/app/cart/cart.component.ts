@@ -1,6 +1,5 @@
 import { Component, OnInit ,ChangeDetectorRef} from '@angular/core';
 import { ApiProductsService, } from '../services/api-products.service';
-import { UserAPIService } from '../services/user-api.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -15,17 +14,23 @@ export class CartComponent implements OnInit{
   productsInCart:any;
   totalPrice: number | undefined;
   customerId:any
-  constructor(private _service:ApiProductsService,private _serviceACC:UserAPIService){}
+  constructor(private _service:ApiProductsService){}
   ngOnInit() {
-    // this.customerId = this._serviceACC.loginUser()
+    this.customerId = localStorage.getItem('customerId');
     this._service.getListFavorites(this.customerId).subscribe({
-      next: (data) => { this.listFavoriteProduct= data },
+      next: (data) => { localStorage.setItem('itemsfa', JSON.stringify(data)); },
       error: (err) => { this.errMessage = err }
     })
     this._service.getProductsInCart(this.customerId).subscribe({
-      next:(data) =>{this.productsInCart = data},
+      next:(data) =>{localStorage.setItem('itemscart', JSON.stringify(data));},
       error:(err) =>{this.errMessage =err}
     })
+    const items = JSON.parse(localStorage.getItem('itemsfa') || '[]');
+    this.listFavoriteProduct = items;
+
+
+    const itemsCart = JSON.parse(localStorage.getItem('itemscart') || '[]');
+    this.productsInCart = itemsCart;
   }
   deletefavorite(event: MouseEvent){
     const target = event.target as HTMLImageElement;
@@ -38,7 +43,15 @@ export class CartComponent implements OnInit{
         next:(data)=>{this.favoriteProducts = data;console.log("remove",productId),console.log(isFavorite)},
         error:(err) =>{this.errMessage = err}
       })
-      indexproduct.classList.add('hidden');
+      let index = this.listFavoriteProduct.findIndex((item: any) => item._id === productId);
+
+      if (index !== -1) {
+        this.listFavoriteProduct.splice(index, 1);
+      }
+
+      // indexproduct.classList.add('hidden');
+      console.log(this.productsInCart)
+      console.log(this.listFavoriteProduct)
     }
   }
   addProduct(event:MouseEvent){
@@ -53,6 +66,18 @@ export class CartComponent implements OnInit{
         next:(data)=>{this.cartProducts = data;console.log("oke")},
         error:(err) =>{this.errMessage = err}
       })
+
+      let index = this.listFavoriteProduct.findIndex((item: any) => item._id === productId);
+      console.log(index)
+      if (index !== -1 ) {
+        if(this.productsInCart.findIndex((item: any) => item._id === productId) === -1){
+          this.productsInCart.push(this.listFavoriteProduct[index]);
+        }
+
+      }
+
+      console.log(this.productsInCart)
+      console.log(this.listFavoriteProduct)
     }
   }
   deleteProduct(event: MouseEvent){
@@ -67,7 +92,16 @@ export class CartComponent implements OnInit{
         next:(data)=>{this.cartProducts = data;},
         error:(err) =>{this.errMessage = err}
       })
-      indexproduct.classList.add('hidden');
+      let index = this.productsInCart.findIndex((item: any) => item._id === productId);
+
+      if (index !== -1) {
+
+       this.productsInCart.splice(index, 1);
+      }
+
+      // indexproduct.classList.add('hidden');
+      console.log(this.productsInCart)
+      console.log(this.listFavoriteProduct)
     }
   }
   moveToFavorite(event: MouseEvent){
@@ -87,8 +121,17 @@ export class CartComponent implements OnInit{
         error:(err) =>{this.errMessage = err},
 
       })
-      this.getTotalPrice()
-      console.log(this.getTotalPrice())
+      let index = this.productsInCart.findIndex((item: any) => item._id === productId);
+
+      if (index !== -1 ) {
+        if(this.listFavoriteProduct.findIndex((item: any) => item._id === productId) === -1){
+          this.listFavoriteProduct.push(this.productsInCart[index])
+        }
+
+        this.productsInCart.splice(index, 1);
+      }
+      console.log(this.productsInCart)
+      console.log(this.listFavoriteProduct)
     }
   }
   getTotalPrice(): number {
@@ -97,7 +140,6 @@ export class CartComponent implements OnInit{
     for (let item of this.productsInCart) {
       totalPrice += item.quantity * (item.initial_price - item.discount_amount);
     }
-    console.log(totalPrice)
     return totalPrice;
   }
   updateTotalPrice() {

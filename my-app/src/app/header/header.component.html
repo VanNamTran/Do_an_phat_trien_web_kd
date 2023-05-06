@@ -10,7 +10,7 @@
       <img src="./assets/icon/nguoi.png" alt="">
       <span style="width: 130px;">Tài khoản của tôi</span>
     </div>
-    <div class="icon-cart icon" routerLink="/cart">
+    <div class="icon-cart icon" (click)="onCartClick()" >
       <img src="./assets/icon/cart.png" alt="">
       <span style="width: 70px;">Giỏ hàng</span>
     </div>
@@ -23,7 +23,7 @@
     <div><img src="./assets/icon/email.png" alt=""><label for="">Email: </label><span>teo2ka2@gmail.com</span></div>
     <div><img src="./assets/icon/location.png" alt=""><label for="">Địa chỉ: </label><span>Sô 5 Nguyễn Chí Thanh, khu phố 3, phương Linh Đông,Tp Thủ Đức</span></div>
     <div class="log-reg-button">
-      <button>Đăng xuất</button>
+      <button (click)="logout()"routerLink="/dangnhap">Đăng xuất</button>
       <button routerLink="/thongtin">Cập nhật thông tin</button>
     </div>
   </div>
