@@ -1,0 +1,93 @@
+<app-header></app-header>
+<app-subheader></app-subheader>
+<div class="none"></div>
+<div class="product-bar">
+  <a href="#home">Trang chủ</a>
+  <span>></span>
+  <a href="/watch">watch</a>
+  <span>></span>
+  <a href="#">{{selectedwatch.name}}</a>
+</div>
+<br>
+<div class="product-infor">
+  <div class="product-image" >
+    <img class="image-design" src="{{selectedwatch.image}}">
+  </div>
+
+  <div class="product-noti">
+    <h1 class="product-name-text">{{selectedwatch.name}}</h1>
+    <div class="price-detail">
+      <div class="text-detail">
+        Giá hiện tại <br><span class="discounted">{{(selectedwatch.initial_price - selectedwatch.discount_amount).toLocaleString('vi-VN')}}<span> ₫</span></span>
+      </div>
+      <div class="text-detail">
+        Giá gốc <br><span class="origin">{{(selectedwatch.initial_price).toLocaleString('vi-VN')}}<span> ₫</span></span>
+      </div>
+      <div class="text-detail">
+        Tiết kiệm <br><span class="discounted">{{(selectedwatch.discount_amount).toLocaleString('vi-VN')}}<span> ₫</span></span>
+      </div>
+    </div>
+
+    <div>
+      <table class="table_general">
+      <tr>
+        <td><b>Màng hình </b></td>
+        <td>{{selectedwatch.general_info.screen}}</td>
+      </tr>
+      <tr>
+        <td><b>Chất liệu </b></td>
+        <td>{{selectedwatch.general_info.material}} inch</td>
+      </tr>
+
+      </table>
+    </div>
+
+    <button class="btn-add" (click)="addToCart()">Thêm vào giỏ hàng</button>
+  </div>
+
+</div>
+<br>
+<div class="product-description">
+  <div class="topnav">
+    <button class="btn-describe">Mô tả sản phẩm</button>
+    <button class="btn-describe">Reviews</button>
+    <button class="btn-describe">Sản phẩm đi kèm</button>
+  </div>
+  <hr>
+  <div class="product_detail">
+    <tr *ngFor="let item of selectedwatch.details[0].details | keyvalue">
+      <td><b>{{item.key}}</b></td>
+      <td>{{item.value}}</td>
+    </tr>
+
+  </div>
+  <hr>
+  <br>
+  <div class="description">{{selectedwatch.details[0].description}}</div>
+
+</div>
+
+<br>
+<div class="product-suggestion">
+    <p>Sản phẩm bạn có thể quan tâm</p>
+    <hr>
+    <div class="product-list" >
+      <div *ngFor="let watch of watchProducts.slice(0, productsToShow)" >
+        <div class="card" *ngIf="watch._id != selectedwatch._id">
+          <div class="image"><img src="{{watch.image}}"></div>
+          <div class="title">{{watch.name}}</div>
+          <div class="text">{{watch.initial_price - watch.discount_amount}} đ</div>
+          <div class="product-choice">
+            <button class="btn-buy" routerLink="/watch/{{watch._id}}">Mua ngay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="see-more">
+      <button (click)="loadMore()" [hidden]="productsToShow >= watchProducts.length">Xem thêm sản phẩm</button>
+    </div>
+</div>
+
+<div class="advertisement"></div>
+<app-footer></app-footer>
+

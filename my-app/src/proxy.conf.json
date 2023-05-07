@@ -15,6 +15,27 @@
     "logLevel":"debug"
   },
   {
+    "context": ["/laptops"],
+    "target": "http://localhost:3000",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  {
+    "context": ["/tablets"],
+    "target": "http://localhost:3000",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  {
+    "context": ["/watches"],
+    "target": "http://localhost:3000",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  {
     "context":["/favorites"],
     "target":"http://localhost:3000",
     "secure":true,

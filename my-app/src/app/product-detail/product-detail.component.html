@@ -1,4 +1,4 @@
-<app-header></app-header>
+<!-- <app-header></app-header>
 <app-subheader></app-subheader>
 <div class="none"></div>
 <div class="product-bar">
@@ -6,61 +6,45 @@
   <span>></span>
   <a href="#phone">Điện thoại</a>
   <span>></span>
-  <a href="#">{{products.productName}}</a>
+  <a href="#">{{selectedPhone.name}}</a>
 </div>
+<br>
 <div class="product-infor">
   <div class="product-image" >
-    <img class="image-design" src="assets/{{products.productImage}}">
+    <img class="image-design" src="{{selectedPhone.image}}">
   </div>
 
   <div class="product-noti">
-    <h1 class="product-name-text">{{products.productName}}</h1>
+    <h1 class="product-name-text">{{selectedPhone.name}}</h1>
     <div class="price-detail">
         <div class="text-detail">
-          Giá hiện tại <br><span class="discounted">{{products.discountedPrice}} đ</span>
+          Giá hiện tại <br><span class="discounted">{{(selectedPhone.initial_price - selectedPhone.discount_amount).toLocaleString('vi-VN')}}<span> ₫</span></span>
         </div>
         <div class="text-detail">
-          Giá gốc <br><span class="origin">{{products.initialPrice}} đ</span>
+          Giá gốc <br><span class="origin">{{(selectedPhone.initial_price).toLocaleString('vi-VN')}}<span> ₫</span></span>
         </div>
         <div class="text-detail">
-          Tiết kiệm <br><span class="discounted">{{products.discount}} đ</span>
+          Tiết kiệm <br><span class="discounted">{{(selectedPhone.discount_amount).toLocaleString('vi-VN')}}<span> ₫</span></span>
         </div>
     </div>
 
     <div>
       <table class="table-detail">
-        <tr>
-          <td>Brand: </td>
-          <td>{{products.brand}}</td>
-        </tr>
-        <tr>
-          <td>Type: </td>
-          <td>{{products.type}}</td>
-        </tr>
-        <tr>
-          <td>Material: </td>
-          <td>{{products.material}}</td>
-        </tr>
-        <tr>
-          <td>Design: </td>
-          <td>{{products.design}}</td>
-        </tr>
-        <tr>
-          <td>CPU: </td>
-          <td>{{products.cpu}}</td>
-        </tr>
-        <tr>
-          <td>Ram: </td>
-          <td>{{products.ram}} GB</td>
-        </tr>
-        <tr>
-          <td>Warranty: </td>
-          <td>{{products.warranty}}</td>
-        </tr>
+        <table class="table-detail">
+          <tr *ngFor="let item of selectedPhone.details[0].details | keyvalue">
+            <td><b>{{item.key}}</b></td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+
+
+
+
       </table>
+
     </div>
 
-  <button class="btn-add">Thêm vào giỏ hàng</button>
+  <button class="btn-add" (click)="addToCart()">Thêm vào giỏ hàng</button>
   </div>
 
 </div>
@@ -69,13 +53,128 @@
   <div class="topnav">
     <a class="active" href="#description">Mô tả</a>
     <a href="#reviews">Reviews</a>
-    <a href="#shopping">Shopping</a>
-    <a href="#about">About Company</a>
+    <a href="#supplement">Sản phẩm đi kèm</a>
+  </div>
+
+</div>
+<div class="description">{{selectedPhone.details[0].description}}</div>
+<br>
+<div class="product-suggestion">
+  <p>Sản phẩm bạn có thể quan tâm</p>
+  <hr>
+  <div class="product-list" >
+    <div *ngFor="let phone of phoneProducts" >
+      <div class="card" *ngIf="phone._id != selectedPhone._id">
+        <div class="image"><img src="{{phone.image}}"></div>
+        <div class="title">{{phone.name}}</div>
+        <div class="text">{{phone.initial_price - phone.discount_amount}} đ</div>
+        <div class="product-choice">
+          <button class="btn-buy" routerLink="/products-view/{{phone._id}}">Mua ngay</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<div class="advertisement"></div>
+<app-footer></app-footer> -->
+<app-header></app-header>
+<app-subheader></app-subheader>
+<div class="none"></div>
+<div class="product-bar">
+  <a href="#home">Trang chủ</a>
+  <span>></span>
+  <a href="/phone">Điện thoại</a>
+  <span>></span>
+  <a >{{selectedPhone.name}}</a>
+</div>
+<br>
+<div class="product-infor">
+  <div class="product-image" >
+    <img class="image-design" src="{{selectedPhone.image}}">
+  </div>
+
+  <div class="product-noti">
+    <h1 class="product-name-text">{{selectedPhone.name}}</h1>
+    <div class="price-detail">
+      <div class="text-detail">
+        Giá hiện tại <br><span class="discounted">{{(selectedPhone.initial_price - selectedPhone.discount_amount).toLocaleString('vi-VN')}}<span> ₫</span></span>
+      </div>
+      <div class="text-detail">
+        Giá gốc <br><span class="origin">{{(selectedPhone.initial_price).toLocaleString('vi-VN')}}<span> ₫</span></span>
+      </div>
+      <div class="text-detail">
+        Tiết kiệm <br><span class="discounted">{{(selectedPhone.discount_amount).toLocaleString('vi-VN')}}<span> ₫</span></span>
+      </div>
+    </div>
+
+    <div>
+      <table class="table_general">
+      <tr>
+        <td><b>CPU </b></td>
+        <td>{{selectedPhone.general_info.cpu}}</td>
+      </tr>
+      <tr>
+        <td><b>Màn hình </b></td>
+        <td>{{selectedPhone.general_info.screen}} inch</td>
+      </tr>
+      <tr>
+        <td><b>Ram </b></td>
+        <td>{{selectedPhone.general_info.ram}}</td>
+      </tr>
+      <tr>
+        <td><b>Bộ nhớ trong </b></td>
+        <td>{{selectedPhone.general_info.rom}}</td>
+      </tr>
+      </table>
+    </div>
+
+    <button class="btn-add" (click)="addToCart()">Thêm vào giỏ hàng</button>
+  </div>
+
+</div>
+<br>
+<div class="product-description">
+  <div class="topnav">
+    <button class="btn-describe">Mô tả sản phẩm</button>
+    <button class="btn-describe">Reviews</button>
+    <button class="btn-describe">Sản phẩm đi kèm</button>
+  </div>
+  <hr>
+  <div class="product_detail">
+    <tr *ngFor="let item of selectedPhone.details[0].details | keyvalue">
+      <td><b>{{ item.key }}</b></td>
+
+      <td>{{item.value}}</td>
+    </tr>
+
+
+  </div>
+  <hr>
+  <br>
+  <div class="description">{{selectedPhone.details[0].description}}</div>
+
+</div>
+
 <br>
 <div class="product-suggestion">
     <p>Sản phẩm bạn có thể quan tâm</p>
+    <hr>
+    <div class="product-list" >
+      <div *ngFor="let phone of phoneProducts.slice(0, productsToShow)" >
+        <div class="card" *ngIf="phone._id != selectedPhone._id">
+          <div class="image"><img src="{{phone.image}}"></div>
+          <div class="title">{{phone.name}}</div>
+          <div class="text">{{phone.initial_price - phone.discount_amount}} đ</div>
+          <div class="product-choice">
+            <button class="btn-buy" routerLink="/products-view/{{phone._id}}">Mua ngay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="see-more">
+      <button (click)="loadMore()" [hidden]="productsToShow >= phoneProducts.length">Xem thêm sản phẩm</button>
+    </div>
 </div>
 
 <div class="advertisement"></div>

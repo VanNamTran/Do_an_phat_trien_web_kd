@@ -1,13 +1,13 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiProductsService } from '../services/api-products.service';
-import { map } from 'rxjs';
 import { Router } from '@angular/router';
+
 @Component({
-  selector: 'app-products-view',
-  templateUrl: './products-view.component.html',
-  styleUrls: ['./products-view.component.css']
+  selector: 'app-earphone',
+  templateUrl: './earphone.component.html',
+  styleUrls: ['./earphone.component.css']
 })
-export class ProductsViewComponent implements OnInit {
+export class EarphoneComponent {
   showAllBrands = false;
   showAllPrices = false;
   hideAllBrands = false;
@@ -48,7 +48,7 @@ export class ProductsViewComponent implements OnInit {
       });
     });
 
-    this._service.getPhones().subscribe({
+    this._service.getEarphoneProducts().subscribe({
       next: (data) => {
         this.products = data;
         this._service.getListFavorites(this.customerId).subscribe({
@@ -115,9 +115,8 @@ export class ProductsViewComponent implements OnInit {
       }
     }
   }
-  viewPhoneProductDetail(f: any){
-    this.router.navigate(['phone', f._id])
+  viewEarphoneProductDetail(f: any){
+    this.router.navigate(['earphone', f._id])
   }
   loadMore() { this.productsToShow += 18; }
-
 }

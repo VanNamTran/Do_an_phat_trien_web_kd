@@ -19,6 +19,14 @@ import { NotDevelopedFeatureComponent } from './not-developed-feature/not-develo
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { TrangChuComponent } from './trang-chu/trang-chu.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { LaptopComponent } from './laptop/laptop.component';
+import { TabletsComponent } from './tablets/tablets.component';
+import { WatchComponent } from './watch/watch.component';
+import { EarphoneComponent} from './earphone/earphone.component';
+import { LaptopDetailComponent } from './laptop-detail/laptop-detail.component';
+import { TabletDetailComponent } from './tablet-detail/tablet-detail.component';
+import { WatchDetailComponent } from './watch-detail/watch-detail.component';
+import { EarphoneDetailComponent } from './earphone-detail/earphone-detail.component';
 // import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 const routes: Routes = [
@@ -26,9 +34,8 @@ const routes: Routes = [
   {path:"payment",component:PaymentComponent},
   {path:"payment/payment-transfer",component:PaymentTransferComponent},
   // {path:"breadcrumb",component:BreadcrumbComponent},
-  {path:"products-view",component:ProductsViewComponent},
+  {path:"phone",component:ProductsViewComponent},
   {path: 'not-developed-feature', component: NotDevelopedFeatureComponent},
-  {path: 'product-detail', component: ProductDetailComponent},
   {path:'dangky', component: RegisterComponent},
   {path:'dangnhap', component: LoginComponent},
   {path:'quenmatkhau', component: AccResetComponent},
@@ -37,7 +44,16 @@ const routes: Routes = [
   {path:'capnhatthongtin', component: AccInfoChangeComponent},
   {path:'xacnhan', component: ConfirmPasswordComponent},
   {path:"", component:TrangChuComponent},
+  {path: 'phone/:id', component: ProductDetailComponent},
   {path:"gioithieu",component:AboutUsComponent},
+  {path: "laptop", component: LaptopComponent},
+  {path: "laptop/:id", component: LaptopDetailComponent},
+  {path: "tablets", component: TabletsComponent},
+  {path: "tablets/:id", component: TabletDetailComponent},
+  {path: "watch", component: WatchComponent},
+  {path: "watch/:id", component: WatchDetailComponent},
+  {path: "earphone", component: EarphoneComponent},
+  {path: "earphone/:id", component: EarphoneDetailComponent},
   {path:"**",component:NotFoundComponent}
 ]
 

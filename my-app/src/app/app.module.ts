@@ -37,6 +37,14 @@ import { NotDevelopedFeatureComponent } from './not-developed-feature/not-develo
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { TrangChuComponent } from './trang-chu/trang-chu.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { LaptopComponent } from './laptop/laptop.component';
+import { TabletsComponent } from './tablets/tablets.component';
+import { WatchComponent } from './watch/watch.component';
+import { EarphoneComponent } from './earphone/earphone.component';
+import { LaptopDetailComponent } from './laptop-detail/laptop-detail.component';
+import { TabletDetailComponent } from './tablet-detail/tablet-detail.component';
+import { WatchDetailComponent } from './watch-detail/watch-detail.component';
+import { EarphoneDetailComponent } from './earphone-detail/earphone-detail.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +71,14 @@ import { AboutUsComponent } from './about-us/about-us.component';
     ProductDetailComponent,
     TrangChuComponent,
     AboutUsComponent,
+    LaptopComponent,
+    TabletsComponent,
+    WatchComponent,
+    EarphoneComponent,
+    LaptopDetailComponent,
+    TabletDetailComponent,
+    WatchDetailComponent,
+    EarphoneDetailComponent,
   ],
   imports: [
     BrowserModule,

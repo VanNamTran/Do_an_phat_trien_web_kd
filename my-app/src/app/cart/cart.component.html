@@ -8,9 +8,9 @@
       <div class="info_product">
 
         <div class="info">
-          <div class="image"><img [src]="item.image" alt="" /></div>
+          <div class="image"><img [src]="item.image" alt="" (click)="viewProductDetail(item._id)" /></div>
           <div class="type">
-            <h3 class="name_product">{{item.name}}</h3>
+            <h3 class="name_product" (click)="viewProductDetail(item._id)">{{item.name}}</h3>
             <h4 class="propertis">{{item.general_info.cpu}} <br> {{item.general_info.screen}}</h4>
           </div>
         </div>
@@ -19,12 +19,10 @@
           <input
             id="number-item"
             type="number"
-            min="1"
-            max="100"
-            step="1"
-            [value]="item.quantity"
+            onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
             [(ngModel)]="item.quantity"
             (change)="updateTotalPrice()"
+
           />
         </div>
       </div>
@@ -61,7 +59,7 @@
   <div class="favorite">
     <div class="item-favorite" [attr.id]="'favorite-' + item._id"  *ngFor="let item of listFavoriteProduct"><!-- Product template -->
       <div class="product-img">
-        <img  [src]="item.image" alt="">
+        <img  [src]="item.image" alt="" (click)="viewProductDetail(item._id)">
       </div>
       <p>{{item.name}}</p>
       <br><span class="price">{{item.initial_price - item.discount_amount}}</span>

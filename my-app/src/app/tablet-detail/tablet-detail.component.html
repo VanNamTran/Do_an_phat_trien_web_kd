@@ -1,0 +1,102 @@
+<app-header></app-header>
+<app-subheader></app-subheader>
+<div class="none"></div>
+<div class="product-bar">
+  <a href="#home">Trang chủ</a>
+  <span>></span>
+  <a href="#tablets">tablet</a>
+  <span>></span>
+  <a href="#">{{selectedtablet.name}}</a>
+</div>
+<br>
+<div class="product-infor">
+  <div class="product-image" >
+    <img class="image-design" src="{{selectedtablet.image}}">
+  </div>
+
+  <div class="product-noti">
+    <h1 class="product-name-text">{{selectedtablet.name}}</h1>
+    <div class="price-detail">
+      <div class="text-detail">
+        Giá hiện tại <br><span class="discounted">{{(selectedtablet.initial_price - selectedtablet.discount_amount).toLocaleString('vi-VN')}}<span> ₫</span></span>
+      </div>
+      <div class="text-detail">
+        Giá gốc <br><span class="origin">{{(selectedtablet.initial_price).toLocaleString('vi-VN')}}<span> ₫</span></span>
+      </div>
+      <div class="text-detail">
+        Tiết kiệm <br><span class="discounted">{{(selectedtablet.discount_amount).toLocaleString('vi-VN')}}<span> ₫</span></span>
+      </div>
+    </div>
+
+    <div>
+      <table class="table_general">
+      <tr>
+        <td><b>CPU </b></td>
+        <td>{{selectedtablet.general_info.cpu}}</td>
+      </tr>
+      <tr>
+        <td><b>Màng Hình </b></td>
+        <td>{{selectedtablet.general_info.screen}} inch</td>
+      </tr>
+      <tr>
+        <td><b>Ram </b></td>
+        <td>{{selectedtablet.general_info.ram}}</td>
+      </tr>
+      <tr>
+        <td><b>Bộ nhớ </b></td>
+        <td>{{selectedtablet.general_info.rom}}</td>
+      </tr>
+
+      </table>
+    </div>
+
+    <button class="btn-add" (click)="addToCart()">Thêm vào giỏ hàng</button>
+  </div>
+
+</div>
+<br>
+<div class="product-description">
+  <div class="topnav">
+    <button class="btn-describe">Mô tả sản phẩm</button>
+    <button class="btn-describe">Reviews</button>
+    <button class="btn-describe">Sản phẩm đi kèm</button>
+  </div>
+  <hr>
+  <div class="product_detail">
+    <tr *ngFor="let item of selectedtablet.details[0].details | keyvalue">
+      <td><b>{{item.key}}</b></td>
+      <td>{{item.value}}</td>
+    </tr>
+
+  </div>
+  <hr>
+  <br>
+  <div class="description">{{selectedtablet.details[0].description}}</div>
+
+</div>
+
+<br>
+<div class="product-suggestion">
+    <p>Sản phẩm bạn có thể quan tâm</p>
+    <hr>
+    <div class="product-list" >
+      <div *ngFor="let tablet of tabletProducts.slice(0, productsToShow)" >
+        <div class="card" *ngIf="tablet._id != selectedtablet._id">
+          <div class="image"><img src="{{tablet.image}}"></div>
+          <div class="title">{{tablet.name}}</div>
+          <div class="text">{{tablet.initial_price - tablet.discount_amount}} đ</div>
+          <div class="product-choice">
+            <button class="btn-buy" routerLink="/tablet/{{tablet._id}}">Mua ngay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="see-more">
+      <button (click)="loadMore()" [hidden]="productsToShow >= tabletProducts.length">Xem thêm sản phẩm</button>
+    </div>
+</div>
+
+<div class="advertisement"></div>
+<app-footer></app-footer>
+
+

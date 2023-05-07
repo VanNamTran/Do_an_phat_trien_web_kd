@@ -43,7 +43,7 @@
       <div class="product-info" *ngFor="let item of products.slice(0, productsToShow)" > <!-- vùng chứa 1 sản phẩm-->
         <div class="discount" style="white-space: nowrap" *ngIf="item.discount_amount != 0"> giảm {{item.discount_amount.toLocaleString('vi-VN')}} <span> ₫</span></div>
 
-        <div class="product-img"> <img [src]="item.image" alt="" (click)="viewPhoneProductDetail(item)"></div> <!-- vùng chứa ảnh -->
+        <div class="product-img"> <img [src]="item.image" alt="" (click)="viewLaptopProductDetail(item)"></div> <!-- vùng chứa ảnh -->
         <div class="ffff">
           <div class="product-info-detail">
             <p class="product-name">{{item.name}}</p>
@@ -56,6 +56,8 @@
               <div>Màng hình: {{item.general_info.screen}}</div>
               <div>Ram: {{item.general_info.ram}}</div>
               <div>Bộ nhớ: {{item.general_info.rom}}</div>
+              <div>Đồ họa: {{item.general_info.graphic}}</div>
+              <div>Khối lượng: {{item.general_info.weight}}</div>
             </div>
           </div>
 
@@ -79,7 +81,7 @@
         </div>
         <div class="purchase">
           <!-- <button id="purchase">Mua ngay</button> -->
-          <button id="purchase" (click)="viewPhoneProductDetail(item)" title="Click here to view detail">Mua ngay</button>
+          <button id="purchase" (click)="viewLaptopProductDetail(item)" title="Click here to view detail">Mua ngay</button>
         </div>
 
       </div>
@@ -91,3 +93,4 @@
   </div>
 </div>
 <app-footer></app-footer>
+{{errMessage}}
