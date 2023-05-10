@@ -1,0 +1,146 @@
+.header{
+  position: fixed;
+  width: 100%;
+  height: 84px;
+  display: flex;
+  z-index: 1001;
+}
+.header-color{
+  background-color: #0D6EFD;
+}
+.logo{
+  position: absolute;
+  left: 2.05%;
+  right: 78.96%;
+  top: 3.49%;
+  bottom: 0%;
+}
+.logo img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+  border-radius: 0;
+}
+.input-search{
+  position: absolute;
+  left: 22.64%;
+  right: 31.18%;
+  top: 24.66%;
+  bottom: 25.58%;
+  display: flex;
+}
+input[type="search"] {
+  padding: 8px;
+  border: none;
+  border-radius: 4px 0px 0px 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  width: 85%;
+  height: 42px;
+  font-size:18px;
+}
+input[type="button"]{
+  width: 100px;
+  height: 42px;
+  border-radius: 0px 4px 4px 0px;
+  background-color:#ffa03b ;
+  color: #ffffff;
+  border: none;
+  font-size:18px;
+}
+input[type="button"]:hover{
+  background-color:#FF9017 ;
+}
+.icons{
+  position: absolute;
+  left: 73.08%;
+  right: 6.65%;
+  top: 27.57%;
+  bottom: 17.78%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.icon span {
+  margin-top: 4px;
+  font-size: 14px;
+  color:#ffffff;
+  font-family:Verdana;
+}
+
+.dropdown {
+  /* display: flex; */
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+  position: absolute;
+  top: 60px;
+  right: 0;
+  z-index: 1;
+  background-color: #fff;
+  color:#444;
+  border-radius: 4px;
+  padding: 5px 0;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+  height: auto;
+}
+
+.icon-info:hover .dropdown {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.dropdown-item a {
+  display: flex;
+  align-items: center; /* center vertically */
+  color: #444;
+}
+
+.dropdown-item a svg {
+  margin-right: 10px;
+  width: 20px;
+}
+
+.dropdown-item a p {
+  margin: 0;
+  align-items: center; /* center vertically */
+}
+
+.dropdown-item:hover a svg,
+.dropdown-item:hover a p {
+  color: #0D6EFD; /* change the color to your desired color */
+}
+
+.divider{
+  height: 1px;
+  display:block;
+  margin: 5px 0;
+}
+
+
+
+
+
+

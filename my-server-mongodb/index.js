@@ -7,6 +7,8 @@ const nodemailer = require('nodemailer');
 
 require('dotenv').config();
 
+
+
 app.use(morgan("combined"))
 
 const { ObjectId } = require('mongodb');
@@ -186,7 +188,7 @@ app.get('/techshop/earphones/:id', cors(), async (req, res) => {
 });
 
 
-//create new user account
+// Create new user account
 app.post('/techshop/register', async (req, res) => {
     var crypto = require("crypto");
     salt = crypto.randomBytes(16).toString("hex");
@@ -210,8 +212,7 @@ app.post('/techshop/register', async (req, res) => {
     res.send(req.body);
 });
   
-
-//login user
+// Login user
 app.post('/techshop/login', async (req, res) => {
     userCollection = database.collection("users");
     user = req.body;
@@ -236,7 +237,76 @@ app.post('/techshop/login', async (req, res) => {
             res.status(400).send("Wrong password");
         }
     }
+
 });
+
+// Update user profile
+app.put('/techshop/update-profile/:userId', async (req, res) => {
+    const userId = req.params.userId;
+    const { name, address } = req.body;
+  
+    try {
+      const userCollection = database.collection('users');
+      const updatedUser = await userCollection.findOneAndUpdate(
+        { _id: new ObjectId(userId) },
+        { $set: { name, address } },
+        { returnOriginal: false }
+      );
+  
+      if (updatedUser) {
+        res.json(updatedUser.value);
+      } else {
+        res.status(404).json({ error: 'User not found' });
+      }
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Server error' });
+    }
+});
+
+// Change password
+app.put('/techshop/change-password/:userId', async (req, res) => {
+    const userId = req.params.userId;
+    const { currentPassword, newPassword } = req.body;
+  
+    try {
+      const userCollection = database.collection('users');
+      const user = await userCollection.findOne({ _id: new ObjectId(userId) });
+  
+      if (!user) {
+        res.status(404).json({ error: 'User not found' });
+        return;
+      }
+  
+      const crypto = require("crypto");
+      const currentHash = crypto.pbkdf2Sync(currentPassword, user.salt, 1000, 64, `sha512`).toString(`hex`);
+  
+      if (currentHash !== user.password) {
+        res.status(401).json({ error: 'Invalid current password' });
+        return;
+      }
+  
+      const salt = crypto.randomBytes(16).toString('hex');
+      const newHash = crypto.pbkdf2Sync(newPassword, salt, 1000, 64, `sha512`).toString(`hex`);
+  
+      const updatedUser = await userCollection.findOneAndUpdate(
+        { _id: new ObjectId(userId) },
+        { $set: { password: newHash, salt } },
+        { returnOriginal: false }
+      );
+  
+      if (updatedUser) {
+        res.json(updatedUser.value);
+      } else {
+        res.status(404).json({ error: 'User not found' });
+      }
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Server error' });
+    }
+  });
+  
+  
 
 // Send Email
 app.post('/techshop/forget-password', async (req, res) => {
@@ -304,6 +374,8 @@ app.post('/techshop/check-otp', async (req, res) => {
     res.json({ message: 'OTP is valid.'});
 });
 
+
+// Reset Password
 app.post('/techshop/reset-password', async (req, res) => {
 
     var crypto = require("crypto");
@@ -333,6 +405,13 @@ app.post('/techshop/reset-password', async (req, res) => {
   
     res.json({ message: 'Password reset successfully.' });
 });
+
+
+
+
+
+
+
   
 
   

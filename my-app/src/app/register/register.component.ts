@@ -4,11 +4,11 @@ import { AbstractControl, ValidatorFn } from '@angular/forms';
 import { UserAPIService } from '../services/user-api.service';
 import { User } from '../models/User';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+
 })
 export class RegisterComponent implements OnInit {
 
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
       '',
       Validators.compose([
         Validators.required,
-        Validators.pattern(/^(?=.*[!@#$%^&*]+)[a-z0-9!@#$%^&*]{8,32}$/),
+        Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/),
       ])
     ],
     confirm_password:[

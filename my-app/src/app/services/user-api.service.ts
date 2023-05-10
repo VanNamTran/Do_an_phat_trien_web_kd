@@ -106,7 +106,49 @@ export class UserAPIService {
     );
   }
 
+  // Update info
+  updateInfo(userId: string, name: string, address: string): Observable<any> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    const requestOptions: Object = {
+      headers: headers,
+      responseType: 'json'
+    };
+    const body ={
+      name,
+      address
+    };
+    return this._http.put<any>('/techshop/update-profile/' + userId, body, requestOptions).pipe(
+      retry(3),
+      catchError((error: HttpErrorResponse) => {
+        console.error(error);
+        return throwError(() => new Error(error.message));
+      })
+    );
+  }
+
+
+  // Change password
+  changePassword(userId: string, currentPassword: string, newPassword: string): Observable<any> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    const requestOptions: Object = {
+      headers: headers,
+      responseType: 'json'
+    };
+    const body = {
+      currentPassword,
+      newPassword
+    };
+    return this._http.put<any>('/techshop/change-password/' + userId, body, requestOptions).pipe(
+      retry(3),
+      catchError((error: HttpErrorResponse) => {
+        console.error(error);
+        return throwError(() => new Error(error.message));
+      })
+    );
+  }
+
   handleError(error: HttpErrorResponse){
     return throwError(() => new Error(error.message));
   }
+
 }

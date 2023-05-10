@@ -19,10 +19,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AccResetComponent } from './acc-reset/acc-reset.component';
-import { NewPasswordComponent } from './new-password/new-password.component';
 import { AccInfoComponent } from './acc-info/acc-info.component';
-import { AccInfoChangeComponent } from './acc-info-change/acc-info-change.component';
-import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
 import { HeaderComponent } from './header/header.component';
 import { SubheaderComponent } from './subheader/subheader.component';
 import { FooterComponent } from './footer/footer.component';
@@ -35,6 +32,12 @@ import { ProductsViewComponent } from './products-view/products-view.component';
 // import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { NotDevelopedFeatureComponent } from './not-developed-feature/not-developed-feature.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HeaderModifyComponent } from './header-modify/header-modify.component';
+import { AccInfoChangeComponent } from './acc-info-change/acc-info-change.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { LoginModalComponent } from './login-modal/login-modal.component';
+
 
 
 @NgModule({
@@ -44,10 +47,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     RegisterComponent,
     LoginComponent,
     AccResetComponent,
-    NewPasswordComponent,
     AccInfoComponent,
-    AccInfoChangeComponent,
-    ConfirmPasswordComponent,
     HeaderComponent,
     SubheaderComponent,
     FooterComponent,
@@ -60,6 +60,11 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     // BreadcrumbComponent
     NotDevelopedFeatureComponent,
     ProductDetailComponent,
+    HeaderModifyComponent,
+    AccInfoChangeComponent,
+    ForgetPasswordComponent,
+    ChangePasswordComponent,
+    LoginModalComponent,
   ],
   imports: [
     BrowserModule,

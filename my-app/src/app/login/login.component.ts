@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserAPIService } from '../services/user-api.service';
 import { User } from '../models/User';
+import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 
 @Component({
@@ -24,7 +26,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private _service: UserAPIService
+    private _service: UserAPIService,
+    private _router: Router,
+    private _userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -50,13 +54,25 @@ export class LoginComponent implements OnInit {
 
     this._service.loginUser(user).subscribe({
       next: (data: User) => {
-        alert('Đăng nhập thành công!')
+        alert('Đăng nhập thành công!');
+        this._userService.setUser(data);
+        this._router.navigate(['/capnhatthongtin'], {
+          queryParams: {
+            _id: data._id,
+            phone: data.phone,
+            email: data.email,
+            name: data.name,
+            address: data.address,
+            password: data.password
+          }
+        });
       },
       error: (error: Error) => {
         alert(error.message);
       }
     });
   }
+
 
 
   onRememberMeChange(event: any) {
