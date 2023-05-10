@@ -1,0 +1,277 @@
+{
+  "order_id":"0366187296 230508113059",
+  "customer_id":"0366187296",
+  "prorducts":[
+      {
+        "product_id":"dt001",
+        "quantity":2
+      },
+      {
+        "product_id":"dt006",
+        "quantity":3
+      }
+  ]
+},
+
+{
+  "_id": "bg004",
+  "name": "Ghế game E-Dra Hercules EGC203 V2 Black",
+  "brand": "E-Dra",
+  "image": "https://anphat.com.vn/media/product/31455_e_dra_hercules_egc203_v2__3_.jpg",
+  "discount_amount": 500000,
+  "initial_price": 4199000,
+  "general_info": {
+    "info_1": "Chất liệu da PU công nghệ mới siêu thông thoáng",
+    "info_2": "NÂNG CẤP GỐI LƯNG MEMORY FOAM SIÊU ÊM (KHÔNG CÓ DÂY ĐAI)",
+    "info_3": "Tích hợp nút chỉnh phồng lưng cao cấp"
+  },
+  "details_id": "bg_detail004"
+},
+{
+  "_id": "bg_detail004",
+  "details_id": "bg004",
+  "details": {
+    "info_1": "Chất liệu da PU công nghệ mới siêu thông thoáng",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Tích hợp nút chỉnh phồng lưng cao cấp",
+    "info_4": "Logo ấn tượng",
+    "info_5": "Đệm nguyên khối đúc ở mật độ cao",
+    "info_6": "Bộ khung thép chắc chắn",
+    "info_7": "Trụ thủy lực class 4 chịu trọng tải 150Kg",
+    "inf0_8": "Bệ đỡ kiểu con ếch",
+
+    "info_9": "Việt Nam / Trung Quốc",
+    "info_10": "2022"
+  },
+  "description": "E-Dra Hercules EGC203 V2 Black là ghế gaming đầu tiên của hãng được ứng dụng công nghệ da Breath PU (da pu với các lỗ thông khí) - đây là vật liệu da PU có độ bện cao nhất và cũng là cho trải nghiệm sử dụng thoải mái, mềm mại, thoáng mát nhất. Qua sử dụng thực thế, An Phát PC nhận thấy lớp da này thực sự mát hơn và mềm mại hơn rất nhiều so với các loại da PU trước đây."
+}
+{
+  "_id": "bg001",
+  "name": "Ghế game E-Dra LUX Draco EGC2029",
+  "brand": "samsung",
+  "image": "https://anphat.com.vn/media/product/38894_e_dra_lux_draco_egc2029__1____copy.jpg",
+  "discount_amount": 2500000,
+  "initial_price": 6999000,
+  "general_info": {
+    "info_1": "Chất liệu da PU công nghệ mới siêu thông thoáng",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Tích hợp nút chỉnh phồng lưng cao cấp"
+  },
+  "details_id": "bg_detail001"
+}
+{
+  "_id": "bg_detail001",
+  "details_id": "bg001",
+  "details": {
+    "info_1": "Chất liệu da PU công nghệ mới siêu thông thoáng",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Tích hợp nút chỉnh phồng lưng cao cấp",
+    "info_4": "Logo ấn tượng",
+    "info_5": "Đệm nguyên khối đúc ở mật độ cao",
+    "info_6": "Bộ khung thép chắc chắn",
+    "info_7": "Trụ thủy lực class 4 chịu trọng tải 150Kg",
+    "inf0_8": "Bệ đỡ kiểu con ếch",
+
+    "info_9": "Việt Nam / Trung Quốc",
+    "info_10": "2022"
+  },
+  "description": "E-Dra Draco EGC2029 là ghế gaming đầu tiên của hãng được ứng dụng công nghệ da Breath PU (da pu với các lỗ thông khí) - đây là vật liệu da PU có độ bện cao nhất và cũng là cho trải nghiệm sử dụng thoải mái, mềm mại, thoáng mát nhất. Qua sử dụng thực thế, An Phát PC nhận thấy lớp da này thực sự mát hơn và mềm mại hơn rất nhiều so với các loại da PU trước đây."
+}
+{
+  "_id": "bg002",
+  "name": "Ghế game E-Dra LUX Champion EGC2022 NAPPA Black",
+  "brand": "E-Dra",
+  "image": "https://anphat.com.vn/media/product/40051_e_dra_lux_champion_egc2022_napa_black__1_.jpg",
+  "discount_amount": 1500000,
+  "initial_price": 7999000,
+  "general_info": {
+    "info_1": "Chất liệu da PU công nghệ mới siêu thông thoáng",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Tích hợp nút chỉnh phồng lưng cao cấp"
+  },
+  "details_id": "bg_detail002"
+},
+{
+  "_id": "bg_detail002",
+  "details_id": "bg002",
+  "details": {
+    "info_1": "Chất liệu da PU công nghệ mới siêu thông thoáng",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Tích hợp nút chỉnh phồng lưng cao cấp",
+    "info_4": "Logo ấn tượng",
+    "info_5": "Đệm nguyên khối đúc ở mật độ cao",
+    "info_6": "Bộ khung thép chắc chắn",
+    "info_7": "Trụ thủy lực class 4 chịu trọng tải 150Kg",
+    "inf0_8": "Bệ đỡ kiểu con ếch",
+
+    "info_9": "Việt Nam / Trung Quốc",
+    "info_10": "2022"
+  },
+  "description": "E-Dra LUX Champion EGC2022 NAPPA Black là ghế gaming đầu tiên của hãng được ứng dụng công nghệ da Breath PU (da pu với các lỗ thông khí) - đây là vật liệu da PU có độ bện cao nhất và cũng là cho trải nghiệm sử dụng thoải mái, mềm mại, thoáng mát nhất. Qua sử dụng thực thế, An Phát PC nhận thấy lớp da này thực sự mát hơn và mềm mại hơn rất nhiều so với các loại da PU trước đây."
+}
+{
+  "_id": "bg003",
+  "name": "Ghế công thái học ergonomic SIHOO M18 Black Grey",
+  "brand": "ergomic",
+  "image": "https://anphat.com.vn/media/product/40998_sihoo_m18_black_grey__1_.JPG",
+  "discount_amount": 1200000,
+  "initial_price": 4499000,
+  "general_info": {
+    "info_1": "Bộ khung kim loại chắc chắn",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Gối đầu điều chỉnh được độ cao"
+  },
+  "details_id": "bg_detail003"
+}
+{
+  "_id": "bg_detail003",
+  "details_id": "bg003",
+  "details": {
+    "info_1": "Bộ khung kim loại chắc chắn",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Gối đầu điều chỉnh được độ cao",
+    "info_4": "Logo ấn tượng",
+    "info_5": "Đệm nguyên khối đúc ở mật độ cao",
+    "info_6": "Bộ khung thép chắc chắn",
+    "info_7": "Trụ thủy lực class 4 chịu trọng tải 150Kg",
+    "inf0_8": "Bệ đỡ kiểu con ếch",
+
+    "info_9": "Việt Nam / Trung Quốc",
+    "info_10": "2022"
+  },
+  "description": "Ghế công thái học ergonomic SIHOO M18 Black là ghế gaming đầu tiên của hãng được ứng dụng công nghệ da Breath PU (da pu với các lỗ thông khí) - đây là vật liệu da PU có độ bện cao nhất và cũng là cho trải nghiệm sử dụng thoải mái, mềm mại, thoáng mát nhất. Qua sử dụng thực thế, An Phát PC nhận thấy lớp da này thực sự mát hơn và mềm mại hơn rất nhiều so với các loại da PU trước đây."
+}
+
+[]
+[]
+{
+  "_id": "bg005",
+  "name": "Ghế công thái học ergonomic E-Dra EEC213 Black",
+  "brand": "ergomic",
+  "image": "https://anphat.com.vn/media/product/44101_e_dra_eec213__1_.jpg",
+  "discount_amount": 1000000,
+  "initial_price": 3499000,
+  "general_info": {
+    "info_1": "Lưng bằng lưới chất lượng cao cho cảm giác thông thoáng",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Gối đầu điều chỉnh được độ cao"
+  },
+  "details_id": "bg_detail005"
+}
+{
+  "_id": "bg_detail005",
+  "details_id": "bg005",
+  "details": {
+    "info_1": "Lưng bằng lưới chất lượng cao cho cảm giác thông thoáng",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Gối đầu điều chỉnh được độ cao",
+    "info_4": "Logo ấn tượng",
+    "info_5": "Đệm nguyên khối đúc ở mật độ cao",
+    "info_6": "Tựa đầu 2D điều chỉnh độ cao và góc",
+    "info_7": "Trụ thủy lực class 4 chịu trọng tải 150Kg",
+    "inf0_8": "Bệ đỡ kiểu con ếch",
+
+    "info_9": "Việt Nam / Trung Quốc",
+    "info_10": "2022"
+  },
+  "description": "Ghế công thái học ergonomic E-Dra EEC213 Black là ghế gaming đầu tiên của hãng được ứng dụng công nghệ da Breath PU (da pu với các lỗ thông khí) - đây là vật liệu da PU có độ bện cao nhất và cũng là cho trải nghiệm sử dụng thoải mái, mềm mại, thoáng mát nhất. Qua sử dụng thực thế, An Phát PC nhận thấy lớp da này thực sự mát hơn và mềm mại hơn rất nhiều so với các loại da PU trước đây."
+}
+
+{
+  "_id": "bg006",
+  "name": "Ghế Noblechairs EPIC Series Black/Red",
+  "brand": "Noblechairs ",
+  "image": "https://anphat.com.vn/media/product/44101_e_dra_eec213__1_.jpg",
+  "discount_amount": 2500000,
+  "initial_price": 1399000,
+  "general_info": {
+    "info_1": "Thương hiệu ghế cao cấp đến từ Đức (Germany)",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Gối đầu điều chỉnh được độ cao"
+  },
+  "details_id": "bg_detail006"
+}
+{
+  "_id": "bg_detail006",
+  "details_id": "bg006",
+  "details": {
+    "info_1": "Lưng bằng lưới chất lượng cao cho cảm giác thông thoáng",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Gối đầu điều chỉnh được độ cao",
+    "info_4": "Logo ấn tượng",
+    "info_5": "Đệm nguyên khối đúc ở mật độ cao",
+    "info_6": "Tựa đầu 2D điều chỉnh độ cao và góc",
+    "info_7": "Trụ thủy lực class 4 chịu trọng tải 150Kg",
+    "inf0_8": "Bệ đỡ kiểu con ếch",
+
+    "info_9": "Việt Nam / Đức",
+    "info_10": "2022"
+  },
+  "description": "Ghế Noblechairs EPIC Series Black/Red là ghế gaming đầu tiên của hãng được ứng dụng công nghệ da Breath PU (da pu với các lỗ thông khí) - đây là vật liệu da PU có độ bện cao nhất và cũng là cho trải nghiệm sử dụng thoải mái, mềm mại, thoáng mát nhất. Qua sử dụng thực thế, An Phát PC nhận thấy lớp da này thực sự mát hơn và mềm mại hơn rất nhiều so với các loại da PU trước đây."
+}
+[]
+{
+  "_id": "bg007",
+  "name": "Ghế game DXRacer MASTER series DMC-IA233S-W",
+  "brand": "Noblechairs ",
+  "image": "https://anphat.com.vn/media/product/44101_e_dra_eec213__1_.jpg",
+  "discount_amount": 2500000,
+  "initial_price": 1099000,
+  "general_info": {
+    "info_1": "Thương hiệu ghế cao cấp đến từ Đức (Germany)",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Gối đầu điều chỉnh được độ cao"
+  },
+  "details_id": "bg_detail007"
+}
+{
+  "_id": "bg_detail007",
+  "details_id": "bg007",
+  "details": {
+    "info_1": "Lưng bằng lưới chất lượng cao cho cảm giác thông thoáng",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Gối đầu điều chỉnh được độ cao",
+    "info_4": "Logo ấn tượng",
+    "info_5": "Đệm nguyên khối đúc ở mật độ cao",
+    "info_6": "Tựa đầu 2D điều chỉnh độ cao và góc",
+    "info_7": "Trụ thủy lực class 4 chịu trọng tải 150Kg",
+    "inf0_8": "Bệ đỡ kiểu con ếch",
+
+    "info_9": "Việt Nam / Đức",
+    "info_10": "2022"
+  },
+  "description": "Ghế game DXRacer MASTER series DMC-IA233S-W là ghế đầu tiên của hãng được ứng dụng công nghệ da Breath PU (da pu với các lỗ thông khí) - đây là vật liệu da PU có độ bện cao nhất và cũng là cho trải nghiệm sử dụng thoải mái, mềm mại, thoáng mát nhất. Qua sử dụng thực thế, An Phát PC nhận thấy lớp da này thực sự mát hơn và mềm mại hơn rất nhiều so với các loại da PU trước đây."
+}
+{
+  "_id": "bg008",
+  "name": "Ghế Gaming MSI MAG CH130 I REPELTEK FABRIC",
+  "brand": "MSI ",
+  "image": "https://anphat.com.vn/media/product/39819_msi_ch130_i_fabric__1_.jpg",
+  "discount_amount": 200000,
+  "initial_price": 7999000,
+  "general_info": {
+    "info_1": "Vật liệu Repeltek Fabric siêu bền, chống thấm nước hiệu quả",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Gối đầu điều chỉnh được độ cao"
+  },
+  "details_id": "bg_detail008"
+}
+{
+  "_id": "bg_detail008",
+  "details_id": "bg008",
+  "details": {
+    "info_1": "Vật liệu Repeltek Fabric siêu bền, chống thấm nước hiệu quả",
+    "info_2": "Thiết kế kích thước lớn",
+    "info_3": "Gối đầu điều chỉnh được độ cao",
+    "info_4": "Logo ấn tượng",
+    "info_5": "Đệm nguyên khối đúc ở mật độ cao",
+    "info_6": "Tựa đầu 2D điều chỉnh độ cao và góc",
+    "info_7": "Trụ thủy lực class 4 chịu trọng tải 150Kg",
+    "inf0_8": "Bệ đỡ kiểu con ếch",
+
+    "info_9": "Việt Nam / Trung Quốc",
+    "info_10": "2022"
+  },
+  "description": "Ghế Gaming MSI MAG CH130 I REPELTEK FABRIC là ghế đầu tiên của hãng được ứng dụng công nghệ da Breath PU (da pu với các lỗ thông khí) - đây là vật liệu da PU có độ bện cao nhất và cũng là cho trải nghiệm sử dụng thoải mái, mềm mại, thoáng mát nhất. Qua sử dụng thực thế, An Phát PC nhận thấy lớp da này thực sự mát hơn và mềm mại hơn rất nhiều so với các loại da PU trước đây."
+}
+

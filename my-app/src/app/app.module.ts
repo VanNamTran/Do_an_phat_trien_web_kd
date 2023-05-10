@@ -45,6 +45,10 @@ import { LaptopDetailComponent } from './laptop-detail/laptop-detail.component';
 import { TabletDetailComponent } from './tablet-detail/tablet-detail.component';
 import { WatchDetailComponent } from './watch-detail/watch-detail.component';
 import { EarphoneDetailComponent } from './earphone-detail/earphone-detail.component';
+import { OrderSuccessComponent } from './order-success/order-success.component';
+import { HomeComponent } from './home/home.component';
+import { FurnitureDetailComponent } from './furniture-detail/furniture-detail.component';
+import { FurnitureComponent } from './furniture/furniture.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +83,10 @@ import { EarphoneDetailComponent } from './earphone-detail/earphone-detail.compo
     TabletDetailComponent,
     WatchDetailComponent,
     EarphoneDetailComponent,
+    OrderSuccessComponent,
+    HomeComponent,
+    FurnitureDetailComponent,
+    FurnitureComponent,
   ],
   imports: [
     BrowserModule,

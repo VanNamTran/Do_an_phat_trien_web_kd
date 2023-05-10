@@ -1,0 +1,93 @@
+<app-header></app-header>
+<app-subheader></app-subheader>
+
+<!-- <app-breadcrumb></app-breadcrumb> -->
+
+<div class="container-filter-products"> <!-- vùng chứa tất cả thông tin sản phẩm và filter -->
+  <div class="filter"> <!-- Vùng filter -->
+    <div class="filter-types">
+      <div class="filter-value">
+        <div class="filter-type">Thương hiệu</div>
+        <ol>
+          <li *ngFor="let brand of products; let i = index" [class.hidden]="i >= 5 && !showAllBrands">
+            <input type="checkbox" [id]="'brand-' + i" class="checkbox">{{brand.brand}}
+          </li>
+          <p class="see-more-list-filter" (click)="showAllBrands = !showAllBrands">{{showAllBrands ? 'Ẩn bớt' : 'Xem thêm'}}</p>
+        </ol>
+      </div>
+
+      <div class="filter-value">
+        <div class="filter-type">Giá</div>
+        <ol>
+          <li *ngFor="let price of prices; let i = index" [class.hidden]="i >= 5 && !showAllPrices">
+            <input type="checkbox" [id]="'price-' + i" class="checkbox">{{price}}
+          </li>
+          <p class="see-more-list-filter" (click)="showAllPrices = !showAllPrices">{{showAllPrices ? 'Ẩn bớt' : 'Xem thêm'}}</p>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+  <div class="products"> <!-- vùng chứa thông tin sản phẩm -->
+    <div class="count-view">
+      <p>Có X sản phẩm được tìm thấy</p>
+      <div class="button-view">
+        <button id="grid-layout"  ><img src="./assets/icon/gridview.png" alt=""></button>
+        <button id="list-layout"  ><img src="./assets/icon/listview.png" alt=""></button>
+      </div>
+    </div>
+    <!-- <div *ngFor="let i of favoriteProducts">
+      {{i}}
+    </div> -->
+    <div class="products-list" > <!-- vùng chứa tất cả sản phẩm -->
+      <div class="product-info" *ngFor="let item of products.slice(0, productsToShow)" > <!-- vùng chứa 1 sản phẩm-->
+        <div class="discount" style="white-space: nowrap" *ngIf="item.discount_amount != 0"> giảm {{item.discount_amount.toLocaleString('vi-VN')}} <span> ₫</span></div>
+
+        <div class="product-img"> <img [src]="item.image" alt="" (click)="viewFurnitureProductDetail(item)"></div> <!-- vùng chứa ảnh -->
+        <div class="ffff">
+          <div class="product-info-detail">
+            <p class="product-name">{{item.name}}</p>
+            <div class="product-price">
+              <div class="price" style="white-space: nowrap">{{(item.initial_price - item.discount_amount).toLocaleString('vi-VN')}} <span> ₫</span></div>
+              <div class="initial_price"style="white-space: nowrap"*ngIf="item.discount_amount != 0"><del>{{item.initial_price.toLocaleString('vi-VN')}} ₫</del></div>
+            </div>
+            <div class="general_info">
+              <div>{{item.general_info.info_1}}</div>
+              <div>{{item.general_info.info_2}}</div>
+              <div>{{item.general_info.info_3}}</div>
+            </div>
+          </div>
+
+          <div class="favorite-icon">
+            <img src="./assets/icon/favorite_border.png" alt="" class="favorite-off"
+                 [attr.id]="'favorite-off-' + item._id"
+                 [attr.data-product-id]="item._id"
+                 [attr.data-favorite-status]="false"
+                 (click)="toggleFavorite($event)"
+
+                 >
+            <img src="./assets/icon/favorite.png" alt="" class="favorite-on hidden"
+                 [attr.id]="'favorite-on-' + item._id"
+                 [attr.data-product-id]="item._id"
+                 [attr.data-favorite-status]="true"
+                 (click)="toggleFavorite($event)"
+                 >
+          </div>
+
+
+        </div>
+        <div class="purchase">
+          <!-- <button id="purchase">Mua ngay</button> -->
+          <button id="purchase" (click)="viewFurnitureProductDetail(item)" title="Click here to view detail">Mua ngay</button>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="see-more">
+      <button (click)="loadMore()" [hidden]="productsToShow >= products.length">Xem thêm sản phẩm</button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+

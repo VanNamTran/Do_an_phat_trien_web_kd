@@ -51,6 +51,14 @@
 
   },
   {
+    "context":["/furniture"],
+    "target":"http://localhost:3000",
+    "secure":true,
+    "changeOrigin":true,
+    "logLevel":"debug"
+
+  },
+  {
 
     "context": ["/techshop"],
     "target": "http://localhost:3000",
@@ -64,5 +72,12 @@
     "target": "http://localhost:3000",
     "secure": true,
     "changeOrigin":true, "logLevel":"debug"
+  },
+  {
+    "context": ["/user"],
+    "target": "http://localhost:3000",
+    "secure": true,
+    "changeOrigin":true,
+    "logLevel":"debug"
   }
 ]

@@ -1,6 +1,7 @@
 import { Component, OnInit ,ChangeDetectorRef} from '@angular/core';
 import { ApiProductsService, } from '../services/api-products.service';
 import { Router } from '@angular/router';
+import { CartService } from '../services/cart.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -15,9 +16,9 @@ export class CartComponent implements OnInit{
   productsInCart:any;
   totalPrice: number | undefined;
   customerId:any
+  // cartItems: any = [];
 
-
-  constructor(private _service:ApiProductsService,private router: Router){}
+  constructor(private _service:ApiProductsService,private router: Router,private cartService: CartService){}
   ngOnInit() {
     this.customerId = localStorage.getItem('customerId');
     this._service.getListFavorites(this.customerId).subscribe({
@@ -34,6 +35,8 @@ export class CartComponent implements OnInit{
 
     const itemsCart = JSON.parse(localStorage.getItem('itemscart') || '[]');
     this.productsInCart = itemsCart;
+    // save items to cartservice
+    // this.cartService.currentCartItems.subscribe(items => this.cartItems = items);
   }
   deletefavorite(event: MouseEvent){
     const target = event.target as HTMLImageElement;
@@ -177,6 +180,13 @@ export class CartComponent implements OnInit{
         break
     }
 
+  }
+  onPaymentClick(){
+
+    this.router.navigate(['/payment']).then(() => {
+      setTimeout(() => {
+        location.reload();
+      }, 500);});
   }
 
 }

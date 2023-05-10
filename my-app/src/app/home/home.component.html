@@ -1,0 +1,146 @@
+<app-header></app-header>
+<app-subheader></app-subheader>
+<div class="none"></div>
+<div class="section-top-ts view-section-ts">
+
+  <div class="category-ts">
+    <p><b>DANH MỤC</b> </p>
+    <ul>
+      <li routerLink="/phone">Điện thoại</li>
+      <li routerLink="/laptop">Laptop</li>
+      <li routerLink="/tablets">Máy tính bảng</li>
+      <li routerLink="/watch">Đồng hồ</li>
+      <li routerLink="/earphone">Phụ kiện</li>
+      <li routerLink="/furniture">Sản phẩm khác</li>
+    </ul>
+  </div>
+
+  <div class="banner-ts">
+    <img src="./assets/images/banner.png" alt="">
+  </div>
+  <div class="adv-ts">
+    <div class="QC--top--right adv-item-ts">
+      <img src="./assets/images/ad1.jpg" alt=""  class="QC--right--1">
+  </div>
+  <div class="QC--bottom--right adv-item-ts">
+      <img src="./assets/images/add3.jpg" alt=""  class="QC--right--2">
+  </div>
+  </div>
+</div>
+<div class="section-sales-ts view-section-ts">
+  <div class="section-sales-left"> <h2>Sản phẩm bán chạy</h2></div>
+  <div class="list-products-sale-ts" id="productList">
+    <div class="product-sale-ts " *ngFor="let item of phones.slice(0, 5)">
+      <div class="prduct-sale-image-ts">
+        <div class="background-image-ts">
+          <img src="{{item.image}}" alt="" (click)="viewProductDetail(item._id)">
+        </div>
+      </div>
+      <div class="product-sale-name-ts"><p>{{item.name}}</p></div>
+
+    </div>
+
+  </div>
+
+
+</div>
+<div class="section-block-ts items-1-ts view-section-ts">
+  <div class="section-block-left"><img src="./assets/images/image92.png" alt=""> <p>Bàn ghế làm việc</p></div>
+  <div class="section-block-right">
+    <div class="items-1-ts ">
+      <div class="item-block-1-ts item-all-block" *ngFor="let item of phones.slice(6, 10)">
+        <div class="info-item-ts">
+          <p>{{item.name}}</p>
+          <br>
+          <p>{{item.price}}</p>
+        </div>
+        <div class="image-item-ts"><img src="{{item.image}}" alt="" (click)="viewProductDetail(item._id)"></div>
+      </div>
+    </div>
+    <div class="items-1-ts ">
+      <div class="item-block-1-ts item-all-block" *ngFor="let item of phones.slice(10, 14)">
+        <div class="info-item-ts">
+          <p>{{item.name}}</p>
+          <br>
+          <p>{{item.price}}</p>
+        </div>
+        <div class="image-item-ts"><img src="{{item.image}}" alt="" (click)="viewProductDetail(item._id)"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="section-block-ts items-2-ts view-section-ts">
+  <div class="section-block-left"><img src="./assets/images/image98.png" alt=""> <p>Phụ kiện</p>
+  </div>
+  <div class="section-block-right">
+    <div class="items-1-ts ">
+      <div class="item-block-1-ts item-all-block" *ngFor="let item of phones.slice(14,18)">
+        <div class="info-item-ts">
+          <p>{{item.name}}</p>
+          <br>
+          <p>{{item.prive}}</p>
+        </div>
+        <div class="image-item-ts"><img src="{{item.image}}" alt="" (click)="viewProductDetail(item._id)"></div>
+      </div>
+    </div>
+    <div class="items-1-ts ">
+      <div class="item-block-1-ts item-all-block" *ngFor="let item of phones.slice(18, 22)">
+        <div class="info-item-ts">
+          <p>{{item.name}}</p>
+          <br>
+          <p>{{item.price}}</p>
+        </div>
+        <div class="image-item-ts"><img src="{{item.image}}" alt="" (click)="viewProductDetail(item._id)"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section-inquiry-ts view-section-ts">
+  <div class="require">
+
+    <div class="require-box-content">
+      <div class="content--leftbox">
+        <span style="font-size: 30px; font-weight: bold;">Gửi yêu cầu đến tất cả các nhà cung cấp một cách dễ dàng
+        <br>
+          <span style="font-size: 15px; font-weight: normal;"></span>
+        </span>
+      </div>
+      <div class="content--rightbox">
+      <form action="">
+        <div class="form--container">
+          <form action="server.html" method="get">
+            <span style="font-size: 18px; font-weight: bold;">Gửi yêu cầu</span>
+            <div>
+              <input type="text" class="form--input1" value="" id="" name="" placeholder="Bạn cần sản phẩm gì?"/>
+            </div>
+
+            <div>
+              <textarea name="inputdata" id="input" class="form--input2"  cols="60" rows="5" placeholder="Chi tiết sản phẩm"></textarea>
+            </div>
+              <div>
+                <input type="number" class="form--input3"  min="0" max="20" placeholder="Số lượng"/>
+              </div>
+            <div class="">
+              <input type="button" onclick="alert('Cảm ơn quý khách đã gửi yêu cầu')" value="Gửi" class="button-send"/>
+          </div>
+          </form>
+        </div>
+      </form>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-recomment-ts view-section-ts">
+  <div class="item-rcm-ts"  *ngFor="let item of phones.slice(22, 34)"><!-- Product template -->
+    <div class="product-img-ts">
+      <img  [src]="item.image" alt="" (click)="viewProductDetail(item._id)">
+    </div>
+    <p>{{item.name}}</p>
+    <br><span class="price">price</span>
+  </div>
+</div>
+<div class="section-services-ts view-section-ts"></div>
+
+<app-footer></app-footer>

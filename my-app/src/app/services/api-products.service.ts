@@ -6,6 +6,7 @@ import { IFavorites } from '../interfaces/favorite';
 import { LaptopProduct } from '../interfaces/laptop-product';
 import { EarphoneProduct } from '../interfaces/earphone-product';
 import { WatchProduct } from '../interfaces/watch-product';
+import { IUserInfo } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -135,6 +136,30 @@ export class ApiProductsService {
       catchError(this.handleError)
     )
   }
+  getFurnitureProducts():Observable<any>{
+    const headers = new HttpHeaders().set('Content-Type', 'text/plain;charset=utf-8');
+    const requestOptions:Object={
+      headers: headers,
+      responseType: "text"
+    }
+    return this._http.get<any>("/techshop/furniture", requestOptions).pipe(
+      map(res=>JSON.parse(res) as Array<WatchProduct>),
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
+  getFurnitureProductsDetail(prodId: string):Observable<any>{
+    const headers = new HttpHeaders().set("Content-Type", "text/plain;charset=utf-8")
+    const requestOptions:Object={
+      headers: headers,
+      responseType: "text"
+    }
+    return this._http.get<any>("/techshop/furniture/"+prodId, requestOptions).pipe(
+      map(res=>JSON.parse(res) as Array<WatchProduct>),
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
 
   handleError(error:HttpErrorResponse){
     return throwError(()=> new Error (error.message))
@@ -217,5 +242,20 @@ export class ApiProductsService {
       catchError(this.handleError)
     )
   }
+
+  getUser(customerId:any):Observable<any>
+  {
+    const headers = new HttpHeaders().set("Content-type","text/plain;charset=utf8")
+    const requestOptions:Object={
+      headers:headers,
+      responseType:"text"
+    }
+    return this._http.get<any>("/user/"+customerId,requestOptions).pipe(
+      map(res =>JSON.parse(res)as Array<IUserInfo>),
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
+
 
 }

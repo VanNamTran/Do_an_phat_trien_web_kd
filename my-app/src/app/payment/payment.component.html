@@ -5,20 +5,20 @@
   <div class="incart">
     <div class="form">
       <label for="">Sô điện thoại</label><br>
-      <input type="text"><br>
+      <input type="text" [value]="user.phone"><br>
       <label for="">Họ và tên</label><br>
-      <input type="text"><br>
+      <input type="text"[value]="user.name"><br>
       <label for="">Địa chỉ</label><br>
-      <input type="text">
+      <input type="text" [value]="user.address">
     </div>
     <hr>
     <div class="payments-type">
       <div class="pm-title">Hình thức thanh toán</div>
       <div class="c-radio">
-        <input type="radio" name="ck" id="car" value="color"><label for="car">Thanh toán khi nhận hàng</label>
+        <input type="radio" name="ck" id="car" value="order-success"  [(ngModel)]="selectedPage"><label for="car">Thanh toán khi nhận hàng</label>
       </div>
       <div class="c-radio">
-        <input type="radio" name="ck" id="chk" value="color"><label for="chk">Chuyển khoản</label>
+        <input type="radio" name="ck" id="chk" value="payment/payment-transfer" [(ngModel)]="selectedPage"><label for="chk">Chuyển khoản</label>
       </div>
     </div>
     <div class="come-back" routerLink="/cart">
@@ -27,12 +27,12 @@
   </div>
   <div class="payment">
     <div class="total_payment_amount">
-      <div class="list"><label>Tổng tiền</label><span>xxxxx</span></div>
+      <div class="list"><label>Tổng tiền</label><span>{{getTotalPrice().toLocaleString('vi-VN')}}<span> ₫</span></span></div>
       <div class="list"><label>Giảm giá</label><span>xxxx</span></div>
-      <div class="list"><label>Thuế GTGT</label> <span>xxxxx</span></div>
+      <div class="list"><label>Thuế GTGT</label> <span>+10%</span></div>
       <hr />
-      <div class="list"><label>Tổng cộng</label> <span>xxxx</span></div>
-      <input type="button" value="Tiến hành đặt hàng" id="purchase" routerLink="payment-transfer"/>
+      <div class="list"><label>Tổng cộng</label> <span>{{sum().toLocaleString('vi-VN')}}<span> ₫</span></span></div>
+      <input type="button" value="Tiến hành đặt hàng" id="purchase" (click)="goToPage()"/>
     </div>
   </div>
 </div>

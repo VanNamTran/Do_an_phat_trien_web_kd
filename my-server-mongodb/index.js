@@ -164,7 +164,7 @@ app.get('/techshop/earphones', cors(), async (req,res)=>{
 })
 
 
-//get earphone details
+//get chair details
 app.get('/techshop/earphones/:id', cors(), async (req, res) => {
     const id = req.params.id;
 
@@ -172,6 +172,34 @@ app.get('/techshop/earphones/:id', cors(), async (req, res) => {
         { $match: { _id: id } },
         { $lookup: {
             from: 'earphone_details',
+            localField: 'details_id',
+            foreignField: '_id',
+            as: 'details'
+        }}
+    ]).toArray();
+
+    if (result.length > 0) {
+        res.json(result[0]);
+    } else {
+        res.sendStatus(404);
+    }
+});
+furnitureCollection=database.collection('furniture');
+
+app.get('/techshop/furniture', cors(), async (req,res)=>{
+    const result=await furnitureCollection.find().toArray();
+    res.send(result)
+})
+
+
+//get chair details
+app.get('/techshop/furniture/:id', cors(), async (req, res) => {
+    const id = req.params.id;
+
+    const result = await furnitureCollection.aggregate([
+        { $match: { _id: id } },
+        { $lookup: {
+            from: 'furniture_details',
             localField: 'details_id',
             foreignField: '_id',
             as: 'details'
@@ -295,6 +323,9 @@ app.get("/favorites/:customerId", cors(), async (req, res) => {
             break;
           case "tn":
             products.push(await earphoneCollection.findOne({ _id:productId }));
+            break;
+          case "bg":
+            products.push(await furnitureCollection.findOne({ _id:productId }));
             break;
         }
       }
@@ -531,6 +562,13 @@ for (let i = 0; i < productsInCart.length; i++) {
         products.push(earphone);
       }
       break;
+    case "bg":
+      const furinture = await furnitureCollection.findOne({ _id: productId });
+      if (earphone) {
+        furinture.quantity = item.quantity;
+        products.push(furinture);
+      }
+      break;
   }
 }
 
@@ -618,22 +656,55 @@ app.get('/tonghop', cors(), async (req,res)=>{
 //     res.send(result);
 // });
 
-app.get('/tonghop/:id', cors(), async (req, res) => {
-    const id = req.params.id;
+// app.get('/tonghop/:id', cors(), async (req, res) => {
+//     const id = req.params.id;
 
-    const result = await tonghopCollection.aggregate([
-        { $match: { _id: id } },
-        { $lookup: {
-            from: 'phone_details',
-            localField: 'details_id',
-            foreignField: '_id',
-            as: 'details'
-        }}
-    ]).toArray();
+//     const result = await tonghopCollection.aggregate([
+//         { $match: { _id: id } },
+//         { $lookup: {
+//             from: 'phone_details',
+//             localField: 'details_id',
+//             foreignField: '_id',
+//             as: 'details'
+//         }}
+//     ]).toArray();
 
-    if (result.length > 0) {
-        res.json(result[0]);
-    } else {
-        res.sendStatus(404);
-    }
-});
+//     if (result.length > 0) {
+//         res.json(result[0]);
+//     } else {
+//         res.sendStatus(404);
+//     }
+// });
+// =============== ORDER ================
+collectionOrder=database.collection('orders');
+app.post("/order",cors(),async(req,res)=>{
+  try {
+    const { customerId, products } = req.body;
+    const newOrder = {
+      order_id: customerId + new Date().toISOString(),
+      customer_id: customerId,
+      products: products.map((product) => ({
+        product_id: product.product_id,
+        quantity: product.quantity
+      }))
+    };
+    await collectionOrder.insertOne(newOrder)
+    res.send(req.body)
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Lỗi server." });
+  }
+  
+})
+app.get('/order', cors(), async (req,res)=>{
+  const result=await collectionOrder.find().toArray();
+  res.send(result)
+})
+collectionUsers=database.collection('users');
+app.get("/user/:customerId",cors(),async(req,res)=>{
+  const customerId = req.params.customerId;
+  const projection = { phone:1, name: 1, address: 1 };
+  const query = { phone: customerId };
+  const result=await collectionUsers.findOne(query,projection);
+  res.send(result)
+})

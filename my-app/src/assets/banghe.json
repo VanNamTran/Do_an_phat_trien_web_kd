@@ -1,0 +1,581 @@
+[
+  {
+    "_id": "dt001",
+    "name": "Samsung Galaxy S23 Ultra 5G 256GB",
+    "brand": "samsung",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/2/638109356938776451_samsung-galaxy-s23-ultra-xanh-dd-bh.jpg",
+    "discount_amount": 5000000,
+    "initial_price": 31990000,
+    "general_info": {
+      "cpu": "Snapdragon 8 Gen 2",
+      "screen": "6.8 inch",
+      "ram": "8 GB",
+      "rom": "256 GB"
+    },
+    "details_id": "dt_detail001"
+  },
+  {
+    "_id": "dt0030",
+    "name": "Samsung Galaxy Z Fold4 5G 256GB",
+    "brand": "samsung",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/9/12/637985736585000612_samsung-galaxy-z-fold4-kem-dd-tra-gop.jpg",
+    "discount_amount": 6000000,
+    "initial_price": 40990000,
+    "general_info": {
+      "cpu": "Snapdragon 8+ Gen 1",
+      "screen": "Chính: 7.6 inch, Phụ: 6.2 inch",
+      "ram": "12 GB",
+      "rom": "256 GB"
+    },
+    "details_id": "dt_detail0030"
+  },
+  {
+    "_id": "lap0019",
+    "name": "MSI Gaming GF63 Thin 11UC-1228VN i7-11800H",
+    "brand": "msi",
+    "image": "https://images.fpt.shop/unsafe/fit-in/240x215/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/16/638121561917481306_msi-gaming-gf63-thin-11uc-1228vn-i7-11800h-dd.jpg",
+    "discount_amount": 2500000,
+    "initial_price": 23490000,
+    "general_info": {
+      "cpu": "Core i7",
+      "screen": "15.6 inch",
+      "ram": "8 GB",
+      "rom": "SSD 512 GB",
+      "graphic": "NVIDIA GeForce RTX 3050 4GB",
+      "weight": "1.86 kg"
+    },
+    "details_id": "lap_detail0019"
+  },
+  {
+    "_id": "tn001",
+    "name": "Tai nghe Samsung Galaxy Buds2",
+    "brand": "samsung",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/9/22/637994571306477786_tai-nghe-samsung-galaxy-buds2-dd-docquyen.jpg",
+    "discount_amount": 0,
+    "initial_price": 2990000,
+    "general_info": {
+      "type": "Tai nghe không dây",
+      "connect": "Bluetooth",
+      "features": "Xem phim; Nghe nhạc"
+    },
+    "details_id": "tn_detail001"
+  },
+  {
+    "_id": "tn004",
+    "name": "Tai nghe AirPods Pro 2022",
+    "brand": "airpods",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/9/8/637982433040096193_tai-nghe-airpods-pro-2022-dd.jpg",
+    "discount_amount": 0,
+    "initial_price": 6990000,
+    "general_info": {
+      "type": "Tai nghe không dây",
+      "connect": "",
+      "features": "Sạc không dây; Chống ồn"
+    },
+    "details_id": "tn_detail004"
+  },
+  {
+    "_id": "dh0036",
+    "name": "Đồng hồ thông minh Garmin Fenix 7, Màu Bạc với dây màu Xám Grapphite",
+    "brand": "garmin",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/5/24/637889879719867944_dong-ho-thong-minh-garmin-fenix-7-mau-bac-voi-day-mau-xam-grapphite-dd.jpg",
+    "discount_amount": 2620000,
+    "initial_price": 17490000,
+    "general_info": {
+      "screen": "1.3 inch, MIP Chống chói, 260 x 260 Pixels",
+      "material": "Dây: Silicone"
+    },
+    "details_id": "dh_detail0036"
+  },
+  {
+    "_id": "bg004",
+    "name": "Ghế game E-Dra Hercules EGC203 V2 Black",
+    "brand": "E-Dra",
+    "image": "https://anphat.com.vn/media/product/31455_e_dra_hercules_egc203_v2__3_.jpg",
+    "discount_amount": 500000,
+    "initial_price": 4199000,
+    "general_info": {
+      "info_1": "Chất liệu da PU công nghệ mới siêu thông thoáng",
+      "info_2": "NÂNG CẤP GỐI LƯNG MEMORY FOAM SIÊU ÊM (KHÔNG CÓ DÂY ĐAI)",
+      "info_3": "Tích hợp nút chỉnh phồng lưng cao cấp"
+    },
+    "details_id": "bg_detail004"
+  },
+  {
+    "_id": "bg001",
+    "name": "Ghế game E-Dra LUX Draco EGC2029",
+    "brand": "samsung",
+    "image": "https://anphat.com.vn/media/product/38894_e_dra_lux_draco_egc2029__1____copy.jpg",
+    "discount_amount": 2500000,
+    "initial_price": 6999000,
+    "general_info": {
+      "info_1": "Chất liệu da PU công nghệ mới siêu thông thoáng",
+      "info_2": "Thiết kế kích thước lớn",
+      "info_3": "Tích hợp nút chỉnh phồng lưng cao cấp"
+    },
+    "details_id": "bg_detail001"
+  },
+  {
+    "_id": "bg002",
+    "name": "Ghế game E-Dra LUX Champion EGC2022 NAPPA Black",
+    "brand": "E-Dra",
+    "image": "https://anphat.com.vn/media/product/40051_e_dra_lux_champion_egc2022_napa_black__1_.jpg",
+    "discount_amount": 1500000,
+    "initial_price": 7999000,
+    "general_info": {
+      "info_1": "Chất liệu da PU công nghệ mới siêu thông thoáng",
+      "info_2": "Thiết kế kích thước lớn",
+      "info_3": "Tích hợp nút chỉnh phồng lưng cao cấp"
+    },
+    "details_id": "bg_detail002"
+  },
+  {
+    "_id": "bg003",
+    "name": "Ghế công thái học ergonomic SIHOO M18 Black Grey",
+    "brand": "ergomic",
+    "image": "https://anphat.com.vn/media/product/40998_sihoo_m18_black_grey__1_.JPG",
+    "discount_amount": 1200000,
+    "initial_price": 4499000,
+    "general_info": {
+      "info_1": "Bộ khung kim loại chắc chắn",
+      "info_2": "Thiết kế kích thước lớn",
+      "info_3": "Gối đầu điều chỉnh được độ cao"
+    },
+    "details_id": "bg_detail003"
+  },
+  {
+    "_id": "bg005",
+    "name": "Ghế công thái học ergonomic E-Dra EEC213 Black",
+    "brand": "ergomic",
+    "image": "https://anphat.com.vn/media/product/44101_e_dra_eec213__1_.jpg",
+    "discount_amount": 1000000,
+    "initial_price": 3499000,
+    "general_info": {
+      "info_1": "Lưng bằng lưới chất lượng cao cho cảm giác thông thoáng",
+      "info_2": "Thiết kế kích thước lớn",
+      "info_3": "Gối đầu điều chỉnh được độ cao"
+    },
+    "details_id": "bg_detail005"
+  },
+  {
+    "_id": "bg006",
+    "name": "Ghế Noblechairs EPIC Series Black/Red",
+    "brand": "Noblechairs ",
+    "image": "https://anphat.com.vn/media/product/44101_e_dra_eec213__1_.jpg",
+    "discount_amount": 2500000,
+    "initial_price": 1399000,
+    "general_info": {
+      "info_1": "Thương hiệu ghế cao cấp đến từ Đức (Germany)",
+      "info_2": "Thiết kế kích thước lớn",
+      "info_3": "Gối đầu điều chỉnh được độ cao"
+    },
+    "details_id": "bg_detail006"
+  },
+  {
+    "_id": "bg007",
+    "name": "Ghế game DXRacer MASTER series DMC-IA233S-W",
+    "brand": "Noblechairs ",
+    "image": "https://anphat.com.vn/media/product/44101_e_dra_eec213__1_.jpg",
+    "discount_amount": 2500000,
+    "initial_price": 1099000,
+    "general_info": {
+      "info_1": "Thương hiệu ghế cao cấp đến từ Đức (Germany)",
+      "info_2": "Thiết kế kích thước lớn",
+      "info_3": "Gối đầu điều chỉnh được độ cao"
+    },
+    "details_id": "bg_detail007"
+  },
+  {
+    "_id": "bg008",
+    "name": "Ghế Gaming MSI MAG CH130 I REPELTEK FABRIC",
+    "brand": "MSI ",
+    "image": "https://anphat.com.vn/media/product/39819_msi_ch130_i_fabric__1_.jpg",
+    "discount_amount": 200000,
+    "initial_price": 7999000,
+    "general_info": {
+      "info_1": "Vật liệu Repeltek Fabric siêu bền, chống thấm nước hiệu quả",
+      "info_2": "Thiết kế kích thước lớn",
+      "info_3": "Gối đầu điều chỉnh được độ cao"
+    },
+    "details_id": "bg_detail008"
+  },
+  {
+    "_id": "tn002",
+    "name": "Tai nghe AirPods 2 h\u1ed9p s\u1ea1c d\u00e2y",
+    "brand": "airpods",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2019/5/3/636924936322471575_pk-00564308-dd.png",
+    "discount_amount": 0,
+    "initial_price": 3999000,
+    "general_info": {
+      "type": "Tai nghe kh\u00f4ng d\u00e2y",
+      "connect": "Bluetooth",
+      "features": "Nghe nh\u1ea1c; Mic \u0111\u00e0m tho\u1ea1i"
+    },
+    "details_id": "tn_detail002"
+  },
+  {
+    "_id": "tn003",
+    "name": "Tai nghe AirPods 3 2022 H\u1ed9p s\u1ea1c d\u00e2y",
+    "brand": "airpods",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/10/20/637703243707644047_tai-nghe-airpods-3-2021-dd.jpg",
+    "discount_amount": 0,
+    "initial_price": 4790000,
+    "general_info": {
+      "type": "Tai nghe kh\u00f4ng d\u00e2y",
+      "connect": "Bluetooth",
+      "features": "Nghe nh\u1ea1c; Ch\u1ed1ng n\u01b0\u1edbc"
+    },
+    "details_id": "tn_detail003"
+  },
+  {
+    "_id": "tn005",
+    "name": "Tai nghe Xiaomi Mi Earphone Basic",
+    "brand": "xiaomi",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/9/4/637663529200028761_tai-nghe-xiaomi-mi-earphone-basic-dd.jpg",
+    "discount_amount": 0,
+    "initial_price": 150000,
+    "general_info": {
+      "type": "Tai nghe nh\u00e9t tai",
+      "connect": "",
+      "features": "Nghe nh\u1ea1c; Tr\u1ee3 l\u00fd \u1ea3o; Mic \u0111\u00e0m tho\u1ea1i"
+    },
+    "details_id": "tn_detail005"
+  },
+  {
+    "_id": "tn006",
+    "name": "Tai nghe bluetooth Xiaomi Redmi Buds 3 Lite",
+    "brand": "xiaomi",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/2/14/637804327078939087_tai-nghe-tws-xiaomi-redmi-buds-3-lite-den-dd.jpg",
+    "discount_amount": 0,
+    "initial_price": 590000,
+    "general_info": {
+      "type": "Tai nghe kh\u00f4ng d\u00e2y",
+      "connect": "Bluetooth",
+      "features": "Kh\u00e1ng n\u01b0\u1edbc IP54; K\u1ebft n\u1ed1i Bluetooth"
+    },
+    "details_id": "tn_detail006"
+  },
+  {
+    "_id": "tn007",
+    "name": "Tai nghe nh\u00e9t tai Sony Extra Bass MDR-EX15AP",
+    "brand": "sony",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/11/25/637734461429838739_avt.jpg",
+    "discount_amount": 0,
+    "initial_price": 199000,
+    "general_info": {
+      "type": "Tai nghe nh\u00e9t tai",
+      "connect": "",
+      "features": "Nghe nh\u1ea1c"
+    },
+    "details_id": "tn_detail007"
+  },
+  {
+    "_id": "tn008",
+    "name": "Tai nghe nh\u00e9t tai JBL C150SIUBLK c\u00f3 mic",
+    "brand": "jbl",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/11/1/637713514189044378_(600x600)_crop_tai-nghe-nhet-tai-jbl-c150siublk-xtmobile.png",
+    "discount_amount": 0,
+    "initial_price": 250000,
+    "general_info": {
+      "type": "Tai nghe nh\u00e9t tai",
+      "connect": "Jack 3.5 mm",
+      "features": "Nghe nh\u1ea1c, xem phim"
+    },
+    "details_id": "tn_detail008"
+  },
+  {
+    "_id": "tn0010",
+    "name": "Tai nghe EarPods with Lightning Connector",
+    "brand": "airpods",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2016/11/2/636137059022400928_HMPK-TAI-NGHE-EARPODS-WITH-LIGHTNING-CONNECTION-00281530.png",
+    "discount_amount": 0,
+    "initial_price": 599000,
+    "general_info": {
+      "screen": "Tai nghe nh\u00e9t tai",
+      "material": "Jack Lightning",
+      "features": "Nghe nh\u1ea1c, xem phim"
+    },
+    "details_id": "tn_detail0010"
+  },
+  {
+    "_id": "tn0011",
+    "name": "Tai nghe Bluetooth nh\u00e9t tai Aukey EP-M1s",
+    "brand": "Aukey",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/8/23/637968456926098658_HASP-TAI-NGHE-BLUETOOH-AUKEY-EP-M1S-DEN-AVT.jpg",
+    "discount_amount": 0,
+    "initial_price": 1490000,
+    "general_info": {
+      "screen": "Tai nghe kh\u00f4ng d\u00e2y",
+      "material": "Bluetooth",
+      "features": "Ph\u00e1t nh\u1ea1c kh\u00f4ng d\u00e2y; \u0110i\u1ec1u khi\u1ec3n cu\u1ed9c g\u1ecdi"
+    },
+    "details_id": "tn_detail0011"
+  },
+  {
+    "_id": "dt002",
+    "name": "Xiaomi Redmi 10A 3GB-64GB",
+    "brand": "xiaomi",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/24/638074782811199183_xiaomi-redmi-10a-dd-bh-docquyen.jpg",
+    "discount_amount": 500000,
+    "initial_price": 3290000,
+    "general_info": {
+      "cpu": "Helio G25",
+      "screen": "6.53 inch",
+      "ram": "3 GB",
+      "rom": "64 GB"
+    },
+    "details_id": "dt_detail002"
+  },
+  {
+    "_id": "dt003",
+    "name": "iPhone 11 64GB",
+    "brand": "apple",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/31/638107840321324440_iphone-11-dd.jpg",
+    "discount_amount": 4509000,
+    "initial_price": 14999000,
+    "general_info": {
+      "cpu": "Apple A13 Bionic",
+      "screen": "6.1 inch",
+      "ram": "4 GB",
+      "rom": "64 GB"
+    },
+    "details_id": "dt_detail003"
+  },
+  {
+    "_id": "dt004",
+    "name": "OPPO A77s 8GB-128GB",
+    "brand": "oppo",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/20/638071499364966239_oppo-a77s-dd.jpg",
+    "discount_amount": 0,
+    "initial_price": 6290000,
+    "general_info": {
+      "cpu": "Snapdragon 680",
+      "screen": "6.56 inch",
+      "ram": "8 GB",
+      "rom": "128 GB"
+    },
+    "details_id": "dt_detail004"
+  },
+  {
+    "_id": "dt005",
+    "name": "Xiaomi Redmi Note 11 Pro 8GB - 128GB",
+    "brand": "xiaomi",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/21/638072161262575097_xiaomi-redmi-note-11-pro-4g-dd-bh.jpg",
+    "discount_amount": 1500000,
+    "initial_price": 7490000,
+    "general_info": {
+      "cpu": "MediaTek Helio G96",
+      "screen": "6.67 inch",
+      "ram": "8 GB",
+      "rom": "128 GB"
+    },
+    "details_id": "dt_detail005"
+  },
+  {
+    "_id": "dt006",
+    "name": "OPPO Reno8 T 5G 128GB",
+    "brand": "oppo",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/3/27/638155146453917901_oppo-reno8-t-5g-dd.jpg",
+    "discount_amount": 0,
+    "initial_price": 9990000,
+    "general_info": {
+      "cpu": "Snapdragon 695 5G",
+      "screen": "6.7 inch",
+      "ram": "8 GB",
+      "rom": "128 GB"
+    },
+    "details_id": "dt_detail006"
+  },
+  {
+    "_id": "lap001",
+    "name": "Asus TUF Gaming FX506LHB-HN188W i5 10300H",
+    "brand": "asus",
+    "image": "https://images.fpt.shop/unsafe/fit-in/240x215/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/1/26/637787904727727554_asus-tuf-gaming-fx506lh-den-2022-dd.jpg",
+    "discount_amount": 3500000,
+    "initial_price": 20990000,
+    "general_info": {
+      "cpu": "Core i5",
+      "screen": "15.6 inch",
+      "ram": "8 GB (1 thanh 8 GB)",
+      "rom": "SSD 512 GB",
+      "graphic": "NVIDIA GeForce GTX 1650 4GB",
+      "weight": "2.3 kg"
+    },
+    "details_id": "lap_detail001"
+  },
+  {
+    "_id": "lap002",
+    "name": "MSI Gaming GF63 Thin 11SC-1090VN i5 11400H",
+    "brand": "msi",
+    "image": "https://images.fpt.shop/unsafe/fit-in/240x215/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/10/7/638007352801976726_msi-gaming-gf63-thin-11sc-1090vn-den-dd.jpg",
+    "discount_amount": 3000000,
+    "initial_price": 19490000,
+    "general_info": {
+      "cpu": "Core i5",
+      "screen": "15.6 inch",
+      "ram": "8 GB (1 thanh 8 GB)",
+      "rom": "SSD 512 GB",
+      "graphic": "NVIDIA GeForce GTX 1650 4GB",
+      "weight": "1.86 kg"
+    },
+    "details_id": "lap_detail002"
+  },
+  {
+    "_id": "lap003",
+    "name": "Lenovo Gaming IdeaPad 3 15IAH7 i5 12500H/82S900H2VN",
+    "brand": "lenovo",
+    "image": "https://images.fpt.shop/unsafe/fit-in/240x215/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/8/26/637971149907512230_lenovo-ideapad-gaming-3-15iah7-xam-dd.jpg",
+    "discount_amount": 5300000,
+    "initial_price": 27290000,
+    "general_info": {
+      "cpu": "Core i5",
+      "screen": "15.6 inch",
+      "ram": "16 GB (2 thanh 8 GB)",
+      "rom": "SSD 512 GB",
+      "graphic": "NVIDIA GeForce RTX 3050 4GB",
+      "weight": "2.25 kg"
+    },
+    "details_id": "lap_detail003"
+  },
+  {
+    "_id": "lap004",
+    "name": "MSI GF63 Thin 11UC 444VN i5 11400H",
+    "brand": "msi",
+    "image": "https://images.fpt.shop/unsafe/fit-in/240x215/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/1/26/637788084553132269_msi-gf63-thin-den-dd.jpg",
+    "discount_amount": 5000000,
+    "initial_price": 22490000,
+    "general_info": {
+      "cpu": "Core i5",
+      "screen": "15.6 inch",
+      "ram": "8 GB",
+      "rom": "SSD 512 GB",
+      "graphic": "NVIDIA GeForce RTX 3050 4GB",
+      "weight": "1.86 kg"
+    },
+    "details_id": "lap_detail004"
+  },
+  {
+    "_id": "lap005",
+    "name": "Asus TUF Gaming FX506HC-HN144W i5 11400H",
+    "brand": "asus",
+    "image": "https://images.fpt.shop/unsafe/fit-in/240x215/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/3/10/638140621884222540_asus-tuf-gaming-fx506h-den-dd.jpg",
+    "discount_amount": 5500000,
+    "initial_price": 25990000,
+    "general_info": {
+      "cpu": "Core i5",
+      "screen": "15.6 inch",
+      "ram": "8 GB (1 thanh 8 GB)",
+      "rom": "SSD 512 GB",
+      "graphic": "NVIDIA GeForce RTX 3050 4GB",
+      "weight": "2.3 kg"
+    },
+    "details_id": "lap_detail005"
+  },
+  {
+    "_id": "lap006",
+    "name": "Lenovo Gaming Legion 5 15IAH7H i7-12700H (82RB0047VN)",
+    "brand": "lenovo",
+    "image": "https://images.fpt.shop/unsafe/fit-in/240x215/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/3/23/638151643297943497_lenovo-gaming-legion-5-15iah7h-xam-dam-dd.jpg",
+    "discount_amount": 10000000,
+    "initial_price": 45990000,
+    "general_info": {
+      "cpu": "Core i7",
+      "screen": "15.6 inch",
+      "ram": "16 GB (2 thanh 8 GB)",
+      "rom": "SSD 512 GB",
+      "graphic": "NVIDIA GeForce RTX 3060 6GB",
+      "weight": "2.35 kg"
+    },
+    "details_id": "lap_detail006"
+  },
+  {
+    "_id": "mtb001",
+    "name": "Samsung Galaxy Tab S6 Lite 2022",
+    "brand": "samsung",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/9/22/637994560710957944_samsung-galaxy-tab-s6-lite-2022--dd-docquyen.jpg",
+    "discount_amount": 3000000,
+    "initial_price": 9990000,
+    "general_info": {
+      "cpu": "Snapdragon 720G",
+      "screen": "10.4 inch",
+      "ram": "4 GB",
+      "rom": "64 GB"
+    },
+    "details_id": "mtb_detail001"
+  },
+  {
+    "_id": "mtb002",
+    "name": "Coolpad Tab Tasker 10 Wifi 3GB-32GB",
+    "brand": "coolpad",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/10/6/638006465857672321_coolpad-tab-tasker-10-dd-docquyen-bh.jpg",
+    "discount_amount": 0,
+    "initial_price": 2990000,
+    "general_info": {
+      "cpu": "Snapdragon 215",
+      "screen": "10.0 inch",
+      "ram": "3 GB",
+      "rom": "32 GB"
+    },
+    "details_id": "mtb_detail002"
+  },
+  {
+    "_id": "mtb003",
+    "name": "Masstel Tab 10M 4G",
+    "brand": "masstel",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/10/6/638006461102508767_may-tinh-bang-masstel-tab-10m-4g-docquyen-100ngay.jpg",
+    "discount_amount": 500000,
+    "initial_price": 3490000,
+    "general_info": {
+      "cpu": "SCT310",
+      "screen": "10.1 inch",
+      "ram": "3 GB",
+      "rom": "32 GB"
+    },
+    "details_id": "mtb_detail003"
+  },
+  {
+    "_id": "mtb004",
+    "name": "iPad Gen 9 2021 10.2 inch WiFi 64GB",
+    "brand": "Apple (ipad)",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/6/638059452014421919_ipad-gen-9-wifi-dd.jpg",
+    "discount_amount": 2000000,
+    "initial_price": 9990000,
+    "general_info": {
+      "cpu": "Apple A13 Bionic",
+      "screen": "10.2 inch",
+      "ram": "3 GB",
+      "rom": "64 GB"
+    },
+    "details_id": "mtb_detail004"
+  },
+  {
+    "_id": "mtb005",
+    "name": "iPad mini 6 2021 8.3 inch WiFi 64GB",
+    "brand": "Apple (ipad)",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/9/15/637673371022722752_ipad-mini-8-3-2021-wi-fi-dd.jpg",
+    "discount_amount": 3000000,
+    "initial_price": 14990000,
+    "general_info": {
+      "cpu": "Apple A15 Bionic",
+      "screen": "8.3 inch",
+      "ram": "4 GB",
+      "rom": "64 GB"
+    },
+    "details_id": "mtb_detail005"
+  },
+  {
+    "_id": "mtb006",
+    "name": "Samsung Galaxy Tab A7 Lite",
+    "brand": "samsung",
+    "image": "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/5/27/637577199955105403_ss-tab-a7-lite-bac-dd.jpg",
+    "discount_amount": 500000,
+    "initial_price": 4490000,
+    "general_info": {
+      "cpu": "MediaTek MT8768T",
+      "screen": "8.7 inch",
+      "ram": "3 GB",
+      "rom": "32 GB"
+    },
+    "details_id": "mtb_detail006"
+  }
+]

@@ -27,6 +27,10 @@ import { LaptopDetailComponent } from './laptop-detail/laptop-detail.component';
 import { TabletDetailComponent } from './tablet-detail/tablet-detail.component';
 import { WatchDetailComponent } from './watch-detail/watch-detail.component';
 import { EarphoneDetailComponent } from './earphone-detail/earphone-detail.component';
+import { OrderSuccessComponent } from './order-success/order-success.component';
+import { HomeComponent } from './home/home.component';
+import { FurnitureDetailComponent } from './furniture-detail/furniture-detail.component';
+import { FurnitureComponent } from './furniture/furniture.component';
 // import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 const routes: Routes = [
@@ -43,7 +47,6 @@ const routes: Routes = [
   {path:'thongtin', component: AccInfoComponent},
   {path:'capnhatthongtin', component: AccInfoChangeComponent},
   {path:'xacnhan', component: ConfirmPasswordComponent},
-  {path:"", component:TrangChuComponent},
   {path: 'phone/:id', component: ProductDetailComponent},
   {path:"gioithieu",component:AboutUsComponent},
   {path: "laptop", component: LaptopComponent},
@@ -54,6 +57,10 @@ const routes: Routes = [
   {path: "watch/:id", component: WatchDetailComponent},
   {path: "earphone", component: EarphoneComponent},
   {path: "earphone/:id", component: EarphoneDetailComponent},
+  {path:"furniture",component:FurnitureComponent},
+  {path:"furniture/:id",component:FurnitureDetailComponent},
+  {path:"order-success", component: OrderSuccessComponent},
+  {path:'',component:HomeComponent},
   {path:"**",component:NotFoundComponent}
 ]
 
