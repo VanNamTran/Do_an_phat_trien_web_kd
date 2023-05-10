@@ -1,7 +1,7 @@
 import { Component, OnInit ,ChangeDetectorRef} from '@angular/core';
 import { ApiProductsService, } from '../services/api-products.service';
 import { Router } from '@angular/router';
-import { CartService } from '../services/cart.service';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -18,7 +18,7 @@ export class CartComponent implements OnInit{
   customerId:any
   // cartItems: any = [];
 
-  constructor(private _service:ApiProductsService,private router: Router,private cartService: CartService){}
+  constructor(private _service:ApiProductsService,private router: Router,){}
   ngOnInit() {
     this.customerId = localStorage.getItem('customerId');
     this._service.getListFavorites(this.customerId).subscribe({
@@ -177,6 +177,9 @@ export class CartComponent implements OnInit{
         break
       case "dh":
         this.router.navigate(['watch', f])
+        break
+      case "bg":
+        this.router.navigate(['furniture', f])
         break
     }
 

@@ -563,10 +563,10 @@ for (let i = 0; i < productsInCart.length; i++) {
       }
       break;
     case "bg":
-      const furinture = await furnitureCollection.findOne({ _id: productId });
-      if (earphone) {
-        furinture.quantity = item.quantity;
-        products.push(furinture);
+      const furniture = await furnitureCollection.findOne({ _id: productId });
+      if (furniture) {
+        furniture.quantity = item.quantity;
+        products.push(furniture);
       }
       break;
   }
