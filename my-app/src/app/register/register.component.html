@@ -17,19 +17,19 @@
 <body>
   <header>
     <!-- place navbar here -->
-    <app-header></app-header>
+    <app-header-modify></app-header-modify>
     <div class="none"></div>
   </header>
   <main>
     <div class="container">
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-12">
           <div style="display: flex; align-items: center;">
             <span class="material-icons" style="font-size: 30px; margin-right: 8px; cursor:pointer">arrow_back</span>
             <p style="font-size: 25px; margin: 0; font-weight:500">Đăng ký tài khoản</p>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="row">
         <div class="col-12 d-flex justify-content-center">
           <img src="assets/images/register.png" alt="register" class="img-fluid">
@@ -78,14 +78,14 @@
               </div>
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">
-              <input matInput type="password" class="form-control" name="password" id="password" placeholder="Vui lòng nhập Mật khẩu (Tối thiểu 8 kí tự)"
+              <input matInput type="password" class="form-control" name="password" id="password" placeholder="Vui lòng nhập Mật khẩu"
                 formControlName="password" [disabled]="true"
                 [class.is-invalid]="registerForm.controls['password'].invalid && registerForm.controls['password'].touched"
                 [class.is-valid]="registerForm.controls['password'].valid">
               <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
                 <!-- <small class="text-danger" *ngIf="registerForm.controls['password'].hasError('minlength')">Mật khẩu phải có ít nhất 8 kí tự</small>
                 <small class="text-danger" *ngIf="registerForm.controls['password'].hasError('maxlength')">Mật khẩu chỉ được tối đa 32 kí tự</small> -->
-                <small class="text-danger" *ngIf="registerForm.controls['password'].hasError('pattern')">Mật khẩu chứa ít nhất 1 ký tự đặc biệt</small>
+                <small class="text-danger" *ngIf="registerForm.controls['password'].hasError('pattern')">Mật khẩu tối thiểu 8 ký tự, chứa ít nhất 1 chữ thường và 1 chữ hoa, 1 chữ số và 1 ký tự đặc biệt</small>
               </div>
             </div>
             <div class="mb-3" style="width:50%; margin:auto;">

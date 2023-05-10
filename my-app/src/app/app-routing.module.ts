@@ -4,10 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AccResetComponent } from './acc-reset/acc-reset.component';
-import { NewPasswordComponent } from './new-password/new-password.component';
+// import { NewPasswordComponent } from './new-password/new-password.component';
 import { AccInfoComponent } from './acc-info/acc-info.component';
 import { AccInfoChangeComponent } from './acc-info-change/acc-info-change.component';
-import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
 
 import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -17,6 +16,8 @@ import { PaymentTransferComponent } from './payment-transfer/payment-transfer.co
 import { ProductsViewComponent } from './products-view/products-view.component';
 import { NotDevelopedFeatureComponent } from './not-developed-feature/not-developed-feature.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 // import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 const routes: Routes = [
@@ -29,11 +30,21 @@ const routes: Routes = [
   {path: 'product-detail', component: ProductDetailComponent},
   {path:'dangky', component: RegisterComponent},
   {path:'dangnhap', component: LoginComponent},
-  {path:'quenmatkhau', component: AccResetComponent},
-  {path:'matkhaumoi', component: NewPasswordComponent},
+  {path:'quenmatkhau', component: ForgetPasswordComponent},
+  {path:'datlaimatkhau', component: AccResetComponent},
   {path:'thongtin', component: AccInfoComponent},
-  {path:'capnhatthongtin', component: AccInfoChangeComponent},
-  {path:'xacnhan', component: ConfirmPasswordComponent},
+  {path:'capnhatthongtin', component: AccInfoChangeComponent,
+  pathMatch: 'full',
+  data: {
+    user: {
+      phone: '',
+      email: '',
+      name: '',
+      address: '',
+      password: ''
+    }}
+  },
+  {path: 'doimatkhau', component: ChangePasswordComponent},
   {path:"**",component:NotFoundComponent}
 ]
 
@@ -57,11 +68,11 @@ export const RountingComponents=[
   ProductDetailComponent,
   RegisterComponent,
   LoginComponent,
-  AccResetComponent,
-  NewPasswordComponent,
+  ForgetPasswordComponent,
+  // NewPasswordComponent,
   AccInfoComponent,
   AccInfoChangeComponent,
-  ConfirmPasswordComponent,
+  ChangePasswordComponent,
   NotFoundComponent
 ]
 

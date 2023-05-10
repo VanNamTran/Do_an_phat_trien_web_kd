@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserAPIService } from '../services/user-api.service';
+import { AbstractControl, ValidatorFn } from '@angular/forms';
 import { User } from '../models/User';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-acc-reset',
@@ -11,83 +12,63 @@ import { Router } from '@angular/router';
 })
 export class AccResetComponent implements OnInit {
 
-  // email: string = '';
-
-  sendOTPSuccess: string = '';
-  sendOTPError: string = '';
-
-  falseOTP: string='';
-
-  sendEmailForm=this._fb.group({
-    email: [
+  resetPasswordForm=this._fb.group({
+    new_password: [
       '',
       Validators.compose([
         Validators.required,
-        Validators.email
+        Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/),
       ])
-    ]
-  })
-
-  sendOTPForm=this._fb.group({
-    otp: [
+    ],
+    confirm_password: [
       '',
-      Validators.compose([
-        Validators.required,
-        Validators.pattern(/^\d{6}$/)
-      ])
+      Validators.required
     ]
-  })
-
+  },
+  {
+    validator: [passwordValidator]
+  });
 
   constructor(
     private _fb: FormBuilder,
     private _service: UserAPIService,
-    private _router: Router
+    private _route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this._route.queryParams.subscribe(params => {
+      const email = params['email'];
+      const otp = params['otp'];
+      if (!email || !otp) {
+        alert("Cập nhật không thành công!")
+      }
+    });
   }
 
-  onSubmit1() {
-    const email = this.sendEmailForm.value.email;
-    if (email) {
-      this._service.sendEmail(email).subscribe({
+  onSubmit() {
+    const email = this._route.snapshot.queryParamMap.get('email');
+    const otp = this._route.snapshot.queryParamMap.get('otp');
+    const password = this.resetPasswordForm.value.new_password;
+    if (email && otp && password) {
+      this._service.resetPassword(email, otp, password).subscribe({
         next: (response) => {
-          console.log(response);
-          this.sendOTPSuccess = `Mã xác thực đã được gửi đến địa chỉ ${email}. Vui lòng kiểm tra email!`;
-          this.sendOTPError = '';
+          alert("Cập nhật thành công!")
         },
         error: (error) => {
-          console.log(error);
-          this.sendOTPSuccess = '';
-          this.sendOTPError = 'Email không tồn tại!';
+          alert("Cập nhật không thành công!")
         }
       });
     } else {
-      alert("Lỗi hệ thống")
+      alert("Lỗi hệ thống!")
     }
   }
-
-
-
-  onSubmit2() {
-    const email= this.sendEmailForm.value.email
-    const otp = this.sendOTPForm.value.otp;
-    if (otp) {
-      this._service.sendOTP(otp).subscribe({
-        next: (response) => {
-          console.log(response);
-          // Redirect to password reset page
-          this._router.navigate(['/matkhaumoi'], { queryParams: { email: email, otp: otp } });
-        },
-        error: (error) => {
-          console.log(error);
-          this.falseOTP = 'Mã xác thực không đúng!';
-        }
-      });
-    } else {
-      alert("Lỗi hệ thống")
+}
+export function passwordValidator(control: AbstractControl): {
+  [key:string]:any} | null {
+    const new_password = control.get('new_password');
+    const confirm_password = control.get('confirm_password');
+    if ((new_password && new_password.pristine) || (confirm_password && confirm_password.pristine)) {
+      return null;
     }
-
-  }
+    return new_password && confirm_password && new_password.value !== confirm_password.value ? {'misMatch': true} : null;
 }
