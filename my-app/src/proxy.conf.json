@@ -79,5 +79,12 @@
     "secure": true,
     "changeOrigin":true,
     "logLevel":"debug"
+  },
+  {
+    "context": ["/order"],
+    "target": "http://localhost:3000",
+    "secure": true,
+    "changeOrigin":true,
+    "logLevel":"debug"
   }
 ]

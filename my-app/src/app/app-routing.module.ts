@@ -17,7 +17,6 @@ import { PaymentTransferComponent } from './payment-transfer/payment-transfer.co
 import { ProductsViewComponent } from './products-view/products-view.component';
 import { NotDevelopedFeatureComponent } from './not-developed-feature/not-developed-feature.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { TrangChuComponent } from './trang-chu/trang-chu.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { LaptopComponent } from './laptop/laptop.component';
 import { TabletsComponent } from './tablets/tablets.component';
@@ -31,6 +30,9 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
 import { HomeComponent } from './home/home.component';
 import { FurnitureDetailComponent } from './furniture-detail/furniture-detail.component';
 import { FurnitureComponent } from './furniture/furniture.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { LoginModalComponent } from './login-modal/login-modal.component';
 // import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 const routes: Routes = [
@@ -42,11 +44,21 @@ const routes: Routes = [
   {path: 'not-developed-feature', component: NotDevelopedFeatureComponent},
   {path:'dangky', component: RegisterComponent},
   {path:'dangnhap', component: LoginComponent},
-  {path:'quenmatkhau', component: AccResetComponent},
-  {path:'matkhaumoi', component: NewPasswordComponent},
+  {path:'quenmatkhau', component: ForgetPasswordComponent},
+  {path:'datlaimatkhau', component: AccResetComponent},
   {path:'thongtin', component: AccInfoComponent},
-  {path:'capnhatthongtin', component: AccInfoChangeComponent},
-  {path:'xacnhan', component: ConfirmPasswordComponent},
+  {path:'capnhatthongtin', component: AccInfoChangeComponent,
+  pathMatch: 'full',
+  data: {
+    user: {
+      phone: '',
+      email: '',
+      name: '',
+      address: '',
+      password: ''
+    }}
+  },
+  {path: 'doimatkhau', component: ChangePasswordComponent},
   {path: 'phone/:id', component: ProductDetailComponent},
   {path:"gioithieu",component:AboutUsComponent},
   {path: "laptop", component: LaptopComponent},
@@ -85,11 +97,11 @@ export const RoutingComponents=[
   RegisterComponent,
   LoginComponent,
   AccResetComponent,
-  NewPasswordComponent,
+  // NewPasswordComponent,
   AccInfoComponent,
   AccInfoChangeComponent,
   ConfirmPasswordComponent,
-  TrangChuComponent,
-  NotFoundComponent
+  NotFoundComponent,
+  FurnitureComponent,
 ]
 

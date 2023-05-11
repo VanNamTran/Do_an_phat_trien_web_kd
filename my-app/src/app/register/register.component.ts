@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit {
       '',
       Validators.compose([
         Validators.required,
-        Validators.pattern(/^(?=.*[!@#$%^&*]+)[a-z0-9!@#$%^&*]{8,32}$/),
+        Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/),
       ])
     ],
     confirm_password:[

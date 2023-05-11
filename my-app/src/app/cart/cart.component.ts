@@ -20,6 +20,7 @@ export class CartComponent implements OnInit{
 
   constructor(private _service:ApiProductsService,private router: Router,){}
   ngOnInit() {
+
     this.customerId = localStorage.getItem('customerId');
     this._service.getListFavorites(this.customerId).subscribe({
       next: (data) => { localStorage.setItem('itemsfa', JSON.stringify(data)); },
@@ -35,9 +36,18 @@ export class CartComponent implements OnInit{
 
     const itemsCart = JSON.parse(localStorage.getItem('itemscart') || '[]');
     this.productsInCart = itemsCart;
-    // save items to cartservice
-    // this.cartService.currentCartItems.subscribe(items => this.cartItems = items);
+    // this.loadCartData();
+    //  // Đăng ký hàm lắng nghe cho sự kiện storage
+    // window.addEventListener('storage', (event) => {
+    //   if (event.key === 'itemscart') {
+    //     this.loadCartData();
+    //   }})
   }
+  // loadCartData(): void {
+  //   const cartJson = localStorage.getItem('itemscart');
+  //   const cart = cartJson ? JSON.parse(cartJson) : [];
+  //   this.productsInCart = cart;
+  // }
   deletefavorite(event: MouseEvent){
     const target = event.target as HTMLImageElement;
     let productId = target.getAttribute('data-product-id')
@@ -54,7 +64,7 @@ export class CartComponent implements OnInit{
       if (index !== -1) {
         this.listFavoriteProduct.splice(index, 1);
       }
-
+      localStorage.setItem('itemsfa', JSON.stringify(this.listFavoriteProduct));
       // indexproduct.classList.add('hidden');
       console.log(this.productsInCart)
       console.log(this.listFavoriteProduct)
@@ -74,14 +84,13 @@ export class CartComponent implements OnInit{
       })
 
       let index = this.listFavoriteProduct.findIndex((item: any) => item._id === productId);
-      console.log(index)
       if (index !== -1 ) {
+        let newProduct = {...this.listFavoriteProduct[index], quantity: quantity}; // Gán giá trị cho thuộc tính quantity
         if(this.productsInCart.findIndex((item: any) => item._id === productId) === -1){
-          this.productsInCart.push(this.listFavoriteProduct[index]);
+          this.productsInCart.push(newProduct); // Thêm sản phẩm vào giỏ hàng
         }
-
       }
-
+      localStorage.setItem('itemscart', JSON.stringify(this.productsInCart));
       console.log(this.productsInCart)
       console.log(this.listFavoriteProduct)
     }
@@ -104,7 +113,7 @@ export class CartComponent implements OnInit{
 
        this.productsInCart.splice(index, 1);
       }
-
+      localStorage.setItem('itemscart', JSON.stringify(this.productsInCart));
       // indexproduct.classList.add('hidden');
       console.log(this.productsInCart)
       console.log(this.listFavoriteProduct)
@@ -136,6 +145,7 @@ export class CartComponent implements OnInit{
 
         this.productsInCart.splice(index, 1);
       }
+      localStorage.setItem('itemscart', JSON.stringify(this.productsInCart));
       console.log(this.productsInCart)
       console.log(this.listFavoriteProduct)
     }
@@ -144,11 +154,25 @@ export class CartComponent implements OnInit{
     let totalPrice = 0;
 
     for (let item of this.productsInCart) {
-      totalPrice += item.quantity * (item.initial_price - item.discount_amount);
+      if(item.quantity !=null){
+        totalPrice += item.quantity * (item.initial_price - item.discount_amount);
+      }
+
     }
     return totalPrice;
   }
-  updateTotalPrice() {
+  updateTotalPrice(item: any) {
+    const cartJson = localStorage.getItem('itemscart');
+    const cart = cartJson ? JSON.parse(cartJson) : [];
+
+    // Tìm kiếm sản phẩm cần cập nhật trong giỏ hàng
+    const foundIndex = cart.findIndex((x: any) => x._id === item._id);
+
+    if (foundIndex !== -1) {
+      // Nếu tìm thấy sản phẩm thì cập nhật số lượng mới
+      cart[foundIndex].quantity = item.quantity;
+      localStorage.setItem('itemscart', JSON.stringify(cart));
+    }
     this.totalPrice = this.getTotalPrice();
   }
   tax(){
@@ -184,12 +208,12 @@ export class CartComponent implements OnInit{
     }
 
   }
-  onPaymentClick(){
+  onPaymentClick() {
 
-    this.router.navigate(['/payment']).then(() => {
-      setTimeout(() => {
-        location.reload();
-      }, 500);});
+      this.router.navigate(['/payment']);
+
   }
+
+
 
 }

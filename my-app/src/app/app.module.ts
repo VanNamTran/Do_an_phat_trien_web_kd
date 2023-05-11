@@ -49,6 +49,10 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
 import { HomeComponent } from './home/home.component';
 import { FurnitureDetailComponent } from './furniture-detail/furniture-detail.component';
 import { FurnitureComponent } from './furniture/furniture.component';
+import { HeaderModifyComponent } from './header-modify/header-modify.component';
+import { LoginModalComponent } from './login-modal/login-modal.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +91,10 @@ import { FurnitureComponent } from './furniture/furniture.component';
     HomeComponent,
     FurnitureDetailComponent,
     FurnitureComponent,
+    HeaderModifyComponent,
+    LoginModalComponent,
+    ForgetPasswordComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,

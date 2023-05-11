@@ -92,7 +92,7 @@
   overflow: hidden;
   display: flex;
   overflow-x: scroll;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 
 }
 /* @keyframes slide {
@@ -137,7 +137,7 @@
   margin-top: 20px;
 }
 .product-sale-name-ts p{
-  max-width: 140px;
+  max-width: 160px;
 }
 /* =================== */
 .section-block-left{
@@ -178,6 +178,7 @@
   display: flex;
   padding: 20px 20px;
   border: 1px solid #bbbbbb;
+  height: 100px;
 }
 .image-item-ts{
   width: 100px;

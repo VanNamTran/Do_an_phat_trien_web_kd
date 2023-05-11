@@ -390,6 +390,74 @@ app.post('/techshop/login', async (req, res) => {
     }
 });
 
+// Update user profile
+app.put('/techshop/update-profile/:userId', async (req, res) => {
+  const userId = req.params.userId;
+  const { name, address } = req.body;
+
+  try {
+    const userCollection = database.collection('users');
+    const updatedUser = await userCollection.findOneAndUpdate(
+      { _id: new ObjectId(userId) },
+      { $set: { name, address } },
+      { returnOriginal: false }
+    );
+
+    if (updatedUser) {
+      res.json(updatedUser.value);
+    } else {
+      res.status(404).json({ error: 'User not found' });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// Change password
+app.put('/techshop/change-password/:userId', async (req, res) => {
+  const userId = req.params.userId;
+  const { currentPassword, newPassword } = req.body;
+
+  try {
+    const userCollection = database.collection('users');
+    const user = await userCollection.findOne({ _id: new ObjectId(userId) });
+
+    if (!user) {
+      res.status(404).json({ error: 'User not found' });
+      return;
+    }
+
+    const crypto = require("crypto");
+    const currentHash = crypto.pbkdf2Sync(currentPassword, user.salt, 1000, 64, `sha512`).toString(`hex`);
+
+    if (currentHash !== user.password) {
+      res.status(401).json({ error: 'Invalid current password' });
+      return;
+    }
+
+    const salt = crypto.randomBytes(16).toString('hex');
+    const newHash = crypto.pbkdf2Sync(newPassword, salt, 1000, 64, `sha512`).toString(`hex`);
+
+    const updatedUser = await userCollection.findOneAndUpdate(
+      { _id: new ObjectId(userId) },
+      { $set: { password: newHash, salt } },
+      { returnOriginal: false }
+    );
+
+    if (updatedUser) {
+      res.json(updatedUser.value);
+    } else {
+      res.status(404).json({ error: 'User not found' });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+
 // Send Email
 app.post('/techshop/forget-password', async (req, res) => {
   
@@ -682,6 +750,7 @@ app.post("/order",cors(),async(req,res)=>{
     const { customerId, products } = req.body;
     const newOrder = {
       order_id: customerId + new Date().toISOString(),
+      data: new Date().toISOString(),
       customer_id: customerId,
       products: products.map((product) => ({
         product_id: product.product_id,

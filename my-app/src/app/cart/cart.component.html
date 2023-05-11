@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header-modify></app-header-modify>
 <div class="title"><p>Giỏ hàng</p></div>
 
 <div class="top">
@@ -18,12 +18,20 @@
           <span class="cost">Đơn giá {{(item.initial_price - item.discount_amount).toLocaleString('vi-VN')}}<span> ₫</span></span>
           <input
             id="number-item"
+            min="1"
+            max="10"
             type="number"
             onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
             [(ngModel)]="item.quantity"
-            (change)="updateTotalPrice()"
-
+            (change)="updateTotalPrice(item)"
+            [value]="item.quantity ? item.quantity : 1"
           />
+
+          <!-- <input id="number-item" type="number" min="1" max="10"
+          [(ngModel)]="item.quantity" (change)="updateTotalPrice(item)"
+          [ngModelOptions]="{standalone: true}"
+          [value]="item.quantity !== undefined ? item.quantity : 1"> -->
+
         </div>
       </div>
       <div class="button-dr">
@@ -49,7 +57,7 @@
       <div class="list"><label>Thuế GTGT</label> <span>+ {{tax()*100}}% </span></div>
       <hr />
       <div class="list"><label>Tổng cộng</label> <span>{{sum().toLocaleString('vi-VN')}}<span> ₫</span></span></div>
-      <input type="button" value="Tiến hành đặt hàng" id="purchase" (click)="onPaymentClick()"  />
+      <input type="button" value="Tiến hành đặt hàng" id="purchase"  (click)="onPaymentClick()" />
     </div>
   </div>
 </div>

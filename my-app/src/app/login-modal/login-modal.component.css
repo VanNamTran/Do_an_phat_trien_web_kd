@@ -1,0 +1,100 @@
+/* The Modal */
+.app-header-modify-modal.modal {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1002;
+  position: fixed; /* Stay in place */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.app-header-modify-modal .modal-content {
+ position: relative;
+ background-color: #fefefe;
+ margin: 15% auto; /* 15% from the top and centered */
+ padding: 20px;
+ border: 1px solid #888;
+ width: 30%; /* Could be more or less, depending on screen size */
+}
+
+@media (max-width: 600px) {
+ .app-header-modify-modal .modal-content {
+   width: 80%;
+   margin: 30% auto;
+ }
+}
+
+/* The Close Button */
+.app-header-modify-modal .close {
+ color: #aaa;
+ position: absolute;
+ top: 5px;
+ right: 10px;
+ font-size: 28px;
+ font-weight: bold;
+}
+
+.app-header-modify-modal .close:hover,
+.app-header-modify-modal .close:focus {
+ color: black;
+ text-decoration: none;
+ cursor: pointer;
+}
+
+/* The Title */
+.app-header-modify-modal .title {
+ text-align: center;
+ color: #0D6EFD;
+ margin-bottom: 5px;
+}
+
+/* The Subtitle */
+.app-header-modify-modal .subtitle {
+ text-align: center;
+ margin-bottom: 20px;
+ font-weight: 500
+}
+
+/* The Buttons */
+.app-header-modify-modal .buttons {
+ display: flex;
+ justify-content: center;
+}
+
+.app-header-modify-modal .login, .signup {
+ width: 150px;
+ min-width: 150px;
+ padding: 10px 15px;
+ margin: 0 10px;
+ border: none;
+ border-radius: 5px;
+ font-size: 16px;
+ cursor: pointer;
+}
+
+.app-header-modify-modal .login {
+ background-color: #0D6EFD;
+ color: white;
+}
+
+.app-header-modify-modal .signup {
+ background-color: #fff;
+ color: #0D6EFD;
+ border: 0.5px solid #0D6EFD;
+}
+
+@media (max-width: 600px) {
+ .app-header-modify-modal .login, .app-header-modify-modal .signup {
+   width: 100px;
+   height: 35px;
+   min-width: 100px;
+   min-height: 35px;
+   font-size: 14px;
+ }
+}
