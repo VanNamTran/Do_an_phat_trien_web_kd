@@ -10,7 +10,8 @@
         <div class="filter-type">Thương hiệu</div>
         <ol>
           <li *ngFor="let brand of brands; let i = index" [class.hidden]="i >= 5 && !showAllBrands">
-            <input type="checkbox" [id]="'brand-' + i" class="checkbox">{{brand}}
+            <input type="checkbox" [id]="'brand-' + i" class="checkbox" name="{{brand}}" [checked]="check"
+            (change)="viewPhoneProductsWithBrand(brand)">{{brand}}
           </li>
           <p class="see-more-list-filter" (click)="showAllBrands = !showAllBrands">{{showAllBrands ? 'Ẩn bớt' : 'Xem thêm'}}</p>
         </ol>

@@ -135,4 +135,124 @@ export class ProductsViewService {
       catchError(this.handleError)
     )
   }
+  getPhonesWithBrand(brand: string):Observable<any>{
+    const headers = new HttpHeaders().set("Content-Type", "text/plain;charset=utf-8")
+    const requestOptions:Object={
+      headers: headers,
+      responseType: "text"
+    }
+    return this._http.get<any>("/phones/brand"+brand, requestOptions).pipe(
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<PhoneProduct>),
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
+  getPhonesWithMinMaxPrice(minprice:number, maxprice:number):Observable<any>{
+    const headers = new HttpHeaders().set("Content-Type", "text/plain;charset=utf-8")
+    const requestOptions:Object={
+      headers: headers,
+      responseType: "text"
+    }
+    return this._http.get<any>("/phones/price/:"+minprice+"/:"+maxprice, requestOptions).pipe(
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<PhoneProduct>),
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
+  getLaptopsWithBrand(brand: string):Observable<any>{
+    const headers = new HttpHeaders().set("Content-Type", "text/plain;charset=utf-8")
+    const requestOptions:Object={
+      headers: headers,
+      responseType: "text"
+    }
+    return this._http.get<any>("/laptops/brand"+brand, requestOptions).pipe(
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<LaptopProduct>),
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
+  getLaptopsWithMinMaxPrice(minprice:number, maxprice:number):Observable<any>{
+    const headers = new HttpHeaders().set("Content-Type", "text/plain;charset=utf-8")
+    const requestOptions:Object={
+      headers: headers,
+      responseType: "text"
+    }
+    return this._http.get<any>("/laptops/price/:"+minprice+"/:"+maxprice, requestOptions).pipe(
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<LaptopProduct>),
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
+  getTabletsWithBrand(brand: string):Observable<any>{
+    const headers = new HttpHeaders().set("Content-Type", "text/plain;charset=utf-8")
+    const requestOptions:Object={
+      headers: headers,
+      responseType: "text"
+    }
+    return this._http.get<any>("/tablets/brand"+brand, requestOptions).pipe(
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<PhoneProduct>),
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
+  getTabletsWithMinMaxPrice(minprice:number, maxprice:number):Observable<any>{
+    const headers = new HttpHeaders().set("Content-Type", "text/plain;charset=utf-8")
+    const requestOptions:Object={
+      headers: headers,
+      responseType: "text"
+    }
+    return this._http.get<any>("/tablets/price/:"+minprice+"/:"+maxprice, requestOptions).pipe(
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<PhoneProduct>),
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
+  getEarphonesWithBrand(brand: string):Observable<any>{
+    const headers = new HttpHeaders().set("Content-Type", "text/plain;charset=utf-8")
+    const requestOptions:Object={
+      headers: headers,
+      responseType: "text"
+    }
+    return this._http.get<any>("/earphones/brand"+brand, requestOptions).pipe(
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<EarphoneProduct>),
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
+  getEarphonesWithMinMaxPrice(minprice:number, maxprice:number):Observable<any>{
+    const headers = new HttpHeaders().set("Content-Type", "text/plain;charset=utf-8")
+    const requestOptions:Object={
+      headers: headers,
+      responseType: "text"
+    }
+    return this._http.get<any>("/earphone/price/:"+minprice+"/:"+maxprice, requestOptions).pipe(
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<EarphoneProduct>),
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
+  getWatchesWithBrand(brand: string):Observable<any>{
+    const headers = new HttpHeaders().set("Content-Type", "text/plain;charset=utf-8")
+    const requestOptions:Object={
+      headers: headers,
+      responseType: "text"
+    }
+    return this._http.get<any>("/watches/brand"+brand, requestOptions).pipe(
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<WatchProduct>),
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
+  getWatchesWithMinMaxPrice(minprice:number, maxprice:number):Observable<any>{
+    const headers = new HttpHeaders().set("Content-Type", "text/plain;charset=utf-8")
+    const requestOptions:Object={
+      headers: headers,
+      responseType: "text"
+    }
+    return this._http.get<any>("/watches/price/:"+minprice+"/:"+maxprice, requestOptions).pipe(
+      map(res=>JSON.parse(res.replace("[", "").replace("]","")) as Array<WatchProduct>),
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
 }

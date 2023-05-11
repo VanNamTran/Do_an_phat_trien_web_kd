@@ -73,4 +73,18 @@ export class EarphoneComponent {
   viewEarphoneProductDetail(f: any){
     this.router.navigate(['earphone', f._id])
   }
+
+  viewEarphoneProductsWithBrand(brand: string){
+    this._service.getEarphonesWithBrand(brand).subscribe({
+      next:(data)=>{this.earphoneProducts=data},
+      error:(err)=>{this.errorMessage=err}
+    })
+  }
+
+  viewEarphoneProductsWithMinMaxPrice(minprice: any, maxprice: any){
+    this._service.getEarphonesWithMinMaxPrice(minprice, maxprice).subscribe({
+      next:(data)=>{this.earphoneProducts=data},
+      error:(err)=>{this.errorMessage=err}
+    })
+  }
 }

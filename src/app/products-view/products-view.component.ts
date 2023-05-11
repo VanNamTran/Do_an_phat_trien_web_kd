@@ -12,20 +12,20 @@ export class ProductsViewComponent implements OnInit {
   showAllPrices =false
   hideAllBrands = false;
   brands: string[] = [];
-  prices:string[]=[]
+  prices: string[]=[];
+  brand: string = ""
+  check: boolean = false
   ngOnInit() {
     this.prices=["> 30 triệu","20 đến 30 triệu","10 đến 20 triệu", "7 đến 10 triệu","5 dến 7 triệu","3 đến 5 triệu","dưới 3 triệu"]
-    this.brands = ['Samsung', 'Apple', 'Huawei', 'Xiaomi', 'Oppo', 'Vivo', 'Nokia'];
+    this.brands = ['Samsung', 'Apple (iPhone)', 'Huawei', 'Xiaomi', 'Oppo', 'Vivo', 'Nokia'];
+
+
     const gridLayoutButton = document.getElementById("grid-layout") as HTMLButtonElement;
     const listLayoutButton = document.getElementById("list-layout") as HTMLButtonElement;
     const productsGrid = document.querySelector(".products-list") as HTMLElement;
     const products = document.querySelectorAll(".product-info") as NodeListOf<HTMLElement>;
     // Lấy tất cả các hình ảnh "favorite-border" và "favorite"
     const favoriteIcons: NodeListOf<HTMLImageElement> = document.querySelectorAll(".favorite-icon img");
-
-
-
-
     // Lặp qua từng hình ảnh và thêm sự kiện click
     favoriteIcons.forEach((icon) => {
       icon.addEventListener("click", () => {
@@ -76,5 +76,18 @@ export class ProductsViewComponent implements OnInit {
     this.router.navigate(['products-view', f._id])
   }
 
+  viewPhoneProductsWithBrand(brand: string){
+    this._service.getPhonesWithBrand(brand).subscribe({
+      next:(data)=>{this.phoneProducts=data},
+      error:(err)=>{this.errorMessage=err}
+    })
+  }
+
+  viewPhoneProductsWithMinMaxPrice(minprice: any, maxprice: any){
+    this._service.getPhonesWithMinMaxPrice(minprice, maxprice).subscribe({
+      next:(data)=>{this.phoneProducts=data},
+      error:(err)=>{this.errorMessage=err}
+    })
+  }
 
 }

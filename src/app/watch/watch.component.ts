@@ -73,4 +73,18 @@ export class WatchComponent {
   viewWatchProductDetail(f: any){
     this.router.navigate(['watch', f._id])
   }
+
+  viewWatchProductsWithBrand(brand: string){
+    this._service.getWatchesWithBrand(brand).subscribe({
+      next:(data)=>{this.watchProducts=data},
+      error:(err)=>{this.errorMessage=err}
+    })
+  }
+
+  viewWatchProductsWithMinMaxPrice(minprice: any, maxprice: any){
+    this._service.getWatchesWithMinMaxPrice(minprice, maxprice).subscribe({
+      next:(data)=>{this.watchProducts=data},
+      error:(err)=>{this.errorMessage=err}
+    })
+  }
 }

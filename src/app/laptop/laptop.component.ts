@@ -74,4 +74,18 @@ export class LaptopComponent implements OnInit{
     this.router.navigate(['laptop', f._id])
   }
 
+  viewLaptopProductsWithBrand(brand: string){
+    this._service.getLaptopsWithBrand(brand).subscribe({
+      next:(data)=>{this.laptopProducts=data},
+      error:(err)=>{this.errorMessage=err}
+    })
+  }
+
+  viewLaptopProductsWithMinMaxPrice(minprice: any, maxprice: any){
+    this._service.getLaptopsWithMinMaxPrice(minprice, maxprice).subscribe({
+      next:(data)=>{this.laptopProducts=data},
+      error:(err)=>{this.errorMessage=err}
+    })
+  }
+
 }

@@ -73,4 +73,18 @@ export class TabletsComponent {
   viewTabletProductDetail(f: any){
     this.router.navigate(['tablets', f._id])
   }
+
+  viewTabletProductsWithBrand(brand: string){
+    this._service.getTabletsWithBrand(brand).subscribe({
+      next:(data)=>{this.tabletProducts=data},
+      error:(err)=>{this.errorMessage=err}
+    })
+  }
+
+  viewTabletProductsWithMinMaxPrice(minprice: any, maxprice: any){
+    this._service.getTabletsWithMinMaxPrice(minprice, maxprice).subscribe({
+      next:(data)=>{this.tabletProducts=data},
+      error:(err)=>{this.errorMessage=err}
+    })
+  }
 }
