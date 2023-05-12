@@ -747,11 +747,17 @@ app.get('/tonghop', cors(), async (req,res)=>{
 collectionOrder=database.collection('orders');
 app.post("/order",cors(),async(req,res)=>{
   try {
-    const { customerId, products } = req.body;
+    const { customerId, info, products } = req.body;
     const newOrder = {
       order_id: customerId + new Date().toISOString(),
       data: new Date().toISOString(),
       customer_id: customerId,
+      info: info.map((info)=>({
+        phone:info.phone,
+        name: info.name,
+        address:info.address,
+
+      })),
       products: products.map((product) => ({
         product_id: product.product_id,
         quantity: product.quantity
@@ -776,4 +782,84 @@ app.get("/user/:customerId",cors(),async(req,res)=>{
   const query = { phone: customerId };
   const result=await collectionUsers.findOne(query,projection);
   res.send(result)
+})
+// ======== admin ========
+//connect to phones collection
+phoneCollection=database.collection('phones');
+
+app.get('/phone', cors(), async (req,res)=>{
+    const result=await phoneCollection.find({}).toArray();
+    res.send(result)
+})
+
+// app.get('/phones/:id', async (req, res) => {
+//     const id = req.params.id;
+//     const result = await phoneCollection.findOne({ _id: id });
+//     res.send(result);
+// });
+
+//get phone details
+app.get('/phone/:id',cors(),async (req, res)=>{
+    const id = req.params.id;
+
+    const result = await phoneCollection.aggregate([
+        { $match: { _id: id } },
+        { $lookup: {
+            from: 'phone_details',
+            localField: 'details_id',
+            foreignField: '_id',
+            as: 'details'
+        }}
+    ]).toArray();
+
+    if (result.length > 0) {
+        res.json(result[0]);
+    } else {
+        res.sendStatus(404);
+    }
+});
+
+
+app.get("/phone/:id",cors(),async (req,res)=>{
+    var o_id = new ObjectId(req.params["id"]);
+    const result = await phoneCollection.find({_id:o_id}).toArray();
+    res.send(result[0])
+})
+
+app.post("/phone",cors(),async(req,res)=>{
+    //put json phone into database
+    await phoneCollection.insertOne(req.body)
+    //send message to client (send all database to client)
+    res.send(req.body)
+})
+
+app.put("/phone",cors(),async(req,res)=>{
+    //update json Phone into database
+    await phoneCollection.updateOne(
+        {_id:new ObjectId(req.body._id)},//condition for update
+        { $set: { //Field for updating
+                name: req.body.name,
+                brand:req.body.brand,
+                initial_price:req.body.initial_price,
+                discount_amount:req.body.discount_amount,
+                image:req.body.image
+            }
+        }
+    )
+    //send phone after updating
+        var o_id = new ObjectId(req.body._id);
+        const result = await phoneCollection.find({_id:o_id}).toArray();
+        res.send(result[0])
+})
+
+app.delete("/phone/:id",cors(),async(req,res)=>{
+    //find detail phone with id
+    var o_id = new ObjectId(req.params["id"]);
+    const result = await phoneCollection.find({_id:o_id}).toArray();
+    //update json phone into database
+    await phoneCollection.deleteOne(
+        {_id:o_id}
+        )
+    //send phone after remove
+    res.send(result[0])
 })

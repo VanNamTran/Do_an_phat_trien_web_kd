@@ -63,10 +63,58 @@
   </div>
   <hr>
   <div class="product_detail">
-    <tr *ngFor="let item of selectedtablet.details[0].details | keyvalue">
+    <!-- <tr *ngFor="let item of selectedtablet.details[0].details | keyvalue">
       <td><b>{{item.key}}</b></td>
       <td>{{item.value}}</td>
-    </tr>
+    </tr> -->
+    <table class="table-detail">
+      <tr>
+        <td><b>CPU: </b></td>
+        <td>{{selectedtablet.details[0].details.cpu_detail}}</td>
+      </tr>
+      <tr>
+        <td><b>Màn hình: </b></td>
+        <td>{{selectedtablet.details[0].details.screen_detail}}</td>
+      </tr>
+      <tr>
+        <td><b>Camera sau: </b></td>
+        <td>{{selectedtablet.details[0].details.backcamera_detail
+          }}</td>
+      </tr>
+      <tr>
+        <td><b>Camera selfie: </b></td>
+        <td>{{selectedtablet.details[0].details.frontcamera_detail}}</td>
+      </tr>
+      <tr>
+        <td><b>Ram: </b></td>
+        <td>{{selectedtablet.details[0].details.ram_detail}}</td>
+      </tr>
+      <tr>
+        <td><b>Bộ nhớ trong: </b></td>
+        <td>{{selectedtablet.details[0].details.rom_detail}}</td>
+      </tr>
+      <tr>
+        <td><b>Dung lượng pin: </b></td>
+        <td>{{selectedtablet.details[0].details.battery_detail}}</td>
+      </tr>
+      <tr>
+        <td><b>Thẻ Sim: </b></td>
+        <td>{{selectedtablet.details[0].details.sim_detail}}</td>
+      </tr>
+      <tr>
+        <td><b>Hệ điều hành: </b></td>
+        <td>{{selectedtablet.details[0].details.os_detail}}</td>
+      </tr>
+      <tr>
+        <td><b>Xuất xứ: </b></td>
+        <td>{{selectedtablet.details[0].details.origin_detail}}</td>
+      </tr>
+      <tr>
+        <td><b>Thời gian ra mắt: </b></td>
+        <td>{{selectedtablet.details[0].details.release_detail}}</td>
+      </tr>
+    </table>
+
 
   </div>
   <hr>

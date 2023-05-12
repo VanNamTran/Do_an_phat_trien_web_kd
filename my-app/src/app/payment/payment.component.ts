@@ -52,14 +52,18 @@ export class PaymentComponent implements OnInit{
   goToPage() {
     if (this.selectedPage!=''){
       this.router.navigate(['/' + this.selectedPage]);
-      this._Oservice.postNewOrder(this.customerId, this.products).subscribe({
+      let userData = [{
+        phone: this.user.phone,
+        name: this.user.name,
+        address: this.user.address
+      }];
+
+      this._Oservice.postNewOrder(this.customerId, this.products, userData).subscribe({
         next: (data) => {
           this.products = data;
-          console.log(this.products);
         },
         error: (err) => {
           this.errMessage = err;
-          console.log("lỗi cmnr");
         }
       });
     }else{

@@ -1,0 +1,24 @@
+.view-adnim-ts{
+  display: flex;
+
+}
+.all-category-ts{
+  width: 200px;
+  position: fixed;
+}
+.main-info-ts{
+  position: relative;
+  width: calc(75% - 200px);
+  left: 200px;
+}
+.sub-info-ts{
+  position: fixed;
+  right: 0px;
+
+}
+.sub-info-detail-ts{
+  height: 80vh;
+}
+.sub-info-functions-ts{
+  height: 20vh;
+}

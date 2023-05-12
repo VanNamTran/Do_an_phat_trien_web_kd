@@ -19,7 +19,7 @@
     <h1 class="product-name-text">{{selectedEarphone.name}}</h1>
     <div class="price-detail">
         <div class="text-detail">
-          Giá hiện tại <br><span class="discounted">{{selectedEarphone.initial_price - selectedEarphone.discount_amount}} đ</span>
+          Giá hiện tại <br><span class="discounted">{{(selectedEarphone.initial_price - selectedEarphone.discount_amount).toLocaleString('vi-VN')}} <span> ₫</span></span>
         </div>
         <!-- <div class="text-detail">
           Giá gốc <br><span class="origin">{{selectedEarphone.initial_price}} đ</span>
@@ -59,9 +59,29 @@
   </div>
   <hr>
   <div class="product_detail">
-    <tr *ngFor="let item of selectedEarphone.details[0].details | keyvalue">
+    <!-- <tr *ngFor="let item of selectedEarphone.details[0].details | keyvalue">
       <td><b>{{item.key}}</b></td>
       <td>{{item.value}}</td>
+    </tr> -->
+    <tr>
+      <td><b>Loại tai nghe: </b></td>
+      <td>{{selectedEarphone.details[0].details.type_detail}}</td>
+    </tr>
+    <tr>
+      <td><b>Cách kết nối: </b></td>
+      <td>{{selectedEarphone.details[0].details.connection_detail}}</td>
+    </tr>
+    <tr>
+      <td><b>Các tính năng: </b></td>
+      <td>{{selectedEarphone.details[0].details.features_detail}}</td>
+    </tr>
+    <tr>
+      <td><b>Xuất xứ: </b></td>
+      <td>{{selectedEarphone.details[0].details.origin_detail}}</td>
+    </tr>
+    <tr>
+      <td><b>Bảo hành: </b></td>
+      <td>{{selectedEarphone.details[0].details.warranty_detail}}</td>
     </tr>
 
   </div>
@@ -80,7 +100,7 @@
         <div class="card" *ngIf="earphone._id != selectedEarphone._id">
           <div class="image"><img src="{{earphone.image}}"></div>
           <div class="title">{{earphone.name}}</div>
-          <div class="text">{{earphone.initial_price - earphone.discount_amount}} đ</div>
+          <div class="text">{{(earphone.initial_price - earphone.discount_amount).toLocaleString('vi-VN')}} <span> ₫</span></div>
           <div class="product-choice">
             <button class="btn-buy" routerLink="/earphone/{{earphone._id}}">Mua ngay</button>
           </div>

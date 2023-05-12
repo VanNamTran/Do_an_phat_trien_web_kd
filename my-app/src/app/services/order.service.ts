@@ -8,11 +8,13 @@ export class OrderService {
   private apiOrder='/order'
   constructor(private _http:HttpClient) { }
 
-  postNewOrder(customerId:string,products: any[]):Observable<any>{
+  postNewOrder(customerId:string,products: any[],user:any):Observable<any>{
     const requestBody = {
       customerId: customerId,
+      info:user,
       products:products
     };
+
     return this._http.post<any>(this.apiOrder, requestBody).pipe(
       map(res=>res),
       retry(3),

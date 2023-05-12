@@ -53,6 +53,7 @@ import { HeaderModifyComponent } from './header-modify/header-modify.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     LoginModalComponent,
     ForgetPasswordComponent,
     ChangePasswordComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,14 +3,23 @@
 
 <div class="top">
   <div class="incart">
-    <div class="form">
+    <!-- <div class="form">
       <label for="">Sô điện thoại</label><br>
       <input type="text" [value]="user.phone"><br>
       <label for="">Họ và tên</label><br>
       <input type="text"[value]="user.name"><br>
       <label for="">Địa chỉ</label><br>
       <input type="text" [value]="user.address">
+    </div> -->
+    <div class="form">
+      <label for="">Số điện thoại</label><br>
+      <input type="text" [(ngModel)]="user.phone"><br>
+      <label for="">Họ và tên</label><br>
+      <input type="text" [(ngModel)]="user.name"><br>
+      <label for="">Địa chỉ</label><br>
+      <input type="text" [(ngModel)]="user.address">
     </div>
+
     <hr>
     <div class="payments-type">
       <div class="pm-title">Hình thức thanh toán</div>

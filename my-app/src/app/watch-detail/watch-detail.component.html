@@ -55,10 +55,29 @@
   </div>
   <hr>
   <div class="product_detail">
-    <tr *ngFor="let item of selectedwatch.details[0].details | keyvalue">
+    <!-- <tr *ngFor="let item of selectedwatch.details[0].details | keyvalue">
       <td><b>{{item.key}}</b></td>
       <td>{{item.value}}</td>
-    </tr>
+    </tr> -->
+    <table class="table-detail">
+
+      <tr>
+        <td><b>Chất liệu: </b></td>
+        <td>{{selectedwatch.details[0].details.material_detail}}</td>
+      </tr>
+      <tr>
+        <td><b>Màn hình: </b></td>
+        <td>{{selectedwatch.details[0].details.screen_detail}}</td>
+      </tr>
+      <tr>
+        <td><b>Hệ điều hành tương thích: </b></td>
+        <td>{{selectedwatch.details[0].details.compatible_os_detail}}</td>
+      </tr>
+      <tr>
+        <td><b>Thời gian sử dụng pin: </b></td>
+        <td>{{selectedwatch.details[0].details.battery_detail}}</td>
+      </tr>
+    </table>
 
   </div>
   <hr>

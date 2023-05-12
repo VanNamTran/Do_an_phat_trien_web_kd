@@ -33,6 +33,7 @@ import { FurnitureComponent } from './furniture/furniture.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
+import { AdminComponent } from './admin/admin.component';
 // import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 const routes: Routes = [
@@ -73,6 +74,7 @@ const routes: Routes = [
   {path:"furniture/:id",component:FurnitureDetailComponent},
   {path:"order-success", component: OrderSuccessComponent},
   {path:'',component:HomeComponent},
+  {path:'admin',component:AdminComponent},
   {path:"**",component:NotFoundComponent}
 ]
 

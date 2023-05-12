@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiProductsService } from '../services/api-products.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PropertyMap } from '../interfaces/products';
 
 @Component({
   selector: 'app-earphone-detail',
@@ -14,7 +15,7 @@ export class EarphoneDetailComponent {
   errMessage:string='';
   earphoneProducts: any;
   productsToShow: number = 8;
-  // propertyMap: any = {
+  // propertyMap:any = {
   //   "screen_details": "Màn hình",
   //   "backcamera_details": "Camera sau",
   //   "frontcamera_details": "Camera trước",
@@ -27,7 +28,6 @@ export class EarphoneDetailComponent {
   //   "os_details": "Hệ điều hành",
   //   "origin_details": "Xuất xứ",
   //   "release_details": "Năm phát hành"
-  // }
 
   constructor(private _service: ApiProductsService,
     private router: Router,

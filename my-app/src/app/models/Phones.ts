@@ -1,4 +1,4 @@
-export class Products{
+export class Phone{
   constructor(
     public _id:string="",
     public name:string="",
@@ -7,7 +7,4 @@ export class Products{
     public discount_amount:string="",
     public initial_price:string="",
   ){}
-}
-export interface PropertyMap {
-  [key: string]: string;
 }
