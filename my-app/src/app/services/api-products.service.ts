@@ -14,6 +14,12 @@ import { IUserInfo } from '../interfaces/user';
 export class ApiProductsService {
   private apiFavorite = '/favorites';
   private apiProdCart = '/prod-in-cart'
+  private apiPhone ='/techshop/phones'
+  private apiLaptop ='/techshop/laptops'
+  private apiTablet ='/techshop/tablets'
+  private apiEarphone ='/techshop/earphones'
+  private apiWatch ='/techshop/watches'
+  private apiFurniture ='/techshop/furniture'
   constructor(private _http:HttpClient) { }
   getPhones():Observable<any>
   {
@@ -160,7 +166,77 @@ export class ApiProductsService {
       catchError(this.handleError)
     )
   }
+  // putProduct(prdId:string,brand:string,name:string,
+  //   image:string,discount_amount:number,
+  //   initial_price:number,general_info:object,details_id:string):Observable<any>{
+  //   const requestBody = {
+  //     productId: prdId,
+  //     brand:brand,
+  //     name:name,
+  //     image:image,
+  //     discount_amount:discount_amount,
+  //     initial_price:initial_price,
+  //     general_info:general_info,
+  //     details_id:details_id
 
+  //   };
+  //   switch (prdId){
+  //     case "dt":
+  //       return this._http.put<any>(this.apiPhone, requestBody).pipe(
+  //         map(res=>res),
+  //         retry(3),
+  //         catchError((error: HttpErrorResponse) => {
+  //           return throwError(()=> new Error (error.message))
+  //         })
+  //       );
+  //       break
+  //     case "la":
+  //       return this._http.put<any>(this.apiLaptop, requestBody).pipe(
+  //         map(res=>res),
+  //         retry(3),
+  //         catchError((error: HttpErrorResponse) => {
+  //           return throwError(()=> new Error (error.message))
+  //         })
+  //       );
+  //       break
+  //     case "mt":
+  //       return this._http.put<any>(this.apiTablet, requestBody).pipe(
+  //         map(res=>res),
+  //         retry(3),
+  //         catchError((error: HttpErrorResponse) => {
+  //           return throwError(()=> new Error (error.message))
+  //         })
+  //       );
+  //       break
+  //     case "tn":
+  //       return this._http.put<any>(this.apiEarphone, requestBody).pipe(
+  //         map(res=>res),
+  //         retry(3),
+  //         catchError((error: HttpErrorResponse) => {
+  //           return throwError(()=> new Error (error.message))
+  //         })
+  //       );
+  //       break
+  //     case "dh":
+  //       return this._http.put<any>(this.apiWatch, requestBody).pipe(
+  //         map(res=>res),
+  //         retry(3),
+  //         catchError((error: HttpErrorResponse) => {
+  //           return throwError(()=> new Error (error.message))
+  //         })
+  //       );
+  //       break
+  //     case "bg":
+  //       return this._http.put<any>(this.apiFavorite, requestBody).pipe(
+  //         map(res=>res),
+  //         retry(3),
+  //         catchError((error: HttpErrorResponse) => {
+  //           return throwError(()=> new Error (error.message))
+  //         })
+  //       );
+  //       break
+
+  // }}
   handleError(error:HttpErrorResponse){
     return throwError(()=> new Error (error.message))
   }
