@@ -2,58 +2,157 @@
   <div class="all-category-ts">
     <div class="prod-category-ts">
       <div class="category-ts">
-        <p><b>DANH MỤC</b> </p>
+        <p><b (click)="product()">DANH MỤC</b></p>
         <ul>
-          <li routerLink="/phone">Điện thoại</li>
-          <li routerLink="/laptop">Laptop</li>
-          <li routerLink="/tablets">Máy tính bảng</li>
-          <li routerLink="/watch">Đồng hồ</li>
-          <li routerLink="/earphone">Phụ kiện</li>
-          <li routerLink="/furniture">Sản phẩm khác</li>
+          <li (click)="clickOnCategory('dt')" >Điện thoại</li>
+          <li (click)="clickOnCategory('la')">Laptop</li>
+          <li (click)="clickOnCategory('mt')">Máy tính bảng</li>
+          <li (click)="clickOnCategory('dh')">Đồng hồ</li>
+          <li (click)="clickOnCategory('tn')">Phụ kiện</li>
+          <li (click)="clickOnCategory('bg')">Sản phẩm khác</li>
         </ul>
       </div>
     </div>
+    <hr>
+    <br>
     <div class="cust-order-ts">
       <div class="category-ts">
         <ul>
-          <li routerLink="/phone">Customer</li>
-          <li routerLink="/laptop">Order</li>
+          <li >Customer</li>
+          <li (click)="clickOrders()" (click)="order()">Order</li>
         </ul>
       </div>
     </div>
   </div>
   <div class="main-info-ts">
-    <table>
-      <thead>
-        <th style="width: 100px;">ID</th>
+
+    <table >
+      <thead >
+        <th style="width: 100px">ID</th>
         <th>Hình ảnh</th>
         <th>Tên</th>
         <th>Giá gốc</th>
         <th>Giảm</th>
-        <th>Số lượng</th>
+
       </thead>
-      <tbody>
-        <tr *ngFor="let item of phones">
+      <tbody >
+        <tr *ngFor="let item of items" (click)="clickOnProduct(item)" >
           <td>
-            {{item._id}}
+            {{ item._id }}
           </td>
-          <td><img width="50px" style="border-radius: 20%;" src="{{item.image}}" alt=""></td>
-          <td>{{item.name}}</td>
-          <td>{{item.initial_price}}</td>
-          <td>{{item.discount_amount}}</td>
-          <td>300</td>
+          <td>
+            <img
+              width="50px"
+              style="border-radius: 20%"
+              src="{{ item.image }}"
+              alt=""
+            />
+          </td>
+          <td>{{ item.name }}</td>
+          <td>{{ (item.initial_price).toLocaleString('vi-VN') }}</td>
+          <td>{{ (item.discount_amount).toLocaleString('vi-VN') }}</td>
         </tr>
       </tbody>
     </table>
   </div>
   <div class="sub-info-ts">
     <div class="sub-info-detail-ts">
-      sfsgsfgfd
+      <div class="image-item"><img width="200px" [src]="selectedItem.image" alt=""></div>
+      <table class="table table-borderless" >
+        <thead>
+
+          <tr>
+            <th>Mã sản phẩm</th>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                #itemId
+                #name="ngModel"
+                name="_id"
+                id="_id"
+                placeholder="Nhập mã"
+                [(ngModel)]="selectedItem._id"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Tên sản phẩm:</th>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                #name="ngModel"
+                name="name"
+                id="name"
+                placeholder="Nhập tên"
+                [(ngModel)]="selectedItem.name"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Thương hiệu:</th>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                #name="ngModel"
+                name="brand"
+                id="brand"
+                placeholder="Nhập tên thương hiệu"
+                [(ngModel)]="selectedItem.brand"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Giá ban đầu:</th>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                #name="ngModel"
+                name="initial_price"
+                id="initial_price"
+                placeholder="Nhập giá gốc"
+                [(ngModel)]="selectedItem.initial_price"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Giảm:</th>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                #name="ngModel"
+                name="discount_amount"
+                id="discount_amount"
+                placeholder="Nhập giá giảm"
+                [(ngModel)]="selectedItem.discount_amount"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Thêm ảnh:</th>
+            <td>
+              <input
+                type="file"
+                class="file-input"
+                #name="ngModel"
+                name="image"
+                id="image"
+                [(ngModel)]="selectedItem.image"
+                (change)="onFileSelected($event, selectedItem)"
+              />
+            </td>
+          </tr>
+        </thead>
+      </table>
     </div>
     <div class="sub-info-functions-ts">
-      <input type="button" value="xóa sản phẩm">
-      <input type="button" value="Cập nhẩt">
-      <input type="button" value="Thêm sản phảm">
+      <input type="button" value="xóa sản phẩm" />
+      <!-- <input type="button" value="Cập nhẩt" (click)="putitem()" />
+      <input type="button" value="Thêm sản phảm" (click)="postitem()"/> -->
     </div>
   </div>
 </div>

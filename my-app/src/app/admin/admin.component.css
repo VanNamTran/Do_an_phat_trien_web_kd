@@ -3,13 +3,82 @@
 
 }
 .all-category-ts{
-  width: 200px;
+  width: 19vh;
   position: fixed;
+}
+.all-category-ts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+}
+
+.prod-category-ts {
+  width: 100%;
+  text-align: center;
+}
+
+.category-ts {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.category-ts p {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.category-ts ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.category-ts li {
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.category-ts li:hover {
+  background-color: #aef1f1;
+}
+
+.cust-order-ts {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.cust-order-ts ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cust-order-ts li {
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cust-order-ts li:hover {
+  background-color: #f2f2f2;
+}
+
+.category-ts ul li {
+  cursor: pointer;
 }
 .main-info-ts{
   position: relative;
-  width: calc(75% - 200px);
-  left: 200px;
+  width: 60% ;
+  left: 20vh;
 }
 .sub-info-ts{
   position: fixed;
@@ -21,4 +90,68 @@
 }
 .sub-info-functions-ts{
   height: 20vh;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+img {
+
+  object-fit: cover;
+}
+.image-item{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #ddd;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #ccc;
+}
+
+input[type=text]:focus {
+  border-bottom: 2px solid #2196F3;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+} */
+
+th {
+  position: sticky;
+  top: 0;
+  background-color: #f2f2f2;
 }

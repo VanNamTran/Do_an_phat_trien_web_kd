@@ -10,8 +10,8 @@
       <div class="filter-value">
         <div class="filter-type">Thương hiệu</div>
         <ol>
-          <li *ngFor="let brand of products; let i = index" [class.hidden]="i >= 5 && !showAllBrands">
-            <input type="checkbox" [id]="'brand-' + i" class="checkbox">{{brand.brand}}
+          <li *ngFor="let brand of brands; let i = index" [class.hidden]="i >= 5 && !showAllBrands">
+            <input type="checkbox" [id]="'brand-' + i" class="checkbox" (change)="onChange($event)" value="{{brand}}"><p style="text-transform:capitalize;">{{brand}}</p>
           </li>
           <p class="see-more-list-filter" (click)="showAllBrands = !showAllBrands">{{showAllBrands ? 'Ẩn bớt' : 'Xem thêm'}}</p>
         </ol>
@@ -31,7 +31,7 @@
   </div>
   <div class="products"> <!-- vùng chứa thông tin sản phẩm -->
     <div class="count-view">
-      <p>Có X sản phẩm được tìm thấy</p>
+      <p>Có {{products.length}} sản phẩm được tìm thấy</p>
       <div class="button-view">
         <button id="grid-layout"  ><img src="./assets/icon/gridview.png" alt=""></button>
         <button id="list-layout"  ><img src="./assets/icon/listview.png" alt=""></button>

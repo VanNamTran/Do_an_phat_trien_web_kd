@@ -21,11 +21,13 @@ export class WatchComponent {
   customerId : any;
   listFavoriteOfCTM: any;
   productsToShow: number = 18;
+  brands: any;
   constructor(private _service: ApiProductsService, private router: Router) { }
   ngOnInit() {
     this.customerId = localStorage.getItem('customerId');
     this.prices = ["> 30 triệu", "20 đến 30 triệu", "10 đến 20 triệu", "7 đến 10 triệu", "5 dến 7 triệu", "3 đến 5 triệu", "dưới 3 triệu"]
-    // this.brands = ['Samsung', 'Apple', 'Huawei', 'Xiaomi', 'Oppo', 'Vivo', 'Nokia'];
+    this.brands = ['masstel', 'garmin'];
+
     const gridLayoutButton = document.querySelector("#grid-layout") as HTMLButtonElement;
     const listLayoutButton = document.querySelector("#list-layout") as HTMLButtonElement;
     const productsGrid = document.querySelector(".products-list") as HTMLElement;
@@ -82,7 +84,7 @@ export class WatchComponent {
       }
     });
 
-
+    this.getProducts();
 
   }
   toggleFavorite(event: MouseEvent) {
@@ -120,7 +122,49 @@ export class WatchComponent {
     this.router.navigate(['watch', f._id])
   }
   loadMore() { this.productsToShow += 18; }
+  arrays: any;
 
+  getProducts(){
+     this._service.getWatchProducts().subscribe({
+      next: (data) => { this.arrays = data }})
+    }
+    temProduct: any=[];
+    newProduct: any=[];
+  onChange(event:any){
+        if(event.target.checked){
+          this.temProduct = this.arrays.filter((e:any)=>e.brand==event.target.value)
+          this.products = []
+          this.newProduct.push(this.temProduct)
+          for(let i=0;i<this.newProduct.length;i++)
+            {
+              var firstArray = this.newProduct[i]
+              for (let i=0;i<firstArray.length;i++){
+                var obj = firstArray[i];
+                this.products.push(obj)
+              }
+            }
+        }
+        else{
+
+          this.temProduct = this.products.filter((e:any)=>e.brand!=event.target.value)
+          this.newProduct = []
+          this.products = []
+          this.newProduct.push(this.temProduct)
+          for(let i=0;i<this.newProduct.length;i++)
+            {
+              var firstArray = this.newProduct[i]
+              for (let i=0;i<firstArray.length;i++){
+                var obj = firstArray[i];
+                this.products.push(obj)
+                  }
+            }
+
+            if (this.products.length==0){
+              this._service.getWatchProducts().subscribe({
+                next: (data) => { this.products = data }})
+            }
+              }
+            }
 
 }
 

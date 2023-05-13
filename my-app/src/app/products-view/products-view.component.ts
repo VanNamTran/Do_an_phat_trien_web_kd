@@ -17,14 +17,16 @@ export class ProductsViewComponent implements OnInit {
   errMessage: string = '';
   favoriteProducts: string[] = [];
   favorites: Set<string> = new Set();
-  customerId : any;
+  customerId: any;
   listFavoriteOfCTM: any;
   productsToShow: number = 18;
+  brands: any;
+  arrays: any;
   constructor(private _service: ApiProductsService, private router: Router) { }
   ngOnInit() {
     this.customerId = localStorage.getItem('customerId');
     this.prices = ["> 30 triệu", "20 đến 30 triệu", "10 đến 20 triệu", "7 đến 10 triệu", "5 dến 7 triệu", "3 đến 5 triệu", "dưới 3 triệu"]
-    // this.brands = ['Samsung', 'Apple', 'Huawei', 'Xiaomi', 'Oppo', 'Vivo', 'Nokia'];
+    this.brands = ['samsung', 'apple', 'xiaomi', 'oppo', 'vivo', 'nokia', 'realme', 'asus'];
     const gridLayoutButton = document.querySelector("#grid-layout") as HTMLButtonElement;
     const listLayoutButton = document.querySelector("#list-layout") as HTMLButtonElement;
     const productsGrid = document.querySelector(".products-list") as HTMLElement;
@@ -48,9 +50,15 @@ export class ProductsViewComponent implements OnInit {
       });
     });
 
+
+    this.getProducts();
+
+  }
+  getProducts() {
     this._service.getPhones().subscribe({
       next: (data) => {
         this.products = data;
+
         this._service.getListFavorites(this.customerId).subscribe({
           next: (data) => {
             this.listFavoriteOfCTM = data.map((favorite: any) => favorite._id);
@@ -76,13 +84,15 @@ export class ProductsViewComponent implements OnInit {
           }
         });
       },
+
+
       error: (err) => {
         this.errMessage = err;
       }
     });
-
-
-
+    this._service.getPhones().subscribe({
+      next: (data) => { this.arrays = data }
+    })
   }
   toggleFavorite(event: MouseEvent) {
     const target = event.target as HTMLImageElement;
@@ -115,9 +125,56 @@ export class ProductsViewComponent implements OnInit {
       }
     }
   }
-  viewPhoneProductDetail(f: any){
+
+
+
+
+  viewPhoneProductDetail(f: any) {
     this.router.navigate(['phone', f._id])
   }
-  loadMore() { this.productsToShow += 18; }
 
+
+  temProduct: any=[];
+  newProduct: any=[];
+  onChange(event: any) {
+    if (event.target.checked) {
+
+      this.temProduct = this.arrays.filter((e: any) => e.brand == event.target.value);
+      this.products = [];
+      this.newProduct.push(this.temProduct);
+      console.log(this.newProduct)
+      for (let i = 0; i < this.newProduct.length; i++) {
+        var firstArray = this.newProduct[i]
+        for (let i = 0; i < firstArray.length; i++) {
+          var obj = firstArray[i];
+          this.products.push(obj)
+        }
+
+      }
+
+    }
+    else {
+
+      this.temProduct = this.products.filter((e: any) => e.brand != event.target.value)
+      this.newProduct = []
+      this.products = []
+      this.newProduct.push(this.temProduct)
+      for (let i = 0; i < this.newProduct.length; i++) {
+        var firstArray = this.newProduct[i]
+        for (let i = 0; i < firstArray.length; i++) {
+          var obj = firstArray[i];
+          this.products.push(obj)
+        }
+      }
+
+      if (this.products.length == 0) {
+        this._service.getPhones().subscribe({
+          next: (data) => { this.products = data }
+        })
+      }
+    }
+  }
+  loadMore() { this.productsToShow += 18; }
 }
+
+

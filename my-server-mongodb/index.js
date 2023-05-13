@@ -549,7 +549,7 @@ app.post('/techshop/reset-password', async (req, res) => {
     await userCollection.updateOne({ email: user.email }, { $set: { password: hash, salt: salt } });
   
     // Delete the OTP from the reset_passwords collection
-    // await resetPasswordCollection.deleteOne({ email: user.email, otp: user.otp });
+    await resetPasswordCollection.deleteOne({ email: user.email, otp: user.otp });
   
     res.json({ message: 'Password reset successfully.' });
 });
@@ -827,10 +827,16 @@ app.get("/phone/:id",cors(),async (req,res)=>{
 })
 
 app.post("/phone",cors(),async(req,res)=>{
+  try{
     //put json phone into database
     await phoneCollection.insertOne(req.body)
     //send message to client (send all database to client)
     res.send(req.body)
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Lỗi server." });
+  }
+    
 })
 
 app.put("/phone",cors(),async(req,res)=>{
