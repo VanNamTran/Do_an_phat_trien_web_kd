@@ -1,0 +1,136 @@
+
+.header{
+  position: fixed;
+  width: 100%;
+  height: 84px;
+  display: flex;
+  z-index: 1001;
+}
+.header-color{
+  background-color: #0D6EFD;
+}
+.logo{
+  position: absolute;
+  left: 2.05%;
+  right: 78.96%;
+  top: 3.49%;
+  bottom: 0%;
+}
+.logo img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+  border-radius: 0;
+}
+.input-search{
+  position: absolute;
+  left: 22.64%;
+  right: 31.18%;
+  top: 24.66%;
+  bottom: 25.58%;
+  display: flex;
+}
+input[type="search"] {
+  padding: 8px;
+  border: none;
+  border-radius: 4px 0px 0px 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  width: 85%;
+  height: 42px;
+  font-size:18px;
+}
+input[type="button"]{
+  width: 100px;
+  height: 42px;
+  border-radius: 0px 4px 4px 0px;
+  background-color:#ffa03b ;
+  color: #ffffff;
+  border: none;
+  font-size:18px;
+}
+input[type="button"]:hover{
+  background-color:#FF9017 ;
+}
+.icons{
+  position: absolute;
+  left: 73.08%;
+  right: 6.65%;
+  top: 27.57%;
+  bottom: 17.78%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.icon span {
+  margin-top: 4px;
+  font-size: 14px;
+  color:#ffffff;
+  font-family:Verdana;
+}
+/* ======== dropdown======= */
+
+.info-dropdown {
+  position: fixed;
+  top: 84px;
+  right: 0;
+  width: 320px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+  z-index: 999;
+}
+
+.info-dropdown div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.info-dropdown div img {
+  width: 24px;
+  margin-right: 10px;
+}
+
+.info-dropdown div label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.info-dropdown div span {
+  flex: 1;
+}
+.log-reg-button button {
+  margin-right: 10px;
+  padding: 8px;
+  background-color: #448efd;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.log-reg-button button:hover {
+  background-color: #0D6EFD;
+}
+
+
+
+
