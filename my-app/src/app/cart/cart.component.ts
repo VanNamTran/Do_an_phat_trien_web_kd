@@ -16,12 +16,17 @@ export class CartComponent implements OnInit{
   productsInCart:any;
   totalPrice: number | undefined;
   customerId:any
+ 
   // cartItems: any = [];
 
   constructor(private _service:ApiProductsService,private router: Router,){}
   ngOnInit() {
-
+   
     this.customerId = localStorage.getItem('customerId');
+    this._service.getUser(this.customerId).subscribe({
+      //next: (data) => {this.customerId = data},
+      error: (err) => {this.errMessage=err, alert("bạn cần đăng nhập tài khoản"),this.router.navigate(['/dangnhap'])}
+    })
     this._service.getListFavorites(this.customerId).subscribe({
       next: (data) => { localStorage.setItem('itemsfa', JSON.stringify(data)); },
       error: (err) => { this.errMessage = err }
@@ -183,7 +188,7 @@ export class CartComponent implements OnInit{
     let sum=this.getTotalPrice()*(1+this.tax())
     return sum
   }
-
+  
   viewProductDetail(f: any){
     const productType = f.substring(0, 2);
     switch (productType){
