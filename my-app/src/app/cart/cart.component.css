@@ -113,7 +113,7 @@
   display:flex;
   justify-content: space-between;
   margin-top: 10px;
-  width: calc(100% -40px);
+  width: calc(100% - 40px);
 }
 #redeem-code{
   position: absolute;
