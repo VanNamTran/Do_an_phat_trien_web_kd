@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Le Bui Quynh Nhu",
@@ -18,11 +19,11 @@
     "mongoclient": "^1.0.3",
     "mongoose": "^7.0.3",
     "nodemailer": "^6.9.1",
-    "twilio": "^4.10.0"
-  },
-  "devDependencies": {
-    "morgan": "^1.10.0",
+    "twilio": "^4.10.0",
     "nodemon": "^2.0.22"
   },
+  "devDependencies": {
+    "morgan": "^1.10.0"
+    },
   "description": ""
 }
